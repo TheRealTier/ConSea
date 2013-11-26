@@ -1,0 +1,781 @@
+<?xml version="1.0" encoding="utf-16"?>
+<nugget name="CONSEA.NUGG">
+ <MSAG ARBGB="ZCONSEA" MASTERLANG="D" RESPUSER="MATHEILE" LASTUSER="MATHEILE" LDATE="20120301" LTIME="175217" STEXT="Fehlermeldungen">
+  <t100 SPRSL="D" ARBGB="ZCONSEA" MSGNR="000" TEXT="Fehler beim Export ins Clipboard!"/>
+  <t100 SPRSL="D" ARBGB="ZCONSEA" MSGNR="001" TEXT="Konstanten erfolgreich ins Clipboard exportiert"/>
+  <t100t SPRSL="D" ARBGB="ZCONSEA" STEXT="Fehlermeldungen"/>
+ </MSAG>
+ <PROG NAME="ZCONSTANT_SEARCHER" VARCL="X" SUBC="1" APPL="Z" SECU="ZEBATCH" CNAM="MATHEILE" CDAT="20130520" UNAM="MATHEILE" UDAT="20130520" VERN="000013" RSTAT="P" RMAND="100" RLOAD="D" FIXPT="X" SDATE="20130520" STIME="162711" IDATE="20130520" ITIME="162711" UCCHECK="X">
+  <textPool>
+   <language SPRAS="D">
+    <textElement ID="R" ENTRY="Ermittlung von passenden Konstanten" LENGTH="35 "/>
+    <textElement ID="S" KEY="PA_PATT" ENTRY="        Suchmuster" LENGTH="18 "/>
+    <textElement ID="S" KEY="SO_CLNAM" ENTRY="        Klassen" LENGTH="15 "/>
+   </language>
+  </textPool>
+  <pfstatus>
+   <pfstatus_sta CODE="DEFAULT" MODAL="D" ACTCODE="000001" PFKCODE="000001" BUTCODE="0001" INT_NOTE="Default-Status"/>
+   <pfstatus_sta CODE="SALV_STANDARD" MODAL="D" ACTCODE="000002" PFKCODE="000002" BUTCODE="0001" INT_NOTE="Standard für allgemeine Listausgabe im Fullscreen Grid"/>
+   <pfstatus_fun CODE="%ML" TEXTNO="001" TEXT_TYPE="S" FUN_TEXT="Mappe" PATH="A"/>
+   <pfstatus_fun CODE="%PC" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_EXPORT" ICON_ID="@49@" FUN_TEXT="Lokale Datei..." PATH="D"/>
+   <pfstatus_fun CODE="%SC" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_SEARCH" ICON_ID="@13@" FUN_TEXT="Suchen" PATH="U"/>
+   <pfstatus_fun CODE="%SC+" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_SEARCH_NEXT" ICON_ID="@4E@" FUN_TEXT="Weiter suchen"/>
+   <pfstatus_fun CODE="%SL" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_MAIL" ICON_ID="@1S@" FUN_TEXT="Mail-Empfänger" PATH="M"/>
+   <pfstatus_fun CODE="&amp;ABC" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_ABC" ICON_ID="@DL@" FUN_TEXT="ABC-Analyse" PATH="A"/>
+   <pfstatus_fun CODE="&amp;ALL" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_SELECT_ALL" ICON_ID="@4B@" FUN_TEXT="Alles markieren" PATH="M"/>
+   <pfstatus_fun CODE="&amp;AQW" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_WORD_PROCESSING" ICON_ID="@DK@" FUN_TEXT="Textverarbeitung..." PATH="T"/>
+   <pfstatus_fun CODE="&amp;AUF" TEXTNO="001" TEXT_TYPE="S" FUN_TEXT="Summenaufriß festlegen..." PATH="S"/>
+   <pfstatus_fun CODE="&amp;AVE" TEXTNO="001" TEXT_TYPE="S" FUN_TEXT="Sichern..." PATH="S"/>
+   <pfstatus_fun CODE="&amp;AVE" TEXTNO="002" TEXT_TYPE="S" TEXT_NAME="ICON_ALV_VARIANT_SAVE" ICON_ID="@DN@" FUN_TEXT="Layout sichern..."/>
+   <pfstatus_fun CODE="&amp;AVR" TEXTNO="001" TEXT_TYPE="S" FUN_TEXT="Mittelwert" PATH="M"/>
+   <pfstatus_fun CODE="&amp;CDF" TEXTNO="001" TEXT_TYPE="S" FUN_TEXT="Fixierung aufheben" PATH="I"/>
+   <pfstatus_fun CODE="&amp;CFI" TEXTNO="001" TEXT_TYPE="S" FUN_TEXT="Fixieren bis Spalte" PATH="F"/>
+   <pfstatus_fun CODE="&amp;COUNT" TEXTNO="001" TEXT_TYPE="S" FUN_TEXT="Zählen" PATH="Z"/>
+   <pfstatus_fun CODE="&amp;CRB" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_TOTAL_LEFT" ICON_ID="@0B@" FUN_TEXT="Erste Spalte"/>
+   <pfstatus_fun CODE="&amp;CRDESIG" TEXTNO="001" TEXT_TYPE="S" FUN_TEXT="Crystal Reports Designer" PATH="C"/>
+   <pfstatus_fun CODE="&amp;CRE" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_TOTAL_RIGHT" ICON_ID="@0C@" FUN_TEXT="Letzte Spalte"/>
+   <pfstatus_fun CODE="&amp;CRL" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_COLUMN_LEFT" ICON_ID="@0D@" FUN_TEXT="Spalte links"/>
+   <pfstatus_fun CODE="&amp;CRR" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_COLUMN_RIGHT" ICON_ID="@0E@" FUN_TEXT="Spalte rechts"/>
+   <pfstatus_fun CODE="&amp;CRTEMPL" TEXTNO="001" TEXT_TYPE="S" FUN_TEXT="Crystal Reports Datei" PATH="C"/>
+   <pfstatus_fun CODE="&amp;EB9" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_TABLE_SETTINGS" ICON_ID="@36@" FUN_TEXT="Bericht aufrufen..." PATH="B"/>
+   <pfstatus_fun CODE="&amp;ELP" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_SYSTEM_HELP" ICON_ID="@35@" FUN_TEXT="Hilfe"/>
+   <pfstatus_fun CODE="&amp;ERW" TEXTNO="001" TEXT_TYPE="S" FUN_TEXT="Verwalten..." PATH="V"/>
+   <pfstatus_fun CODE="&amp;ETA" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_SELECT_DETAIL" ICON_ID="@16@" FUN_TEXT="Details"/>
+   <pfstatus_fun CODE="&amp;F03" TEXTNO="001" TEXT_TYPE="S" FUN_TEXT="Zurück" PATH="Z"/>
+   <pfstatus_fun CODE="&amp;F12" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_CANCEL" ICON_ID="@0W@" FUN_TEXT="Abbrechen" PATH="A"/>
+   <pfstatus_fun CODE="&amp;F15" TEXTNO="001" TEXT_TYPE="S" FUN_TEXT="Beenden" PATH="B"/>
+   <pfstatus_fun CODE="&amp;F4" TEXTNO="001" TEXT_TYPE="S" FUN_TEXT="Eingabemöglichkeiten"/>
+   <pfstatus_fun CODE="&amp;GRAPH" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_GRAPHICS" ICON_ID="@0N@" FUN_TEXT="Grafik" PATH="G"/>
+   <pfstatus_fun CODE="&amp;IC1" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_SELECT_DETAIL" ICON_ID="@16@" FUN_TEXT="Auswählen"/>
+   <pfstatus_fun CODE="&amp;ILD" TEXTNO="001" TEXT_TYPE="S" FUN_TEXT="Filter löschen" PATH="L"/>
+   <pfstatus_fun CODE="&amp;ILT" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_FILTER" ICON_ID="@4G@" FUN_TEXT="Filter setzen" PATH="F"/>
+   <pfstatus_fun CODE="&amp;INFO" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_INFORMATION" ICON_ID="@0S@" FUN_TEXT="Information"/>
+   <pfstatus_fun CODE="&amp;MAX" TEXTNO="001" TEXT_TYPE="S" FUN_TEXT="Maximum" PATH="A"/>
+   <pfstatus_fun CODE="&amp;MIN" TEXTNO="001" TEXT_TYPE="S" FUN_TEXT="Minimum" PATH="I"/>
+   <pfstatus_fun CODE="&amp;OAD" TEXTNO="001" TEXT_TYPE="S" FUN_TEXT="Auswählen..." PATH="U"/>
+   <pfstatus_fun CODE="&amp;OAD" TEXTNO="002" TEXT_TYPE="S" TEXT_NAME="ICON_ALV_VARIANT_CHOOSE" ICON_ID="@DM@" FUN_TEXT="Layout auswählen..."/>
+   <pfstatus_fun CODE="&amp;ODN" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_SORT_DOWN" ICON_ID="@3F@" FUN_TEXT="Sortieren absteigend" PATH="O"/>
+   <pfstatus_fun CODE="&amp;OL0" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_ALV_VARIANTS" ICON_ID="@LZ@" FUN_TEXT="Layout ändern..."/>
+   <pfstatus_fun CODE="&amp;OLX" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_VARIANTS" ICON_ID="@0R@" FUN_TEXT="Ändern..." PATH="Ä"/>
+   <pfstatus_fun CODE="&amp;OPT" TEXTNO="001" TEXT_TYPE="S" FUN_TEXT="Optimale Breite" PATH="P"/>
+   <pfstatus_fun CODE="&amp;OUP" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_SORT_UP" ICON_ID="@3E@" FUN_TEXT="Sortieren aufsteig." PATH="I"/>
+   <pfstatus_fun CODE="&amp;RNT" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_PRINT" ICON_ID="@0X@" FUN_TEXT="Drucken" PATH="D"/>
+   <pfstatus_fun CODE="&amp;RNT_PREV" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_LAYOUT_CONTROL" ICON_ID="@3G@" FUN_TEXT="Druckvorschau" PATH="R"/>
+   <pfstatus_fun CODE="&amp;SAL" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_DESELECT_ALL" ICON_ID="@4D@" FUN_TEXT="Alle Mark. löschen" PATH="K"/>
+   <pfstatus_fun CODE="&amp;SUM" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_INTERMEDIATE_SUM" ICON_ID="@5V@" FUN_TEXT="Zwischensummen..." PATH="Z"/>
+   <pfstatus_fun CODE="&amp;UMC" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_SUM" ICON_ID="@3Z@" FUN_TEXT="Summe" PATH="S"/>
+   <pfstatus_fun CODE="&amp;URL" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_URL" ICON_ID="@8S@" FUN_TEXT="URL in Clipboard ablegen" PATH="U"/>
+   <pfstatus_fun CODE="&amp;VCRYSTAL" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_REPORT_TEMPLATE" ICON_ID="@QH@" FUN_TEXT="Crystal Reports" PATH="C"/>
+   <pfstatus_fun CODE="&amp;VCRYSTRAL" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_REPORT_TEMPLATE" ICON_ID="@QH@" FUN_TEXT="Crystal Reports Designer"/>
+   <pfstatus_fun CODE="&amp;VEXCEL" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_XLS" ICON_ID="@J2@" FUN_TEXT="Microsoft Excel" PATH="M"/>
+   <pfstatus_fun CODE="&amp;VGRID" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_LIST" ICON_ID="@3W@" FUN_TEXT="SAP List Viewer" PATH="S"/>
+   <pfstatus_fun CODE="&amp;VLOTUS" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_LOTUS" ICON_ID="@JD@" FUN_TEXT="Lotus 1-2-3" PATH="L"/>
+   <pfstatus_fun CODE="&amp;XINT" TEXTNO="001" TEXT_TYPE="S" FUN_TEXT="Erweiterte Ablage der SAP Query" PATH="E"/>
+   <pfstatus_fun CODE="&amp;XML" TEXTNO="001" TEXT_TYPE="S" FUN_TEXT="XML Export" PATH="X"/>
+   <pfstatus_fun CODE="&amp;XXL" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_XXL" ICON_ID="@DJ@" FUN_TEXT="Tabellenkalkulation..." PATH="A"/>
+   <pfstatus_fun CODE="BACK" TEXTNO="001" TEXT_TYPE="S" FUN_TEXT="Zurück" PATH="Z"/>
+   <pfstatus_fun CODE="EXPORT" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_OKAY" ICON_ID="@0V@" FUN_TEXT="Quelltext exportieren" INFO_TEXT="Quelltext der Konstante exportieren (Clipboard)"/>
+   <pfstatus_fun CODE="MYFUNCTION" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_COMPLETE" ICON_ID="@DF@" FUN_TEXT="Meine eigene Funktion" ICON_TEXT="Meine Funktion" INFO_TEXT="Meine eigene Funktion"/>
+   <pfstatus_fun CODE="RESTART" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_OPERATION" ICON_ID="@9X@" FUN_TEXT="Selektierte Einträge verarbeiten" ICON_TEXT="Selektierte Einträge verarbeiten" INFO_TEXT="Selektierte Einträge verarbeiten"/>
+   <pfstatus_men CODE="000001" NO="01" REF_TYPE="F" REF_CODE="&amp;RNT_PREV" REF_NO="001"/>
+   <pfstatus_men CODE="000001" NO="02" REF_TYPE="F" REF_CODE="&amp;RNT" REF_NO="001"/>
+   <pfstatus_men CODE="000001" NO="03" REF_TYPE="S"/>
+   <pfstatus_men CODE="000001" NO="04" REF_TYPE="M" REF_CODE="000002"/>
+   <pfstatus_men CODE="000001" NO="05" REF_TYPE="M" REF_CODE="000003"/>
+   <pfstatus_men CODE="000001" NO="06" REF_TYPE="S"/>
+   <pfstatus_men CODE="000001" NO="07" REF_TYPE="F" REF_CODE="&amp;F15" REF_NO="001"/>
+   <pfstatus_men CODE="000002" NO="01" REF_TYPE="F" REF_CODE="&amp;AQW" REF_NO="001"/>
+   <pfstatus_men CODE="000002" NO="02" REF_TYPE="F" REF_CODE="&amp;XXL" REF_NO="001"/>
+   <pfstatus_men CODE="000002" NO="03" REF_TYPE="F" REF_CODE="%PC" REF_NO="001"/>
+   <pfstatus_men CODE="000002" NO="04" REF_TYPE="F" REF_CODE="&amp;XINT" REF_NO="001"/>
+   <pfstatus_men CODE="000002" NO="05" REF_TYPE="F" REF_CODE="&amp;CRTEMPL" REF_NO="001"/>
+   <pfstatus_men CODE="000002" NO="06" REF_TYPE="F" REF_CODE="&amp;URL" REF_NO="001"/>
+   <pfstatus_men CODE="000002" NO="07" REF_TYPE="F" REF_CODE="&amp;XML" REF_NO="001"/>
+   <pfstatus_men CODE="000003" NO="01" REF_TYPE="F" REF_CODE="%SL" REF_NO="001"/>
+   <pfstatus_men CODE="000003" NO="02" REF_TYPE="F" REF_CODE="%ML" REF_NO="001"/>
+   <pfstatus_men CODE="000004" NO="01" REF_TYPE="F" REF_CODE="&amp;ALL" REF_NO="001"/>
+   <pfstatus_men CODE="000004" NO="02" REF_TYPE="F" REF_CODE="&amp;SAL" REF_NO="001"/>
+   <pfstatus_men CODE="000004" NO="03" REF_TYPE="S"/>
+   <pfstatus_men CODE="000004" NO="04" REF_TYPE="F" REF_CODE="&amp;ILT" REF_NO="001"/>
+   <pfstatus_men CODE="000004" NO="05" REF_TYPE="F" REF_CODE="&amp;ILD" REF_NO="001"/>
+   <pfstatus_men CODE="000004" NO="06" REF_TYPE="S"/>
+   <pfstatus_men CODE="000004" NO="07" REF_TYPE="F" REF_CODE="&amp;OUP" REF_NO="001"/>
+   <pfstatus_men CODE="000004" NO="08" REF_TYPE="F" REF_CODE="&amp;ODN" REF_NO="001"/>
+   <pfstatus_men CODE="000004" NO="09" REF_TYPE="S"/>
+   <pfstatus_men CODE="000004" NO="10" REF_TYPE="M" REF_CODE="000005"/>
+   <pfstatus_men CODE="000004" NO="11" REF_TYPE="F" REF_CODE="&amp;SUM" REF_NO="001"/>
+   <pfstatus_men CODE="000004" NO="12" REF_TYPE="S"/>
+   <pfstatus_men CODE="000004" NO="13" REF_TYPE="F" REF_CODE="%SC" REF_NO="001"/>
+   <pfstatus_men CODE="000004" NO="14" REF_TYPE="S"/>
+   <pfstatus_men CODE="000004" NO="15" REF_TYPE="F" REF_CODE="&amp;F12" REF_NO="001"/>
+   <pfstatus_men CODE="000005" NO="01" REF_TYPE="F" REF_CODE="&amp;UMC" REF_NO="001"/>
+   <pfstatus_men CODE="000005" NO="02" REF_TYPE="F" REF_CODE="&amp;AVR" REF_NO="001"/>
+   <pfstatus_men CODE="000005" NO="03" REF_TYPE="F" REF_CODE="&amp;MIN" REF_NO="001"/>
+   <pfstatus_men CODE="000005" NO="04" REF_TYPE="F" REF_CODE="&amp;MAX" REF_NO="001"/>
+   <pfstatus_men CODE="000005" NO="05" REF_TYPE="F" REF_CODE="&amp;COUNT" REF_NO="001"/>
+   <pfstatus_men CODE="000006" NO="01" REF_TYPE="F" REF_CODE="BACK" REF_NO="001"/>
+   <pfstatus_men CODE="000007" NO="01" REF_TYPE="M" REF_CODE="000008"/>
+   <pfstatus_men CODE="000007" NO="02" REF_TYPE="M" REF_CODE="000009"/>
+   <pfstatus_men CODE="000007" NO="03" REF_TYPE="F" REF_CODE="&amp;AUF" REF_NO="001"/>
+   <pfstatus_men CODE="000008" NO="01" REF_TYPE="F" REF_CODE="&amp;OLX" REF_NO="001"/>
+   <pfstatus_men CODE="000008" NO="02" REF_TYPE="F" REF_CODE="&amp;OAD" REF_NO="001"/>
+   <pfstatus_men CODE="000008" NO="03" REF_TYPE="S"/>
+   <pfstatus_men CODE="000008" NO="04" REF_TYPE="F" REF_CODE="&amp;AVE" REF_NO="001"/>
+   <pfstatus_men CODE="000008" NO="05" REF_TYPE="S"/>
+   <pfstatus_men CODE="000008" NO="06" REF_TYPE="F" REF_CODE="&amp;ERW" REF_NO="001"/>
+   <pfstatus_men CODE="000009" NO="01" REF_TYPE="F" REF_CODE="&amp;OPT" REF_NO="001"/>
+   <pfstatus_men CODE="000009" NO="02" REF_TYPE="S"/>
+   <pfstatus_men CODE="000009" NO="03" REF_TYPE="F" REF_CODE="&amp;CFI" REF_NO="001"/>
+   <pfstatus_men CODE="000009" NO="04" REF_TYPE="F" REF_CODE="&amp;CDF" REF_NO="001"/>
+   <pfstatus_mtx CODE="000001" TEXT_TYPE="S" TEXT="Liste" PATH="L" INT_NOTE="SALV_TABLE_STATUS Liste"/>
+   <pfstatus_mtx CODE="000002" TEXT_TYPE="S" TEXT="Exportieren" PATH="E" INT_NOTE="STANDARD Sichern"/>
+   <pfstatus_mtx CODE="000003" TEXT_TYPE="S" TEXT="Senden an" PATH="S"/>
+   <pfstatus_mtx CODE="000004" TEXT_TYPE="S" TEXT="Bearbeiten" PATH="B" INT_NOTE="STANDARD"/>
+   <pfstatus_mtx CODE="000005" TEXT_TYPE="S" TEXT="Berechnen" PATH="B"/>
+   <pfstatus_mtx CODE="000006" TEXT_TYPE="S" TEXT="Springen" PATH="S" INT_NOTE="Normergänzung"/>
+   <pfstatus_mtx CODE="000007" TEXT_TYPE="S" TEXT="Einstellungen" PATH="E" INT_NOTE="SALV_TABLE_STATUS"/>
+   <pfstatus_mtx CODE="000008" TEXT_TYPE="S" TEXT="Layout" PATH="A" INT_NOTE="Sub STANDARD"/>
+   <pfstatus_mtx CODE="000009" TEXT_TYPE="S" TEXT="Spalten" PATH="P"/>
+   <pfstatus_act CODE="000002" NO="01" MENUCODE="000001"/>
+   <pfstatus_act CODE="000002" NO="02" MENUCODE="000004"/>
+   <pfstatus_act CODE="000002" NO="03" MENUCODE="000006"/>
+   <pfstatus_act CODE="000002" NO="04" MENUCODE="000007"/>
+   <pfstatus_but PFK_CODE="000002" CODE="0001" NO="01" PFNO="39"/>
+   <pfstatus_but PFK_CODE="000002" CODE="0001" NO="02" PFNO="S"/>
+   <pfstatus_but PFK_CODE="000002" CODE="0001" NO="03" PFNO="05"/>
+   <pfstatus_but PFK_CODE="000002" CODE="0001" NO="04" PFNO="06"/>
+   <pfstatus_but PFK_CODE="000002" CODE="0001" NO="05" PFNO="S"/>
+   <pfstatus_but PFK_CODE="000002" CODE="0001" NO="06" PFNO="28"/>
+   <pfstatus_but PFK_CODE="000002" CODE="0001" NO="07" PFNO="40"/>
+   <pfstatus_but PFK_CODE="000002" CODE="0001" NO="08" PFNO="29"/>
+   <pfstatus_but PFK_CODE="000002" CODE="0001" NO="09" PFNO="S"/>
+   <pfstatus_but PFK_CODE="000002" CODE="0001" NO="10" PFNO="30"/>
+   <pfstatus_but PFK_CODE="000002" CODE="0001" NO="11" PFNO="42"/>
+   <pfstatus_but PFK_CODE="000002" CODE="0001" NO="12" PFNO="S"/>
+   <pfstatus_but PFK_CODE="000002" CODE="0001" NO="13" PFNO="46"/>
+   <pfstatus_but PFK_CODE="000002" CODE="0001" NO="14" PFNO="S"/>
+   <pfstatus_but PFK_CODE="000002" CODE="0001" NO="15" PFNO="32"/>
+   <pfstatus_but PFK_CODE="000002" CODE="0001" NO="16" PFNO="33"/>
+   <pfstatus_but PFK_CODE="000002" CODE="0001" NO="17" PFNO="34"/>
+   <pfstatus_but PFK_CODE="000002" CODE="0001" NO="18" PFNO="S"/>
+   <pfstatus_but PFK_CODE="000002" CODE="0001" NO="19" PFNO="08"/>
+   <pfstatus_pfk CODE="000002" PFNO="01" FUNCODE="&amp;ELP" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="02" FUNCODE="&amp;IC1" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="03" FUNCODE="&amp;F03" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="04" FUNCODE="&amp;F4" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="05" FUNCODE="&amp;ALL" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="06" FUNCODE="&amp;SAL" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="08" FUNCODE="EXPORT" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="12" FUNCODE="&amp;F12" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="13" FUNCODE="&amp;URL" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="15" FUNCODE="&amp;F15" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="18" FUNCODE="&amp;CRB" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="19" FUNCODE="&amp;CRE" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="20" FUNCODE="&amp;XML" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="21" FUNCODE="&amp;XXL" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="23" FUNCODE="&amp;VCRYSTRAL" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="24" FUNCODE="&amp;VCRYSTAL" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="25" FUNCODE="&amp;ABC" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="26" FUNCODE="&amp;CRL" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="27" FUNCODE="&amp;CRR" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="28" FUNCODE="&amp;OUP" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="29" FUNCODE="&amp;ILT" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="30" FUNCODE="&amp;UMC" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="31" FUNCODE="%SL" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="32" FUNCODE="&amp;OL0" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="33" FUNCODE="&amp;OAD" FUNNO="002"/>
+   <pfstatus_pfk CODE="000002" PFNO="34" FUNCODE="&amp;AVE" FUNNO="002"/>
+   <pfstatus_pfk CODE="000002" PFNO="36" FUNCODE="&amp;INFO" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="37" FUNCODE="&amp;EB9" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="38" FUNCODE="&amp;VLOTUS" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="39" FUNCODE="&amp;ETA" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="40" FUNCODE="&amp;ODN" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="41" FUNCODE="&amp;VGRID" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="42" FUNCODE="&amp;SUM" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="43" FUNCODE="&amp;VEXCEL" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="44" FUNCODE="&amp;AQW" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="45" FUNCODE="%PC" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="46" FUNCODE="&amp;RNT_PREV" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="47" FUNCODE="&amp;GRAPH" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="48" FUNCODE="&amp;CRDESIG" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="71" FUNCODE="%SC" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="84" FUNCODE="%SC+" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="86" FUNCODE="&amp;RNT" FUNNO="001"/>
+   <pfstatus_pfk CODE="000002" PFNO="94" FUNCODE="MYFUNCTION" FUNNO="001"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="%CH"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="%ML"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="%PC"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="%SC"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="%SC+"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="%SL"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;ABC"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;ALL"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;AQW"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;AUF"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;AVE"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;AVR"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;BS"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;BS+"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;BS-"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;CDF"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;CFI"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;COUNT"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;CRB"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;CRBATCH"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;CRDESIG"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;CRE"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;CRL"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;CRR"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;CRTEMPL"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;CRYSTAL"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;DATA_SAVE"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;DAU"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;DOF"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;DON"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;EB3"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;EB9"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;ELP"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;ERW"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;ETA"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;F03"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;F12"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;F15"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;F4"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;GRAPH"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;IC1"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;ILD"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;ILT"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;INFO"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;KOM"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;LFO"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;LIS"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;MAX"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;MIN"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;NFO"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;NTE"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;OAD"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;ODN"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;OL0"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;OLX"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;OMP"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;OPT"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;OUP"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;REFRESH"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;RNT"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;RNT_PREV"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;SAL"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;SAVE"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;SUM"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;UMC"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;URL"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;VCRYSTAL"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;VCRYSTRAL"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;VEXCEL"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;VGRID"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;VLOTUS"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;XINT"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;XML"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;XPA"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="&amp;XXL"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="BAC1"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="BACK"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="BEB1"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="BEB2"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="BEB3"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="BEB9"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="BEBN"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="COL0"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="COLX"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="DETA"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="DRUK"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="DSAL"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="ENTE"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="EXIT"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="EXPA"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="EXPORT"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="FILD"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="FILT"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="GET_SEL"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="GLIS"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="HELP"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="INFO"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="KOMP"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="MYFUNCTION"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="P+"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="P++"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="P-"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="P--"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="PF09"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="PF13"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="PIC1"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="PICK"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="PRI"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="PRIN"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="PRNT"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="RESTART"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="RW"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="SALL"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="SAUF"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="SAVE"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="SCRB"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="SCRE"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="SCRL"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="SCRR"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="SET_CELL"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="SET_COLS"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="SET_ROWS"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="SKOM"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="SODN"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="SOUP"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="SUMC"/>
+   <pfstatus_set STATUS="SALV_STANDARD" FUNCTION="ZSUM"/>
+   <pfstatus_doc OBJ_TYPE="A" OBJ_CODE="000001" MODAL="D" INT_NOTE="Default-Status"/>
+   <pfstatus_doc OBJ_TYPE="P" OBJ_CODE="000001" MODAL="D" INT_NOTE="Default-Status"/>
+   <pfstatus_doc OBJ_TYPE="B" OBJ_CODE="000001" SUB_CODE="0001" MODAL="D" INT_NOTE="Default-Status"/>
+   <pfstatus_doc OBJ_TYPE="A" OBJ_CODE="000002" MODAL="D" INT_NOTE="Standardoberfläche              SALV_TABLE_STANDARD"/>
+   <pfstatus_doc OBJ_TYPE="P" OBJ_CODE="000002" MODAL="D" NORM="X" INT_NOTE="Standard maximale Interaktion SALV_TABLE_STANDARD"/>
+   <pfstatus_doc OBJ_TYPE="B" OBJ_CODE="000002" SUB_CODE="0001" INT_NOTE="SALV_TABLE_STANDARD"/>
+  </pfstatus>
+  <source>*&amp;---------------------------------------------------------------------*
+*&amp; Report  ZCONSTANT_SEARCHER
+*&amp;
+*&amp;---------------------------------------------------------------------*
+
+REPORT  zconstant_searcher.
+
+DATA:
+      gt_const_data TYPE zconsea_ht_data,
+      gt_results LIKE gt_const_data,
+      gt_search_table TYPE TABLE OF string.
+
+*----------------------------------------------------------------------*
+*       CLASS lcl_handle_events DEFINITION
+*----------------------------------------------------------------------*
+*
+*----------------------------------------------------------------------*
+CLASS lcl_handle_events DEFINITION.
+  PUBLIC SECTION.
+    METHODS:
+      on_user_command FOR EVENT added_function OF cl_salv_events
+        IMPORTING e_salv_function,
+      on_double_click FOR EVENT double_click OF cl_salv_events_table
+        IMPORTING row.
+
+ENDCLASS.                    &quot;lcl_handle_events DEFINITION
+
+*---------------------------------------------------------------------*
+*       CLASS lcl_handle_events IMPLEMENTATION
+*---------------------------------------------------------------------*
+* §5.2 implement the events for handling the events of cl_salv_table
+*---------------------------------------------------------------------*
+CLASS lcl_handle_events IMPLEMENTATION.
+
+  METHOD on_user_command.
+    PERFORM handle_user_command USING e_salv_function.
+  ENDMETHOD.                    &quot;on_user_command
+
+
+  METHOD on_double_click.
+
+    DATA: lv_rc TYPE i,
+          lt_src TYPE TABLE OF saeuri,
+          lv_line TYPE saeuri.
+
+    FIELD-SYMBOLS:
+      &lt;ls_result&gt; LIKE LINE OF gt_results.
+
+    READ TABLE gt_results ASSIGNING &lt;ls_result&gt;
+      INDEX row.
+
+    IF sy-subrc = 0.
+
+      PERFORM build_src_line
+        USING
+           &lt;ls_result&gt;
+        CHANGING
+           lv_line.
+
+      APPEND lv_line TO lt_src.
+
+    ENDIF.
+
+    CALL METHOD cl_gui_frontend_services=&gt;clipboard_export
+      IMPORTING
+        data                 = lt_src
+      CHANGING
+        rc                   = lv_rc
+      EXCEPTIONS
+        cntl_error           = 1
+        error_no_gui         = 2
+        not_supported_by_gui = 3
+        no_authority         = 4
+        OTHERS               = 5.
+
+    IF sy-subrc &lt;&gt; 0 OR lv_rc &lt;&gt; 0.
+
+      MESSAGE e000(zconsea).
+
+    ELSE.
+
+      MESSAGE s001(zconsea).
+
+    ENDIF.
+
+  ENDMETHOD.                    &quot;on_user_command
+
+ENDCLASS.                    &quot;lcl_handle_events IMPLEMENTATION
+
+DATA:
+      gr_events TYPE REF TO lcl_handle_events.
+
+
+DATA:
+*  gr_events TYPE REF TO lcl_handle_events,
+  gr_exception  TYPE REF TO cx_root,
+  gr_alv        TYPE REF TO cl_salv_table,
+  gv_class      TYPE seoclsname.
+
+PARAMETERS:
+  pa_patt TYPE string OBLIGATORY LOWER CASE.
+
+SELECT-OPTIONS:
+  so_clnam  FOR gv_class.
+
+LOAD-OF-PROGRAM.
+
+
+
+START-OF-SELECTION.
+
+  PERFORM get_constants.
+
+  PERFORM create_search_table.
+
+  PERFORM search.
+
+  PERFORM display.
+
+*&amp;---------------------------------------------------------------------*
+*&amp;      Form  GET_CONSTANTS
+*&amp;---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+*  --&gt;  p1        text
+*  &lt;--  p2        text
+*----------------------------------------------------------------------*
+FORM get_constants .
+
+  IF gt_const_data IS INITIAL.
+
+    SELECT clsname
+           cmpname
+           descript
+           author
+           createdon
+           changedby
+           changedon
+           attvalue
+           type
+      FROM zconsea_oo_const
+      INTO TABLE gt_const_data
+      WHERE
+        langu = sy-langu AND
+        clsname IN so_clnam.
+
+    SORT gt_const_data BY clsname cmpname.
+
+  ENDIF.
+
+ENDFORM.                    &quot; GET_CONSTANTS
+*&amp;---------------------------------------------------------------------*
+*&amp;      Form  CREATE_SEARCH_TABLE
+*&amp;---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+*  --&gt;  p1        text
+*  &lt;--  p2        text
+*----------------------------------------------------------------------*
+FORM create_search_table .
+
+  DATA:
+        lv_string TYPE string.
+
+  FIELD-SYMBOLS:
+                 &lt;ls_const_line&gt; LIKE LINE OF gt_const_data.
+
+  IF gt_search_table IS INITIAL.
+
+    LOOP AT gt_const_data ASSIGNING &lt;ls_const_line&gt;.
+
+      CONCATENATE &lt;ls_const_line&gt;-clsname
+           &lt;ls_const_line&gt;-cmpname
+           &lt;ls_const_line&gt;-descript
+           &lt;ls_const_line&gt;-author
+           &lt;ls_const_line&gt;-attvalue
+           &lt;ls_const_line&gt;-type
+      INTO lv_string
+      SEPARATED BY space.
+
+      APPEND lv_string TO gt_search_table.
+
+    ENDLOOP.
+
+  ENDIF.
+
+ENDFORM.                    &quot; CREATE_SEARCH_TABLE
+*&amp;---------------------------------------------------------------------*
+*&amp;      Form  SEARCH
+*&amp;---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+*  --&gt;  p1        text
+*  &lt;--  p2        text
+*----------------------------------------------------------------------*
+FORM search .
+
+  DATA:
+        results TYPE match_result_tab.
+
+  FIELD-SYMBOLS:
+                 &lt;ls_result&gt; LIKE LINE OF results,
+                 &lt;ls_const_line&gt; LIKE LINE OF gt_const_data.
+
+  FIND ALL OCCURRENCES OF REGEX pa_patt
+    IN TABLE gt_search_table
+    IN CHARACTER MODE
+    IGNORING CASE
+    RESULTS results.
+
+  SORT results BY line.
+  DELETE ADJACENT DUPLICATES FROM results COMPARING line.
+
+  LOOP AT results ASSIGNING &lt;ls_result&gt;.
+
+    READ TABLE gt_const_data INDEX &lt;ls_result&gt;-line ASSIGNING &lt;ls_const_line&gt;.
+
+    IF sy-subrc = 0.
+
+      INSERT &lt;ls_const_line&gt; INTO TABLE gt_results.
+
+    ENDIF.
+
+  ENDLOOP.
+
+ENDFORM.                    &quot; SEARCH
+*&amp;---------------------------------------------------------------------*
+*&amp;      Form  DISPLAY
+*&amp;---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+*  --&gt;  p1        text
+*  &lt;--  p2        text
+*----------------------------------------------------------------------*
+FORM display .
+
+  DATA: lr_functions_list TYPE REF TO cl_salv_functions_list,
+        lr_display_settings TYPE REF TO cl_salv_display_settings,
+        lr_layout TYPE REF TO cl_salv_layout,
+        ls_key    TYPE salv_s_layout_key,
+        lr_columns TYPE REF TO cl_salv_columns_table,
+        lr_column  TYPE REF TO cl_salv_column_table,
+        l_text            TYPE string,
+        l_icon            TYPE string,
+        lr_events TYPE REF TO cl_salv_events_table,
+        lr_selections TYPE REF TO cl_salv_selections.
+*            lt_rows       TYPE salv_t_row,
+*            lt_column     TYPE salv_t_column,
+*            ls_cell       TYPE salv_s_cell.
+
+  TRY.
+
+      cl_salv_table=&gt;factory(
+        IMPORTING
+          r_salv_table = gr_alv
+        CHANGING
+          t_table      = gt_results ).
+
+      gr_alv-&gt;set_screen_status(
+        pfstatus      =  &apos;SALV_STANDARD&apos;
+        report        =  &apos;ZCONSTANT_SEARCHER&apos;
+        set_functions = gr_alv-&gt;c_functions_all ).
+
+      lr_columns ?= gr_alv-&gt;get_columns( ).
+
+      lr_columns-&gt;set_optimize( &apos;X&apos; ).
+
+      lr_display_settings = gr_alv-&gt;get_display_settings( ).
+      lr_display_settings-&gt;set_list_header( &apos;Ermittelte Konstanten&apos; ).
+
+*... §7 set layout
+      lr_layout = gr_alv-&gt;get_layout( ).
+
+*... §7.1 set the Layout Key
+      ls_key-report = sy-repid.
+      lr_layout-&gt;set_key( ls_key ).
+
+      lr_layout-&gt;set_initial_layout( &apos;/DEFAULT&apos; ).
+
+*... §7.2 set Layout save restriction
+      lr_layout-&gt;set_save_restriction( ).
+
+      lr_events = gr_alv-&gt;get_event( ).
+
+      CREATE OBJECT gr_events.
+
+*... §6.1 register to the event USER_COMMAND and DOUBLE_CLICK
+      SET HANDLER gr_events-&gt;on_user_command FOR lr_events.
+      SET HANDLER gr_events-&gt;on_double_click FOR lr_events.
+
+      lr_selections = gr_alv-&gt;get_selections( ).
+
+*... §7.1 set selection mode
+      lr_selections-&gt;set_selection_mode( if_salv_c_selection_mode=&gt;multiple ).
+
+*... §8 display the table
+      gr_alv-&gt;display( ).
+
+    CATCH cx_root.
+
+      CLEAR gr_alv.
+
+  ENDTRY.
+
+ENDFORM.                    &quot; DISPLAY
+
+*&amp;---------------------------------------------------------------------*
+*&amp;      Form  handle_user_command
+*&amp;---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+*      --&gt;IV_SALV_FUNCTION  text
+*----------------------------------------------------------------------*
+FORM handle_user_command
+  USING
+    iv_salv_function.
+
+  DATA: lv_rc TYPE i,
+        lt_src TYPE TABLE OF saeuri,
+        lv_line TYPE saeuri,
+        lr_selections TYPE REF TO cl_salv_selections,
+        lt_rows   TYPE salv_t_row.
+
+  FIELD-SYMBOLS:
+    &lt;lv_row&gt; LIKE LINE OF lt_rows,
+    &lt;ls_result&gt; LIKE LINE OF gt_results.
+
+  lr_selections = gr_alv-&gt;get_selections( ).
+
+  lt_rows = lr_selections-&gt;get_selected_rows( ).
+
+  CHECK lt_rows IS NOT INITIAL.
+
+* Zeile uploopen und umkopieren für Verarbeitung
+  LOOP AT lt_rows ASSIGNING &lt;lv_row&gt;.
+
+    READ TABLE gt_results ASSIGNING &lt;ls_result&gt;
+      INDEX &lt;lv_row&gt;.
+
+    IF sy-subrc = 0.
+
+      PERFORM build_src_line
+        USING
+           &lt;ls_result&gt;
+        CHANGING
+           lv_line.
+
+      APPEND lv_line TO lt_src.
+
+    ENDIF.
+
+  ENDLOOP.
+
+  CALL METHOD cl_gui_frontend_services=&gt;clipboard_export
+    IMPORTING
+      data                 = lt_src
+    CHANGING
+      rc                   = lv_rc
+    EXCEPTIONS
+      cntl_error           = 1
+      error_no_gui         = 2
+      not_supported_by_gui = 3
+      no_authority         = 4
+      OTHERS               = 5.
+
+  IF sy-subrc &lt;&gt; 0 OR lv_rc &lt;&gt; 0.
+
+    MESSAGE e000(zconsea).
+
+  ELSE.
+
+    MESSAGE s001(zconsea).
+
+  ENDIF.
+
+ENDFORM.                    &quot; HANDLE_USER_COMMAND
+*&amp;---------------------------------------------------------------------*
+*&amp;      Form  BUILD_SRC_LINE
+*&amp;---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+*      --&gt;P_&lt;LS_RESULT&gt;  text
+*      &lt;--P_LV_LINE  text
+*----------------------------------------------------------------------*
+FORM build_src_line
+  USING
+    is_result TYPE zconsea_data
+  CHANGING
+    ev_line TYPE saeuri.
+
+  CONCATENATE is_result-clsname &apos;=&gt;&apos; is_result-cmpname
+    INTO ev_line.
+
+  CONCATENATE ev_line &apos;&quot;&apos;
+    INTO ev_line SEPARATED BY space.
+
+  CONCATENATE ev_line is_result-descript
+    INTO ev_line.
+
+ENDFORM.                    &quot; BUILD_SRC_LINE</source>
+ </PROG>
+ <TABL TABNAME="ZCONSEA_DATA" DDLANGUAGE="D" TABCLASS="INTTAB" DATMIN="0000000000" DATMAX="0000000000" DATAVG="0000000000" DDTEXT="Daten von Konstanten" AUTHCLASS="00" AS4USER="MATHEILE" AS4DATE="20130520" AS4TIME="161437" PROZPUFF="000" EXCLASS="1">
+  <dd09l AS4VERS="0000" SCHFELDANZ="000" AS4DATE="00000000" AS4TIME="000000"/>
+  <dd03p TABNAME="ZCONSEA_DATA" FIELDNAME="CLSNAME" DDLANGUAGE="D" POSITION="0001" ROLLNAME="SEOCLSNAME" ADMINFIELD="0" INTTYPE="C" INTLEN="000060" DOMNAME="SEOCLSNAME" ROUTPUTLEN="000000" MEMORYID="CLASS" HEADLEN="30" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" DTELMASTER="D" DATATYPE="CHAR" LENG="000030" OUTPUTLEN="000030" DECIMALS="000000" MASK="  CHARE" MASKLEN="0000" DDTEXT="Objekttypname" REPTEXT="Objekttypname" SCRTEXT_S="Objekttyp" SCRTEXT_M="Objekttypname" SCRTEXT_L="Klasse/Interface" DOMNAME3L="SEOCLSNAME" DEPTH="00" COMPTYPE="E" EXCLASS="0" DBPOSITION="0000"/>
+  <dd03p TABNAME="ZCONSEA_DATA" FIELDNAME="CMPNAME" DDLANGUAGE="D" POSITION="0002" ROLLNAME="SEOCMPNAME" ADMINFIELD="0" INTTYPE="C" INTLEN="000060" DOMNAME="CHAR30" ROUTPUTLEN="000000" HEADLEN="30" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" DTELMASTER="D" DATATYPE="CHAR" LENG="000030" OUTPUTLEN="000030" DECIMALS="000000" MASK="  CHARE" MASKLEN="0000" DDTEXT="Komponentenname" REPTEXT="Komponente" SCRTEXT_S="Komponente" SCRTEXT_M="Komponente" SCRTEXT_L="Komponente" DOMNAME3L="CHAR30" DEPTH="00" COMPTYPE="E" EXCLASS="0" DBPOSITION="0000"/>
+  <dd03p TABNAME="ZCONSEA_DATA" FIELDNAME="DESCRIPT" DDLANGUAGE="D" POSITION="0003" ROLLNAME="SEODESCR" ADMINFIELD="0" INTTYPE="C" INTLEN="000120" DOMNAME="AS4TEXT" ROUTPUTLEN="000000" HEADLEN="60" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" DTELMASTER="D" DATATYPE="CHAR" LENG="000060" OUTPUTLEN="000060" DECIMALS="000000" LOWERCASE="X" MASK="  CHARE" MASKLEN="0000" DDTEXT="Kurzbeschreibung" REPTEXT="Kurzbeschreibung" SCRTEXT_S="Beschr." SCRTEXT_M="Beschreibung" SCRTEXT_L="Kurzbeschreibung" DOMNAME3L="AS4TEXT" DEPTH="00" COMPTYPE="E" EXCLASS="0" DBPOSITION="0000"/>
+  <dd03p TABNAME="ZCONSEA_DATA" FIELDNAME="AUTHOR" DDLANGUAGE="D" POSITION="0004" ROLLNAME="CNAM" ADMINFIELD="0" INTTYPE="C" INTLEN="000024" DOMNAME="SYCHAR12" ROUTPUTLEN="000000" HEADLEN="12" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" DTELMASTER="D" DATATYPE="CHAR" LENG="000012" OUTPUTLEN="000012" DECIMALS="000000" MASK="  CHARE" MASKLEN="0000" DDTEXT="Autor" REPTEXT="Anleger" SCRTEXT_S="Anleger" SCRTEXT_M="Anleger" SCRTEXT_L="Anleger" DOMNAME3L="SYCHAR12" DEPTH="00" COMPTYPE="E" EXCLASS="0" DBPOSITION="0000"/>
+  <dd03p TABNAME="ZCONSEA_DATA" FIELDNAME="CREATEDON" DDLANGUAGE="D" POSITION="0005" ROLLNAME="RDIR_CDATE" ADMINFIELD="0" INTTYPE="D" INTLEN="000016" DOMNAME="SYDATS" ROUTPUTLEN="000000" HEADLEN="10" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" DTELMASTER="D" DATATYPE="DATS" LENG="000008" OUTPUTLEN="000010" DECIMALS="000000" MASK="  DATSE" MASKLEN="0000" DDTEXT="Erstellungsdatum" REPTEXT="Erst.datum" SCRTEXT_S="Erst.datum" SCRTEXT_M="Erstellung.dat." SCRTEXT_L="Erstellungsdatum" DOMNAME3L="SYDATS" SHLPORIGIN="T" DEPTH="00" COMPTYPE="E" EXCLASS="0" DBPOSITION="0000"/>
+  <dd03p TABNAME="ZCONSEA_DATA" FIELDNAME="CHANGEDBY" DDLANGUAGE="D" POSITION="0006" ROLLNAME="UNAM" ADMINFIELD="0" INTTYPE="C" INTLEN="000024" DOMNAME="SYCHAR12" ROUTPUTLEN="000000" HEADLEN="00" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" DATATYPE="CHAR" LENG="000012" OUTPUTLEN="000012" DECIMALS="000000" MASK="  CHARE" MASKLEN="0000" DDTEXT="Name des letzten Änderers" SCRTEXT_S="Änderer" SCRTEXT_M="letzter Änderer" SCRTEXT_L="letzter Änderer" DOMNAME3L="SYCHAR12" DEPTH="00" COMPTYPE="E" EXCLASS="0" DBPOSITION="0000"/>
+  <dd03p TABNAME="ZCONSEA_DATA" FIELDNAME="CHANGEDON" DDLANGUAGE="D" POSITION="0007" ROLLNAME="RDIR_UDATE" ADMINFIELD="0" INTTYPE="D" INTLEN="000016" DOMNAME="SYDATS" ROUTPUTLEN="000000" HEADLEN="10" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" DTELMASTER="D" DATATYPE="DATS" LENG="000008" OUTPUTLEN="000010" DECIMALS="000000" MASK="  DATSE" MASKLEN="0000" DDTEXT="Änderungsdatum" REPTEXT="Änd.datum" SCRTEXT_S="Ändr.datum" SCRTEXT_M="Änderun.datum" SCRTEXT_L="Änderungsdatum" DOMNAME3L="SYDATS" SHLPORIGIN="T" DEPTH="00" COMPTYPE="E" EXCLASS="0" DBPOSITION="0000"/>
+  <dd03p TABNAME="ZCONSEA_DATA" FIELDNAME="ATTVALUE" DDLANGUAGE="D" POSITION="0008" ROLLNAME="SEOVALUE" ADMINFIELD="0" INTTYPE="C" INTLEN="000264" DOMNAME="TEXT132" ROUTPUTLEN="000000" HEADLEN="30" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" DTELMASTER="D" DATATYPE="CHAR" LENG="000132" OUTPUTLEN="000132" DECIMALS="000000" LOWERCASE="X" MASK="  CHARE" MASKLEN="0000" DDTEXT="Initialwert" REPTEXT="Initialwert" SCRTEXT_S="Initial" SCRTEXT_M="Initialwert" SCRTEXT_L="Initialwert" DOMNAME3L="TEXT132" DEPTH="00" COMPTYPE="E" EXCLASS="0" DBPOSITION="0000"/>
+  <dd03p TABNAME="ZCONSEA_DATA" FIELDNAME="TYPE" DDLANGUAGE="D" POSITION="0009" ROLLNAME="RS38L_TYP" ADMINFIELD="0" INTTYPE="C" INTLEN="000264" DOMNAME="RS38L_TYP" ROUTPUTLEN="000000" HEADLEN="30" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" DTELMASTER="D" DATATYPE="CHAR" LENG="000132" OUTPUTLEN="000132" DECIMALS="000000" MASK="  CHARE" MASKLEN="0000" DDTEXT="Bezugstyp eines Schnittstellenparameters" REPTEXT="Bezugstyp" SCRTEXT_S="Bezugstyp" SCRTEXT_M="Bezugstyp" SCRTEXT_L="Bezugstyp" DOMNAME3L="RS38L_TYP" DEPTH="00" COMPTYPE="E" EXCLASS="0" DBPOSITION="0000"/>
+ </TABL>
+ <TTYP TYPENAME="ZCONSEA_HT_DATA" DDLANGUAGE="D" ROWTYPE="ZCONSEA_DATA" ROWKIND="S" DATATYPE="STRU" LENG="000000" DECIMALS="000000" ACCESSMODE="T" KEYDEF="D" KEYKIND="N" KEYFDCOUNT="0000" AS4USER="MATHEILE" AS4DATE="20130520" AS4TIME="162051" DDTEXT="Hashedtabelle für Konstantendaten" TYPELEN="000848" CTLENG="000000" CTDECIMALS="000000" OCCURS="00000"/>
+ <VIEW VIEWNAME="ZCONSEA_OO_CONST" AS4LOCAL="A" AS4VERS="0000" DDLANGUAGE="D" AGGTYPE="V" AUTHCLASS="00" ROOTTAB="SEOCOMPO" AS4USER="MATHEILE" AS4DATE="20130520" AS4TIME="161419" DDTEXT="View über öffentliche OO-Konstanten" VIEWCLASS="D" VIEWGRANT="R">
+  <dd09l TABNAME="ZCONSEA_OO_CONST" AS4LOCAL="A" AS4VERS="0000" SCHFELDANZ="000" AS4USER="MATHEILE" AS4DATE="20130520" AS4TIME="161419" BUFALLOW="N"/>
+  <dd26v VIEWNAME="ZCONSEA_OO_CONST" TABNAME="SEOCOMPO" TABPOS="0001" FORTABNAME="SEOCOMPO"/>
+  <dd26v VIEWNAME="ZCONSEA_OO_CONST" TABNAME="SEOCOMPODF" TABPOS="0002"/>
+  <dd26v VIEWNAME="ZCONSEA_OO_CONST" TABNAME="SEOCOMPOTX" TABPOS="0003" FORTABNAME="QCM1PEST01"/>
+  <dd27p VIEWNAME="ZCONSEA_OO_CONST" OBJPOS="0001" DDLANGUAGE="D" VIEWFIELD="CLSNAME" TABNAME="SEOCOMPO" FIELDNAME="CLSNAME" KEYFLAG="X" ROLLNAME="SEOCLSNAME" ROLLNAMEVI="SEOCLSNAME" MEMORYID="CLASS" DOMNAME="SEOCLSNAME" DATATYPE="CHAR" FLENGTH="000030" CHECKTABLE="SEOCLASS" SHLPORIGIN="P" INTTYPE="C" INTLEN="000060" HEADLEN="30" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" OUTPUTLEN="000030" DECIMALS="000000" DDTEXT="Objekttypname" REPTEXT="Objekttypname" SCRTEXT_S="Objekttyp" SCRTEXT_M="Objekttypname" SCRTEXT_L="Klasse/Interface"/>
+  <dd27p VIEWNAME="ZCONSEA_OO_CONST" OBJPOS="0002" DDLANGUAGE="D" VIEWFIELD="CMPNAME" TABNAME="SEOCOMPO" FIELDNAME="CMPNAME" KEYFLAG="X" ROLLNAME="SEOCMPNAME" ROLLNAMEVI="SEOCMPNAME" DOMNAME="CHAR30" DATATYPE="CHAR" FLENGTH="000030" INTTYPE="C" INTLEN="000060" HEADLEN="30" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" OUTPUTLEN="000030" DECIMALS="000000" DDTEXT="Komponentenname" REPTEXT="Komponente" SCRTEXT_S="Komponente" SCRTEXT_M="Komponente" SCRTEXT_L="Komponente"/>
+  <dd27p VIEWNAME="ZCONSEA_OO_CONST" OBJPOS="0003" DDLANGUAGE="D" VIEWFIELD="VERSION" TABNAME="SEOCOMPODF" FIELDNAME="VERSION" KEYFLAG="X" ROLLNAME="SEOVERSION" ROLLNAMEVI="SEOVERSION" DOMNAME="SEOVERSION" DATATYPE="NUMC" FLENGTH="000001" SHLPORIGIN="F" INTTYPE="N" INTLEN="000002" HEADLEN="07" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" OUTPUTLEN="000001" DECIMALS="000000" VALEXI="X" DDTEXT="Versionskennzeichen (aktiv/inaktiv)" REPTEXT="Version" SCRTEXT_S="V" SCRTEXT_M="Version" SCRTEXT_L="Version"/>
+  <dd27p VIEWNAME="ZCONSEA_OO_CONST" OBJPOS="0004" DDLANGUAGE="D" VIEWFIELD="LANGU" TABNAME="SEOCOMPOTX" FIELDNAME="LANGU" KEYFLAG="X" ROLLNAME="LANGU" ROLLNAMEVI="LANGU" DOMNAME="SPRAS" DATATYPE="LANG" FLENGTH="000001" CHECKTABLE="T002" SHLPORIGIN="P" ENTITYTAB="T002" INTTYPE="C" INTLEN="000002" HEADLEN="02" SCRLEN1="07" SCRLEN2="15" SCRLEN3="20" OUTPUTLEN="000002" DECIMALS="000000" LOWERCASE="X" CONVEXIT="ISOLA" DDTEXT="Sprachenschlüssel" REPTEXT="SP" SCRTEXT_S="Sprache" SCRTEXT_M="Sprache" SCRTEXT_L="Sprachenschlüssel"/>
+  <dd27p VIEWNAME="ZCONSEA_OO_CONST" OBJPOS="0005" DDLANGUAGE="D" VIEWFIELD="DESCRIPT" TABNAME="SEOCOMPOTX" FIELDNAME="DESCRIPT" ROLLNAME="SEODESCR" ROLLNAMEVI="SEODESCR" DOMNAME="AS4TEXT" DATATYPE="CHAR" FLENGTH="000060" INTTYPE="C" INTLEN="000120" HEADLEN="60" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" OUTPUTLEN="000060" DECIMALS="000000" LOWERCASE="X" DDTEXT="Kurzbeschreibung" REPTEXT="Kurzbeschreibung" SCRTEXT_S="Beschr." SCRTEXT_M="Beschreibung" SCRTEXT_L="Kurzbeschreibung"/>
+  <dd27p VIEWNAME="ZCONSEA_OO_CONST" OBJPOS="0006" DDLANGUAGE="D" VIEWFIELD="EXPOSURE" TABNAME="SEOCOMPODF" FIELDNAME="EXPOSURE" ROLLNAME="SEOEXPOSE" ROLLNAMEVI="SEOEXPOSE" DOMNAME="SEOEXPOSE" DATATYPE="NUMC" FLENGTH="000001" SHLPORIGIN="F" INTTYPE="N" INTLEN="000002" HEADLEN="01" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" OUTPUTLEN="000001" DECIMALS="000000" VALEXI="X" DDTEXT="Sichtbarkeit einer Klasse bzw. Komponente" REPTEXT="S" SCRTEXT_S="Sichtbar" SCRTEXT_M="Sichtbarkeit" SCRTEXT_L="Sichtbarkeit"/>
+  <dd27p VIEWNAME="ZCONSEA_OO_CONST" OBJPOS="0007" DDLANGUAGE="D" VIEWFIELD="STATE" TABNAME="SEOCOMPODF" FIELDNAME="STATE" ROLLNAME="SEOSTATE" ROLLNAMEVI="SEOSTATE" DOMNAME="SEOSTATE" DATATYPE="NUMC" FLENGTH="000001" SHLPORIGIN="F" INTTYPE="N" INTLEN="000002" HEADLEN="00" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" OUTPUTLEN="000001" DECIMALS="000000" VALEXI="X" DDTEXT="Status einer Klasse bzw. Komponente" SCRTEXT_S="Status" SCRTEXT_M="Status" SCRTEXT_L="Status"/>
+  <dd27p VIEWNAME="ZCONSEA_OO_CONST" OBJPOS="0008" DDLANGUAGE="D" VIEWFIELD="AUTHOR" TABNAME="SEOCOMPODF" FIELDNAME="AUTHOR" ROLLNAME="CNAM" ROLLNAMEVI="CNAM" DOMNAME="SYCHAR12" DATATYPE="CHAR" FLENGTH="000012" INTTYPE="C" INTLEN="000024" HEADLEN="12" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" OUTPUTLEN="000012" DECIMALS="000000" DDTEXT="Autor" REPTEXT="Anleger" SCRTEXT_S="Anleger" SCRTEXT_M="Anleger" SCRTEXT_L="Anleger"/>
+  <dd27p VIEWNAME="ZCONSEA_OO_CONST" OBJPOS="0009" DDLANGUAGE="D" VIEWFIELD="CREATEDON" TABNAME="SEOCOMPODF" FIELDNAME="CREATEDON" ROLLNAME="RDIR_CDATE" ROLLNAMEVI="RDIR_CDATE" DOMNAME="SYDATS" DATATYPE="DATS" FLENGTH="000008" SHLPORIGIN="T" INTTYPE="D" INTLEN="000016" HEADLEN="10" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" OUTPUTLEN="000010" DECIMALS="000000" DDTEXT="Erstellungsdatum" REPTEXT="Erst.datum" SCRTEXT_S="Erst.datum" SCRTEXT_M="Erstellung.dat." SCRTEXT_L="Erstellungsdatum"/>
+  <dd27p VIEWNAME="ZCONSEA_OO_CONST" OBJPOS="0010" DDLANGUAGE="D" VIEWFIELD="CHANGEDBY" TABNAME="SEOCOMPODF" FIELDNAME="CHANGEDBY" ROLLNAME="UNAM" ROLLNAMEVI="UNAM" DOMNAME="SYCHAR12" DATATYPE="CHAR" FLENGTH="000012" INTTYPE="C" INTLEN="000024" HEADLEN="00" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" OUTPUTLEN="000012" DECIMALS="000000" DDTEXT="Name des letzten Änderers" SCRTEXT_S="Änderer" SCRTEXT_M="letzter Änderer" SCRTEXT_L="letzter Änderer"/>
+  <dd27p VIEWNAME="ZCONSEA_OO_CONST" OBJPOS="0011" DDLANGUAGE="D" VIEWFIELD="CHANGEDON" TABNAME="SEOCOMPODF" FIELDNAME="CHANGEDON" ROLLNAME="RDIR_UDATE" ROLLNAMEVI="RDIR_UDATE" DOMNAME="SYDATS" DATATYPE="DATS" FLENGTH="000008" SHLPORIGIN="T" INTTYPE="D" INTLEN="000016" HEADLEN="10" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" OUTPUTLEN="000010" DECIMALS="000000" DDTEXT="Änderungsdatum" REPTEXT="Änd.datum" SCRTEXT_S="Ändr.datum" SCRTEXT_M="Änderun.datum" SCRTEXT_L="Änderungsdatum"/>
+  <dd27p VIEWNAME="ZCONSEA_OO_CONST" OBJPOS="0012" DDLANGUAGE="D" VIEWFIELD="ATTVALUE" TABNAME="SEOCOMPODF" FIELDNAME="ATTVALUE" ROLLNAME="SEOVALUE" ROLLNAMEVI="SEOVALUE" DOMNAME="TEXT132" DATATYPE="CHAR" FLENGTH="000132" INTTYPE="C" INTLEN="000264" HEADLEN="30" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" OUTPUTLEN="000132" DECIMALS="000000" LOWERCASE="X" DDTEXT="Initialwert" REPTEXT="Initialwert" SCRTEXT_S="Initial" SCRTEXT_M="Initialwert" SCRTEXT_L="Initialwert"/>
+  <dd27p VIEWNAME="ZCONSEA_OO_CONST" OBJPOS="0013" DDLANGUAGE="D" VIEWFIELD="TYPE" TABNAME="SEOCOMPODF" FIELDNAME="TYPE" ROLLNAME="RS38L_TYP" ROLLNAMEVI="RS38L_TYP" DOMNAME="RS38L_TYP" DATATYPE="CHAR" FLENGTH="000132" INTTYPE="C" INTLEN="000264" HEADLEN="30" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" OUTPUTLEN="000132" DECIMALS="000000" DDTEXT="Bezugstyp eines Schnittstellenparameters" REPTEXT="Bezugstyp" SCRTEXT_S="Bezugstyp" SCRTEXT_M="Bezugstyp" SCRTEXT_L="Bezugstyp"/>
+  <dd28j VIEWNAME="ZCONSEA_OO_CONST" LTAB="SEOCOMPO" LFIELD="CLSNAME" OPERATOR="EQ" RTAB="SEOCOMPODF" RFIELD="CLSNAME" SOURCE="S"/>
+  <dd28j VIEWNAME="ZCONSEA_OO_CONST" LTAB="SEOCOMPO" LFIELD="CMPNAME" OPERATOR="EQ" RTAB="SEOCOMPODF" RFIELD="CMPNAME" SOURCE="S"/>
+  <dd28j VIEWNAME="ZCONSEA_OO_CONST" LTAB="SEOCOMPO" LFIELD="CLSNAME" OPERATOR="EQ" RTAB="SEOCOMPOTX" RFIELD="CLSNAME" SOURCE="S"/>
+  <dd28j VIEWNAME="ZCONSEA_OO_CONST" LTAB="SEOCOMPO" LFIELD="CMPNAME" OPERATOR="EQ" RTAB="SEOCOMPOTX" RFIELD="CMPNAME" SOURCE="S"/>
+  <dd28v CONDNAME="ZCONSEA_OO_CONST" POSITION="0009" TABNAME="SEOCOMPO" FIELDNAME="CMPTYPE" OPERATOR="EQ" CONSTANTS="&apos;0&apos;" AND_OR="AND" OFFSET="0000" FLENGTH="0000"/>
+  <dd28v CONDNAME="ZCONSEA_OO_CONST" POSITION="0010" TABNAME="SEOCOMPODF" FIELDNAME="EXPOSURE" OPERATOR="EQ" CONSTANTS="&apos;2&apos;" AND_OR="AND" OFFSET="0000" FLENGTH="0000"/>
+  <dd28v CONDNAME="ZCONSEA_OO_CONST" POSITION="0011" TABNAME="SEOCOMPODF" FIELDNAME="VERSION" OPERATOR="EQ" CONSTANTS="&apos;1&apos;" AND_OR="AND" OFFSET="0000" FLENGTH="0000"/>
+  <dd28v CONDNAME="ZCONSEA_OO_CONST" POSITION="0012" TABNAME="SEOCOMPODF" FIELDNAME="STATE" OPERATOR="EQ" CONSTANTS="&apos;1&apos;" AND_OR="AND" OFFSET="0000" FLENGTH="0000"/>
+  <dd28v CONDNAME="ZCONSEA_OO_CONST" POSITION="0013" TABNAME="SEOCOMPODF" FIELDNAME="ATTDECLTYP" OPERATOR="EQ" CONSTANTS="&apos;2&apos;" OFFSET="0000" FLENGTH="0000"/>
+ </VIEW>
+</nugget>
