@@ -12,9 +12,9 @@ Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.core.resources;bundle-version="3.9.1",
  org.eclipse.core.commands,
  org.eclipse.jface,
- com.sap.adt.communication;bundle-version="2.44.1",
- com.sap.adt.compatibility;bundle-version="2.44.1",
- com.sap.adt.destinations;bundle-version="2.44.1",
- com.sap.adt.destinations.ui;bundle-version="2.44.1",
- com.sap.adt.tools.core;bundle-version="2.44.1",
- org.eclipse.ui;bundle-version="3.106.0"
+ org.eclipse.ui;bundle-version="3.106.0",
+ com.sap.adt.communication;bundle-version="2.41.1",
+ com.sap.adt.compatibility;bundle-version="2.41.1",
+ com.sap.adt.destinations;bundle-version="2.41.1",
+ com.sap.adt.destinations.ui;bundle-version="2.41.1",
+ com.sap.adt.tools.core;bundle-version="2.41.1"
