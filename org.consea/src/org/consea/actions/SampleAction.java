@@ -11,10 +11,18 @@ import org.consea.gui.ResultViewContent;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.text.IDocument;
+import org.eclipse.jface.text.TextSelection;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.ide.IDE;
+import org.eclipse.ui.texteditor.IDocumentProvider;
+import org.eclipse.ui.texteditor.ITextEditor;
 import org.eclipse.ui.views.IViewDescriptor;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.FrameworkUtil;
@@ -49,13 +57,23 @@ public class SampleAction implements IWorkbenchWindowActionDelegate {
 			sendActionToView(valueToSearchFor);
 		}
 
-		SapServerConnection sapServerConnection = new SapServerConnection(dialogWindow);
-		sapServerConnection.connectionToSapServer();
+		//SapServerConnection sapServerConnection = new SapServerConnection(dialogWindow);
+		//sapServerConnection.connectionToSapServer();
 
 	}
 
 	private String getUserInputValueToSearchFor() {
-		InputVariableNameToSearchDialog inputVariableNameToSearchDialog = new InputVariableNameToSearchDialog();
+		String selectedText = null;
+		
+		IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+		
+		ISelection selection = page.getSelection();
+		if(selection instanceof TextSelection) {
+			final TextSelection textSel = (TextSelection)selection;
+			selectedText = textSel.getText();
+		}
+				
+		InputVariableNameToSearchDialog inputVariableNameToSearchDialog = new InputVariableNameToSearchDialog(selectedText);
 		inputVariableNameToSearchDialog.setBlockOnOpen(true);
 		inputVariableNameToSearchDialog.open();
 		

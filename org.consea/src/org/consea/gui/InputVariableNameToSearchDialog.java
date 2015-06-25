@@ -12,14 +12,19 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.PlatformUI;
 
+/**
+ * TODO Copyrighted Code von Vogella
+ */
 public class InputVariableNameToSearchDialog extends TitleAreaDialog {
 
 	  private Text txtValueToSearchFor;
 
 	  private String valueToSearchFor;
 
-	  public InputVariableNameToSearchDialog() {
+	  public InputVariableNameToSearchDialog(String selectedText) {
 	    super(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell());
+	    
+	    this.valueToSearchFor = selectedText;
 	  }
 
 	  @Override
@@ -52,6 +57,7 @@ public class InputVariableNameToSearchDialog extends TitleAreaDialog {
 
 	    txtValueToSearchFor = new Text(container, SWT.BORDER);
 	    txtValueToSearchFor.setLayoutData(dataValueToSearchFor);
+	    txtValueToSearchFor.setText(this.valueToSearchFor);
 	  }
 
 	  @Override

@@ -1,6 +1,8 @@
 package org.consea.gui;
 
 
+import java.util.ArrayList;
+
 import org.consea.Activator;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.*;
@@ -46,6 +48,8 @@ public class ResultView extends ViewPart {
 	private Action action1;
 	private Action action2;
 	private Action doubleClickAction;
+
+	private ResultViewContent contentProvider;
 	
 	class NameSorter extends ViewerSorter {
 	}
@@ -63,12 +67,12 @@ public class ResultView extends ViewPart {
 	public void createPartControl(Composite parent) {
 		BundleContext ctx = FrameworkUtil.getBundle(Activator.class).getBundleContext();
 		ServiceReference<ResultViewContent> sr = ctx.getServiceReference(ResultViewContent.class);
-		ResultViewContent content = ctx.getService(sr);
+		contentProvider = ctx.getService(sr);
 		
 		viewer = new TableViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
-		content.setParent(viewer);
-		viewer.setContentProvider(content);
-		viewer.setLabelProvider(content);
+		contentProvider.setParent(viewer);
+		viewer.setContentProvider(contentProvider);
+		viewer.setLabelProvider(contentProvider);
 		viewer.setSorter(new NameSorter());
 		viewer.setInput(getViewSite());
 
@@ -120,7 +124,9 @@ public class ResultView extends ViewPart {
 	private void makeActions() {
 		action1 = new Action() {
 			public void run() {
-				showMessage("Action 1 executed");
+				contentProvider.setEntries(new ArrayList<String>());
+				viewer.refresh();
+				showMessage("Conrent cleared and refreshed");
 			}
 		};
 		action1.setText("Action 1");
@@ -131,8 +137,7 @@ public class ResultView extends ViewPart {
 		action2 = new Action() {
 			public void run() {
 				viewer.refresh();
-				
-				showMessage("Action 2 executed");
+				showMessage("View refreshed");
 			}
 		};
 		action2.setText("Action 2");
