@@ -1,29 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
-   <extension
-         point="org.eclipse.ui.actionSets">
-      <actionSet
-            id="org.consea.actionSet"
-            label="Sample Action Set"
-            visible="true">
-         <menu
-               id="sampleMenu"
-               label="Sample &amp;Menu">
-            <separator
-                  name="sampleGroup">
-            </separator>
-         </menu>
-         <action
-               class="org.consea.actions.SampleAction"
-               icon="icons/sample.gif"
-               id="org.consea.actions.SampleAction"
-               label="&amp;Sample Action"
-               menubarPath="sampleMenu/sampleGroup"
-               toolbarPath="sampleGroup"
-               tooltip="Hello, Eclipse world">
-         </action>
-      </actionSet>
+  <extension point="org.eclipse.ui.actionSets">
+    <actionSet id="org.consea.actionSet" label="Sample Action Set" visible="true">
+      <menu id="sampleMenu" label="Sample &amp;Menu">
+        <separator name="sampleGroup"/>
+      </menu>
+      <action class="org.consea.actions.SampleAction" 
+      				icon="icons/sample.gif"
+      				id="org.consea.actions.SampleAction"
+      				label="&amp;Sample Action"
+      				menubarPath="sampleMenu/sampleGroup"
+      				toolbarPath="sampleGroup" 
+      				tooltip="Hello, Eclipse world"/>
+    </actionSet>
+  </extension>
+
+   <extension point="org.eclipse.ui.views">
+      <category name="Consea" id="org.consea.ResultView"></category>
+      <view name="Consea View"
+            icon="icons/sample.gif"
+            class="org.consea.gui.ResultView"
+            id="org.consea.ResultView" />
    </extension>
+   <extension point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view ratio="0.5"
+               relative="org.eclipse.ui.views.ProblemView"
+               relationship="right"
+               id="org.consea.ResultView" />
+      </perspectiveExtension>
+   </extension>
+   <extension point="org.eclipse.help.contexts">
+      <contexts file="contexts.xml" />
+   </extension>
+
+  <!-- <extension point="org.eclipse.ui.ide.markerResolution">
+    <markerResolutionGenerator 
+    	markerType="org.eclipse.core.resources.problemmarker"
+    	class="org.consea.actions.QuickFixer"/>
+  </extension> -->
+  
+  <!-- <extension
+      point="org.eclipse.ui.ide.markerResolution">
+      <markerResolutionGenerator
+          class="org.consea."
+          markerType="besi.mybuilder.plugin.myProblem">
+      </markerResolutionGenerator>
+   </extension>
+   
+   <extension
+         point="org.eclipse.jdt.ui.quickFixProcessors">
+      <quickFixProcessor
+            name="%defaultQuickFixProcessor"
+            class="org.consea.QuickFixProcessor"
+            id="org.eclipse.jdt.ui.text.correction.QuickFixProcessor">
+      </quickFixProcessor>
+   </extension>
+   
+   <extension
+         point="org.eclipse.jdt.ui.quickAssistProcessors">
+      <quickAssistProcessor name="%defaultQuickAssistProcessor"
+            								class="org.consea.QuickAssistProcessor"
+            								id="org.eclipse.jdt.ui.text.correction.QuickAssistProcessor">
+      </quickAssistProcessor>
+   </extension> -->
+
+
 
 </plugin>
