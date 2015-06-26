@@ -17,7 +17,7 @@ public class Coolmarker {
 		createCoolMarker(file, 5);
 		createCoolMarker(file, 9);
 		createCoolMarker(file, 13);
-		createCoolMarker(file, 17);
+		createCoolMarker(file, 34);
 	}
 
 	private IMarker createCoolMarker(IResource resource, int lineNumber) {
