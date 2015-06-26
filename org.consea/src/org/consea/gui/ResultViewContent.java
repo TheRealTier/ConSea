@@ -32,7 +32,9 @@ public class ResultViewContent extends LabelProvider implements
 	
 	public void setEntries(ArrayList<String> entries) {
 		this.results = entries;
-		this.parent.refresh();
+		if(this.parent != null) {
+			this.parent.refresh();
+		}
 	}
 	
 	/*

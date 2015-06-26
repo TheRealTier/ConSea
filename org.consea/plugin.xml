@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
-  <extension point="org.eclipse.ui.actionSets">
-    <actionSet id="org.consea.actionSet" label="Sample Action Set" visible="true">
+	<!-- This extensions will display the button in the menu -->
+ 	<extension point="org.eclipse.ui.actionSets">
+    	<actionSet id="org.consea.actionSet" label="Sample Action Set" visible="true">
       <menu id="sampleMenu" label="Sample &amp;Menu">
         <separator name="sampleGroup"/>
       </menu>
@@ -14,26 +15,120 @@
       				toolbarPath="sampleGroup" 
       				tooltip="Hello, Eclipse world"/>
     </actionSet>
-  </extension>
+	</extension>
 
-   <extension point="org.eclipse.ui.views">
+	<!-- These are the extension for the consea view, where the results are displayed. -->
+	<extension point="org.eclipse.ui.views">
       <category name="Consea" id="org.consea.ResultView"></category>
       <view name="Consea View"
             icon="icons/sample.gif"
             class="org.consea.gui.ResultView"
             id="org.consea.ResultView" />
-   </extension>
-   <extension point="org.eclipse.ui.perspectiveExtensions">
+	</extension>
+	<extension point="org.eclipse.ui.perspectiveExtensions">
       <perspectiveExtension targetID="org.eclipse.jdt.ui.JavaPerspective">
          <view ratio="0.5"
                relative="org.eclipse.ui.views.ProblemView"
                relationship="right"
                id="org.consea.ResultView" />
       </perspectiveExtension>
-   </extension>
-   <extension point="org.eclipse.help.contexts">
+	</extension>
+	<extension point="org.eclipse.help.contexts">
       <contexts file="contexts.xml" />
+	</extension>
+   
+	<!-- The following extensions are for the source code marker at the left side of the line number ruler 
+		 in the source code editor. -->
+	<extension id="coolmarker" point="org.eclipse.core.resources.markers">
+	   <super type="org.eclipse.core.resources.problemmarker"/>
+		  <attribute name="coolFactor"/>
+		  <persistent value="false"/>
+	</extension>
+   	<extension point="org.eclipse.ui.ide.markerResolution">
+	   <markerResolutionGenerator
+	       class="org.consea.CoolmarkerResolution"
+	       markerType="org.consea.coolmarker">
+	   </markerResolutionGenerator>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.annotationTypes">
+		<type super="org.eclipse.ui.workbench.texteditor.warning"
+	 	markerType="org.consea.coolmarker"
+	 	name="org.consea.coolmarker"/>
+	</extension>
+	<extension point="org.eclipse.ui.editors.markerAnnotationSpecification">
+		<specification annotationType="org.consea.coolmarker"
+	 		icon="icons/kappa.gif" />
+	</extension>
+
+
+	<!--<extension point="org.eclipse.ui.ide.markerImageProviders">
+      <imageprovider markertype="org.consea.coolmarker"
+            		 icon="icons/kappa.gif"
+            		 id="org.consea.declarativeMarkerProvider">
+      </imageprovider>
+   </extension> -->
+   
+   <!--
+   <extension
+       id="mymarker"
+       name="My Problem"
+       point="org.eclipse.core.resources.markers">
+    <super type="org.eclipse.jdt.core.problem">
+    </super>
+    <super type="org.eclipse.core.resources.problemmarker">
+    </super>
+    <super type="org.eclipse.core.resources.textmarker">
+    </super>
+    <persistent value="true">
+    </persistent>
+ </extension>
+   
+   <extension
+      point="org.eclipse.jdt.ui.quickFixProcessors">
+   <quickFixProcessor
+         class="org.consea.MyQuickFixProcessor"
+         id="org.eclipse.jdt.ui.text.correction.QuickFixProcessor"
+         name="My Quick Fix Processor">
+      <handledMarkerTypes>
+         <markerType
+               id="org.consea.mymarker">
+         </markerType>
+      </handledMarkerTypes>
+   </quickFixProcessor>
+</extension>-->
+   
+
+	 <!--<extension
+          id="org.consea.foobar"
+          point="org.eclipse.core.resources.markers">
+          <super type="org.eclipse.core.resources.problemmarker"/>
+          <super type="org.eclipse.core.resources.textmarker"/>
+          <persistent value="true" />
    </extension>
+   <extension
+           point="org.eclipse.ui.ide.markerResolution">
+           <markerResolutionGenerator
+                  markerType="org.consea.foobar"
+                  class="org.consea.Foobar"/>
+   </extension>   
+   <extension
+           point="org.eclipse.ui.editors.annotationTypes">
+           <type
+               name="org.consea.foobarAnnotation"
+               super="org.eclipse.ui.workbench.texteditor.error"
+               markerType="org.consea.foobar"
+               markerSeverity="2">
+         </type>
+   </extension>   
+
+	 <extension point="org.eclipse.ui.ide.markerResolution">
+	    <markerResolutionGenerator
+	        class="org.consea.MarkerResolutionGenerator"
+	        markerType="org.eclipse.core.resources.problemmarker">
+	    </markerResolutionGenerator>
+	 </extension>-->
+	 
 
   <!-- <extension point="org.eclipse.ui.ide.markerResolution">
     <markerResolutionGenerator 

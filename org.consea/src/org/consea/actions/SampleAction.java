@@ -3,27 +3,18 @@ package org.consea.actions;
 import java.util.ArrayList;
 
 import org.consea.Activator;
-import org.consea.ConseaHandler;
+import org.consea.Coolmarker;
 import org.consea.backend.SapServerConnection;
 import org.consea.gui.DialogWindow;
 import org.consea.gui.InputVariableNameToSearchDialog;
 import org.consea.gui.ResultViewContent;
 import org.eclipse.jface.action.IAction;
-import org.eclipse.jface.dialogs.InputDialog;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.TextSelection;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.ide.IDE;
-import org.eclipse.ui.texteditor.IDocumentProvider;
-import org.eclipse.ui.texteditor.ITextEditor;
-import org.eclipse.ui.views.IViewDescriptor;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.FrameworkUtil;
 import org.osgi.framework.ServiceReference;
@@ -39,7 +30,7 @@ import org.osgi.framework.ServiceReference;
 public class SampleAction implements IWorkbenchWindowActionDelegate {
 
 	DialogWindow dialogWindow;
-	
+
 	public SampleAction() {
 		this.dialogWindow = new DialogWindow();
 	}
@@ -52,42 +43,47 @@ public class SampleAction implements IWorkbenchWindowActionDelegate {
 	 */
 	public void run(IAction action) {
 
+		Coolmarker coolmarker = new Coolmarker();
+		coolmarker.newMarker();
+		
 		String valueToSearchFor = getUserInputValueToSearchFor();
-		if(valueToSearchFor != null) {
+		if (valueToSearchFor != null) {
 			sendActionToView(valueToSearchFor);
 		}
-
-		//SapServerConnection sapServerConnection = new SapServerConnection(dialogWindow);
-		//sapServerConnection.connectionToSapServer();
+		
+		SapServerConnection sapServerConnection = new SapServerConnection(dialogWindow);
+		sapServerConnection.connectionToSapServer();
 
 	}
 
 	private String getUserInputValueToSearchFor() {
 		String selectedText = null;
-		
+
 		IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-		
+
 		ISelection selection = page.getSelection();
-		if(selection instanceof TextSelection) {
-			final TextSelection textSel = (TextSelection)selection;
+		if (selection instanceof TextSelection) {
+			final TextSelection textSel = (TextSelection) selection;
 			selectedText = textSel.getText();
 		}
-				
+
 		InputVariableNameToSearchDialog inputVariableNameToSearchDialog = new InputVariableNameToSearchDialog(selectedText);
 		inputVariableNameToSearchDialog.setBlockOnOpen(true);
 		inputVariableNameToSearchDialog.open();
-		
+
 		return inputVariableNameToSearchDialog.getValueToSearchFor();
 	}
 
 	private void sendActionToView(String variableNameToSearch) {
-		// The Service was registered in this bundles activator, so we don't need a service listener,
-		// but we should use a service listener, because this feels (and actually is) dirty
-		BundleContext ctx = FrameworkUtil.getBundle(Activator.class).getBundleContext();	
+		// The Service was registered in this bundles activator, so we don't
+		// need a service listener,
+		// but we should use a service listener, because this feels (and
+		// actually is) dirty
+		BundleContext ctx = FrameworkUtil.getBundle(Activator.class).getBundleContext();
 		ServiceReference<ResultViewContent> sr = ctx.getServiceReference(ResultViewContent.class);
 		ResultViewContent content = ctx.getService(sr);
-		
-		if(variableNameToSearch.equals("HDW") || variableNameToSearch.equals("'HDW'")  ) {
+
+		if (variableNameToSearch.equals("HDW") || variableNameToSearch.equals("'HDW'")) {
 			ArrayList<String> entries = new ArrayList<String>();
 			entries.add("/EAS/HDW_MAIN=>C_HDW_TITLE");
 			entries.add("/EAS/HDW_MAIN_MDL=>C_HDW_DIALOG");
@@ -130,6 +126,5 @@ public class SampleAction implements IWorkbenchWindowActionDelegate {
 	public void init(IWorkbenchWindow window) {
 		this.dialogWindow.setWindow(window);
 	}
-
 
 }
