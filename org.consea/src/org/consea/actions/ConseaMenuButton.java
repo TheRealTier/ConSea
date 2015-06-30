@@ -3,11 +3,11 @@ package org.consea.actions;
 import java.util.ArrayList;
 
 import org.consea.Activator;
-import org.consea.Coolmarker;
 import org.consea.backend.SapServerConnection;
 import org.consea.gui.DialogWindow;
 import org.consea.gui.InputVariableNameToSearchDialog;
 import org.consea.gui.ResultViewContent;
+import org.consea.marker.Kappamarker;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.text.TextSelection;
 import org.eclipse.jface.viewers.ISelection;
@@ -19,41 +19,27 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.FrameworkUtil;
 import org.osgi.framework.ServiceReference;
 
-/**
- * Our sample action implements workbench action delegate. The action proxy will
- * be created by the workbench and shown in the UI. When the user tries to use
- * the action, this delegate will be created and execution will be delegated to
- * it.
- * 
- * @see IWorkbenchWindowActionDelegate
- */
-public class SampleAction implements IWorkbenchWindowActionDelegate {
+
+public class ConseaMenuButton implements IWorkbenchWindowActionDelegate {
 
 	DialogWindow dialogWindow;
 
-	public SampleAction() {
+	public ConseaMenuButton() {
 		this.dialogWindow = new DialogWindow();
 	}
 
-	/**
-	 * The action has been activated. The argument of the method represents the
-	 * 'real' action sitting in the workbench UI.
-	 * 
-	 * @see IWorkbenchWindowActionDelegate#run
-	 */
 	public void run(IAction action) {
 
-		Coolmarker coolmarker = new Coolmarker();
+		Kappamarker coolmarker = new Kappamarker();
 		coolmarker.newMarker();
 		
 		String valueToSearchFor = getUserInputValueToSearchFor();
 		if (valueToSearchFor != null) {
-			sendActionToView(valueToSearchFor);
+			SapServerConnection sapServerConnection = new SapServerConnection(dialogWindow);
+			ArrayList<String> conseaEntries = sapServerConnection.conseaSearch(valueToSearchFor);
+			sendActionToView(conseaEntries);
 		}
 		
-		SapServerConnection sapServerConnection = new SapServerConnection(dialogWindow);
-		sapServerConnection.connectionToSapServer();
-
 	}
 
 	private String getUserInputValueToSearchFor() {
@@ -74,7 +60,7 @@ public class SampleAction implements IWorkbenchWindowActionDelegate {
 		return inputVariableNameToSearchDialog.getValueToSearchFor();
 	}
 
-	private void sendActionToView(String variableNameToSearch) {
+	private void sendActionToView(ArrayList<String> conseaEntries) {
 		// The Service was registered in this bundles activator, so we don't
 		// need a service listener,
 		// but we should use a service listener, because this feels (and
@@ -83,7 +69,8 @@ public class SampleAction implements IWorkbenchWindowActionDelegate {
 		ServiceReference<ResultViewContent> sr = ctx.getServiceReference(ResultViewContent.class);
 		ResultViewContent content = ctx.getService(sr);
 
-		if (variableNameToSearch.equals("HDW") || variableNameToSearch.equals("'HDW'")) {
+		
+		if (conseaEntries.equals("HDW") || conseaEntries.equals("'HDW'")) {
 			ArrayList<String> entries = new ArrayList<String>();
 			entries.add("/EAS/HDW_MAIN=>C_HDW_TITLE");
 			entries.add("/EAS/HDW_MAIN_MDL=>C_HDW_DIALOG");
@@ -93,7 +80,9 @@ public class SampleAction implements IWorkbenchWindowActionDelegate {
 			entries.add("Z_CL_TIJOER_TEST_NEU2=>C_HDW");
 			content.setEntries(entries);
 		} else {
-			content.addEntry(variableNameToSearch);
+			for(String entry : conseaEntries) {
+				content.addEntry(entry);
+			}
 		}
 	}
 

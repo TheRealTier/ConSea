@@ -14,6 +14,11 @@ import org.osgi.framework.Bundle;
 import org.osgi.framework.ServiceFactory;
 import org.osgi.framework.ServiceRegistration;
 
+/**
+ * TODO This class is also registered as a service in the activator. It has a reference to the 
+ * view (parent) to refresh it, after content was added. This is a horrible way to do this.
+ * Split this class, write a good service, and split it from the view logic.
+ */
 public class ResultViewContent extends LabelProvider implements
 		IStructuredContentProvider, ITableLabelProvider, ServiceFactory<ResultViewContent>  {
 	
@@ -37,13 +42,6 @@ public class ResultViewContent extends LabelProvider implements
 		}
 	}
 	
-	/*
-	 * The content provider class is responsible for providing objects to the
-	 * view. It can wrap existing objects in adapters or simply return objects
-	 * as-is. These objects may be sensitive to the current input of the view,
-	 * or ignore it and always show the same content (like Task List, for
-	 * example).
-	 */
 	public void inputChanged(Viewer v, Object oldInput, Object newInput) {
 	}
 

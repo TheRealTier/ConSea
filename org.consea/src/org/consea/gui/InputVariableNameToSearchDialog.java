@@ -12,9 +12,6 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.PlatformUI;
 
-/**
- * TODO Copyrighted Code von Vogella
- */
 public class InputVariableNameToSearchDialog extends TitleAreaDialog {
 
 	  private Text txtValueToSearchFor;
@@ -30,8 +27,8 @@ public class InputVariableNameToSearchDialog extends TitleAreaDialog {
 	  @Override
 	  public void create() {
 	    super.create();
-	    setTitle("Input Variable Name");
-	    setMessage("Please enter a value and Consea will list you all the constants that hold this value.", IMessageProvider.INFORMATION);
+	    setTitle("Input search");
+	    setMessage("Please enter something and Consea will list you all matching constants.", IMessageProvider.INFORMATION);
 	  }
 
 	  @Override
@@ -65,8 +62,6 @@ public class InputVariableNameToSearchDialog extends TitleAreaDialog {
 	    return true;
 	  }
 
-	  // save content of the Text fields because they get disposed
-	  // as soon as the Dialog closes
 	  private void saveInput() {
 	    valueToSearchFor = txtValueToSearchFor.getText();
 	  }

@@ -1,14 +1,14 @@
-package org.consea;
+package org.consea.marker;
 
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IMarkerResolution;
 
-public class QuickFix implements IMarkerResolution {
+public class KappaQuickFix implements IMarkerResolution {
 
 	String label;
 
-	public QuickFix(String label) {
+	public KappaQuickFix(String label) {
 		this.label = label;
 	}
 
@@ -17,7 +17,6 @@ public class QuickFix implements IMarkerResolution {
 	}
 
 	public void run(IMarker marker) {
-		MessageDialog.openInformation(null, "QuickFix Demo",
-				"This quick-fix is not yet implemented");
+		MessageDialog.openInformation(null, "QuickFix Demo", "This quick-fix is not yet implemented");
 	}
 }

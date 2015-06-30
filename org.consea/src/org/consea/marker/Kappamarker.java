@@ -1,4 +1,4 @@
-package org.consea;
+package org.consea.marker;
 
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
@@ -7,7 +7,7 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.ResourceUtil;
 
-public class Coolmarker {
+public class Kappamarker {
 
 	public void newMarker() {
 		IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
@@ -22,7 +22,7 @@ public class Coolmarker {
 
 	private IMarker createCoolMarker(IResource resource, int lineNumber) {
 		try {
-			IMarker marker = resource.createMarker("org.consea.coolmarker");
+			IMarker marker = resource.createMarker("org.consea.kappamarker"); //TODO Constants
 			marker.setAttribute("coolFactor", "ULTRA");
 			marker.setAttribute("description", "this is one of my markers");
 			marker.setAttribute(IMarker.MESSAGE, "My Marker");

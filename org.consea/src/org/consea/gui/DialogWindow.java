@@ -8,8 +8,6 @@ import org.eclipse.ui.PlatformUI;
 
 public class DialogWindow {
 	
-	private IWorkbenchWindow window;
-
 	public void displayError(String messageText) {
 		String dialogTitle = "Flight Exception";
 		openDialogWindow(messageText, dialogTitle);
@@ -17,8 +15,8 @@ public class DialogWindow {
 
 	public void openDialogWindow(String dialogText, String dialogTitle) {
 		String[] DIALOG_BUTTON_LABELS = new String[] { IDialogConstants.OK_LABEL };
-		MessageDialog dialog = new MessageDialog(getShell(), dialogTitle, null,
-				dialogText, MessageDialog.INFORMATION, DIALOG_BUTTON_LABELS, 0);
+		MessageDialog dialog = new MessageDialog(getShell(), dialogTitle, null, dialogText, 
+												MessageDialog.INFORMATION, DIALOG_BUTTON_LABELS, 0);
 		dialog.open();
 	}
 
@@ -27,7 +25,6 @@ public class DialogWindow {
 		return shell;
 	}
 
-	public void setWindow(IWorkbenchWindow window) {
-		this.window = window;		
+	public void setWindow(IWorkbenchWindow window) {		
 	}
 }

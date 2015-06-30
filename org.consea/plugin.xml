@@ -7,7 +7,7 @@
       <menu id="sampleMenu" label="Sample &amp;Menu">
         <separator name="sampleGroup"/>
       </menu>
-      <action class="org.consea.actions.SampleAction" 
+      <action class="org.consea.actions.ConseaMenuButton" 
       				icon="icons/sample.gif"
       				id="org.consea.actions.SampleAction"
       				label="&amp;Sample Action"
@@ -39,128 +39,27 @@
    
 	<!-- The following extensions are for the source code marker at the left side of the line number ruler 
 		 in the source code editor. -->
-	<extension id="coolmarker" point="org.eclipse.core.resources.markers">
+	<extension id="kappamarker" point="org.eclipse.core.resources.markers">
 	   <super type="org.eclipse.core.resources.problemmarker"/>
-		  <attribute name="coolFactor"/>
+		  <attribute name="kappaAttribute"/>
 		  <persistent value="false"/>
 	</extension>
    	<extension point="org.eclipse.ui.ide.markerResolution">
 	   <markerResolutionGenerator
-	       class="org.consea.CoolmarkerResolution"
-	       markerType="org.consea.coolmarker">
+	       class="org.consea.marker.KappamarkerResolution"
+	       markerType="org.consea.kappamarker">
 	   </markerResolutionGenerator>
 	</extension>
 	
 	<extension point="org.eclipse.ui.editors.annotationTypes">
 		<type super="org.eclipse.ui.workbench.texteditor.warning"
-	 	markerType="org.consea.coolmarker"
-	 	name="org.consea.coolmarker"/>
+	 	markerType="org.consea.kappamarker"
+	 	name="org.consea.kappamarker"/>
 	</extension>
 	<extension point="org.eclipse.ui.editors.markerAnnotationSpecification">
-		<specification annotationType="org.consea.coolmarker"
+		<specification annotationType="org.consea.kappamarker"
 	 		icon="icons/kappa.gif" />
 	</extension>
-
-
-	<!--<extension point="org.eclipse.ui.ide.markerImageProviders">
-      <imageprovider markertype="org.consea.coolmarker"
-            		 icon="icons/kappa.gif"
-            		 id="org.consea.declarativeMarkerProvider">
-      </imageprovider>
-   </extension> -->
-   
-   <!--
-   <extension
-       id="mymarker"
-       name="My Problem"
-       point="org.eclipse.core.resources.markers">
-    <super type="org.eclipse.jdt.core.problem">
-    </super>
-    <super type="org.eclipse.core.resources.problemmarker">
-    </super>
-    <super type="org.eclipse.core.resources.textmarker">
-    </super>
-    <persistent value="true">
-    </persistent>
- </extension>
-   
-   <extension
-      point="org.eclipse.jdt.ui.quickFixProcessors">
-   <quickFixProcessor
-         class="org.consea.MyQuickFixProcessor"
-         id="org.eclipse.jdt.ui.text.correction.QuickFixProcessor"
-         name="My Quick Fix Processor">
-      <handledMarkerTypes>
-         <markerType
-               id="org.consea.mymarker">
-         </markerType>
-      </handledMarkerTypes>
-   </quickFixProcessor>
-</extension>-->
-   
-
-	 <!--<extension
-          id="org.consea.foobar"
-          point="org.eclipse.core.resources.markers">
-          <super type="org.eclipse.core.resources.problemmarker"/>
-          <super type="org.eclipse.core.resources.textmarker"/>
-          <persistent value="true" />
-   </extension>
-   <extension
-           point="org.eclipse.ui.ide.markerResolution">
-           <markerResolutionGenerator
-                  markerType="org.consea.foobar"
-                  class="org.consea.Foobar"/>
-   </extension>   
-   <extension
-           point="org.eclipse.ui.editors.annotationTypes">
-           <type
-               name="org.consea.foobarAnnotation"
-               super="org.eclipse.ui.workbench.texteditor.error"
-               markerType="org.consea.foobar"
-               markerSeverity="2">
-         </type>
-   </extension>   
-
-	 <extension point="org.eclipse.ui.ide.markerResolution">
-	    <markerResolutionGenerator
-	        class="org.consea.MarkerResolutionGenerator"
-	        markerType="org.eclipse.core.resources.problemmarker">
-	    </markerResolutionGenerator>
-	 </extension>-->
-	 
-
-  <!-- <extension point="org.eclipse.ui.ide.markerResolution">
-    <markerResolutionGenerator 
-    	markerType="org.eclipse.core.resources.problemmarker"
-    	class="org.consea.actions.QuickFixer"/>
-  </extension> -->
-  
-  <!-- <extension
-      point="org.eclipse.ui.ide.markerResolution">
-      <markerResolutionGenerator
-          class="org.consea."
-          markerType="besi.mybuilder.plugin.myProblem">
-      </markerResolutionGenerator>
-   </extension>
-   
-   <extension
-         point="org.eclipse.jdt.ui.quickFixProcessors">
-      <quickFixProcessor
-            name="%defaultQuickFixProcessor"
-            class="org.consea.QuickFixProcessor"
-            id="org.eclipse.jdt.ui.text.correction.QuickFixProcessor">
-      </quickFixProcessor>
-   </extension>
-   
-   <extension
-         point="org.eclipse.jdt.ui.quickAssistProcessors">
-      <quickAssistProcessor name="%defaultQuickAssistProcessor"
-            								class="org.consea.QuickAssistProcessor"
-            								id="org.eclipse.jdt.ui.text.correction.QuickAssistProcessor">
-      </quickAssistProcessor>
-   </extension> -->
-
 
 
 </plugin>
