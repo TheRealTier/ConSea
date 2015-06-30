@@ -4,6 +4,7 @@ package org.consea.gui;
 import java.util.ArrayList;
 
 import org.consea.Activator;
+import org.consea.backend.ConseaSearchResonse;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
@@ -11,15 +12,19 @@ import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.jface.viewers.ViewerSorter;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.IWorkbenchActionConstants;
@@ -79,8 +84,11 @@ public class ResultView extends ViewPart {
 		ServiceReference<ResultViewContent> sr = ctx.getServiceReference(ResultViewContent.class);
 		contentProvider = ctx.getService(sr);
 		
-		viewer = new TableViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
+		viewer = new TableViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL | SWT.FULL_SELECTION | SWT.BORDER);
 		contentProvider.setParent(viewer);
+		createColumns();
+		
+		viewer.getTable().setHeaderVisible(true);
 		viewer.setContentProvider(contentProvider);
 		viewer.setLabelProvider(contentProvider);
 		viewer.setSorter(new NameSorter());
@@ -92,6 +100,33 @@ public class ResultView extends ViewPart {
 		hookContextMenu();
 		hookDoubleClickAction();
 		contributeToActionBars();
+	}
+
+	private void createColumns() {
+		String[] titles = { "Class/Interface", "Component", "Value", "Type" };
+		TableViewerColumn col;
+		ColumnLabelProvider emptyLabelProvider = new ColumnLabelProvider() {
+			public Image getImage(Object element) {
+	    	  return null;  
+			}};
+
+	    // first column is for the first name
+	    for (int i = 0; i < titles.length; i++) {
+	    	col = createTableViewerColumn(titles[i], 100, i);
+	    	col.setLabelProvider(emptyLabelProvider);
+	    	col.getColumn().setImage(null);
+		}
+	    
+	}
+	
+	private TableViewerColumn createTableViewerColumn(String title, int bound, final int colNumber) {
+		final TableViewerColumn viewerColumn = new TableViewerColumn(viewer, SWT.NONE);
+		final TableColumn column = viewerColumn.getColumn();
+		column.setText(title);
+		column.setWidth(bound);
+		column.setResizable(true);
+		column.setMoveable(true);
+		return viewerColumn;
 	}
 
 	private void hookContextMenu() {
@@ -122,7 +157,6 @@ public class ResultView extends ViewPart {
 	private void fillContextMenu(IMenuManager manager) {
 		manager.add(action1);
 		manager.add(action2);
-		// Other plug-ins can contribute there actions here
 		manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 	}
 	
@@ -134,9 +168,9 @@ public class ResultView extends ViewPart {
 	private void makeActions() {
 		action1 = new Action() {
 			public void run() {
-				contentProvider.setEntries(new ArrayList<String>());
+				contentProvider.setEntries(new ArrayList<ConseaSearchResonse>());
 				viewer.refresh();
-				showMessage("Conrent cleared and refreshed");
+				showMessage("Content cleared and refreshed");
 			}
 		};
 		action1.setText("Action 1");

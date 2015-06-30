@@ -3,6 +3,7 @@ package org.consea.actions;
 import java.util.ArrayList;
 
 import org.consea.Activator;
+import org.consea.backend.ConseaSearchResonse;
 import org.consea.backend.SapServerConnection;
 import org.consea.gui.DialogWindow;
 import org.consea.gui.InputVariableNameToSearchDialog;
@@ -36,7 +37,7 @@ public class ConseaMenuButton implements IWorkbenchWindowActionDelegate {
 		String valueToSearchFor = getUserInputValueToSearchFor();
 		if (valueToSearchFor != null) {
 			SapServerConnection sapServerConnection = new SapServerConnection(dialogWindow);
-			ArrayList<String> conseaEntries = sapServerConnection.conseaSearch(valueToSearchFor);
+			ArrayList<ConseaSearchResonse> conseaEntries = sapServerConnection.conseaSearch(valueToSearchFor);
 			sendActionToView(conseaEntries);
 		}
 		
@@ -60,29 +61,17 @@ public class ConseaMenuButton implements IWorkbenchWindowActionDelegate {
 		return inputVariableNameToSearchDialog.getValueToSearchFor();
 	}
 
-	private void sendActionToView(ArrayList<String> conseaEntries) {
+	private void sendActionToView(ArrayList<ConseaSearchResonse> conseaEntries) {
 		// The Service was registered in this bundles activator, so we don't
 		// need a service listener,
 		// but we should use a service listener, because this feels (and
 		// actually is) dirty
 		BundleContext ctx = FrameworkUtil.getBundle(Activator.class).getBundleContext();
 		ServiceReference<ResultViewContent> sr = ctx.getServiceReference(ResultViewContent.class);
-		ResultViewContent content = ctx.getService(sr);
-
+		ResultViewContent content = ctx.getService(sr);		
 		
-		if (conseaEntries.equals("HDW") || conseaEntries.equals("'HDW'")) {
-			ArrayList<String> entries = new ArrayList<String>();
-			entries.add("/EAS/HDW_MAIN=>C_HDW_TITLE");
-			entries.add("/EAS/HDW_MAIN_MDL=>C_HDW_DIALOG");
-			entries.add("Z_CL_TIJOER_TEST=>C_HDW");
-			entries.add("Z_CL_TIJOER_TEST_NEU=>C_HDW");
-			entries.add("Z_CL_TIJOER_TEST_NEUER=>C_HDW");
-			entries.add("Z_CL_TIJOER_TEST_NEU2=>C_HDW");
-			content.setEntries(entries);
-		} else {
-			for(String entry : conseaEntries) {
-				content.addEntry(entry);
-			}
+		for(ConseaSearchResonse entry : conseaEntries) {
+			content.addEntry(entry);
 		}
 	}
 

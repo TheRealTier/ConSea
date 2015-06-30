@@ -34,14 +34,14 @@ public class SapServerConnection {
 		this.dialogWindow = dialogWindow;
 	}
 
-	public ArrayList<String> conseaSearch(String conseaSearch) {
+	public ArrayList<ConseaSearchResonse> conseaSearch(String conseaSearch) {
 		InputStream response = sendSearchToServer(conseaSearch);
 		return parseJson(response);
 	}
 
-	ArrayList<String> parseJson(InputStream response) {
+	ArrayList<ConseaSearchResonse> parseJson(InputStream response) {
 		Object obj = null;
-		ArrayList<String> results = new ArrayList<>();
+		ArrayList<ConseaSearchResonse> results = new ArrayList<>();
 
 		String inputStreamString = new Scanner(response, "UTF-8").useDelimiter("\\A").next();
 		try {
@@ -69,7 +69,7 @@ public class SapServerConnection {
 									                                           jsonObject.get("descript").toString(), 
 									                                           jsonObject.get("type").toString());
 			
-			results.add(conseaSearchResponse.toString()); //TODO Return conseaSearchResponse 
+			results.add(conseaSearchResponse); 
 		}
 
 		System.out.println("--------03------");

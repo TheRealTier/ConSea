@@ -2,6 +2,7 @@ package org.consea.gui;
 
 import java.util.ArrayList;
 
+import org.consea.backend.ConseaSearchResonse;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
@@ -22,7 +23,7 @@ import org.osgi.framework.ServiceRegistration;
 public class ResultViewContent extends LabelProvider implements
 		IStructuredContentProvider, ITableLabelProvider, ServiceFactory<ResultViewContent>  {
 	
-	private ArrayList<String> results = new ArrayList<String>();
+	private ArrayList<ConseaSearchResonse> results = new ArrayList<>();
 	private TableViewer parent;
 	private static ResultViewContent instance = new ResultViewContent();
 	
@@ -30,12 +31,12 @@ public class ResultViewContent extends LabelProvider implements
 
 	}
 	
-	public void addEntry(String entry) {
+	public void addEntry(ConseaSearchResonse entry) {
 		this.results.add(entry);
 		this.parent.refresh();
 	}
 	
-	public void setEntries(ArrayList<String> entries) {
+	public void setEntries(ArrayList<ConseaSearchResonse> entries) {
 		this.results = entries;
 		if(this.parent != null) {
 			this.parent.refresh();
@@ -48,21 +49,48 @@ public class ResultViewContent extends LabelProvider implements
 	public void dispose() {
 	}
 
+	public Image getImage(Object obj) {
+		return null;
+		//return PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_OBJ_ELEMENT);
+	}
+	
 	public Object[] getElements(Object parent) {
 		return this.results.toArray();
 	}
 
 	public String getColumnText(Object obj, int index) {
-		return getText(obj);
+		
+		if (!(obj instanceof ConseaSearchResonse)) {
+			return null;
+		}
+		
+		ConseaSearchResonse conseaSearchResonse = (ConseaSearchResonse)obj;
+		
+		switch (index) {
+		case 0:
+			return conseaSearchResonse.getClsname();
+			
+		case 1:
+			return conseaSearchResonse.getCmpname();
+		
+		case 2:
+			return conseaSearchResonse.getAttvalue();
+
+		case 3:
+			return conseaSearchResonse.getType();
+
+		default:
+			break;
+		}
+		return null;
 	}
 
 	public Image getColumnImage(Object obj, int index) {
+		//return null;
 		return getImage(obj);
 	}
 
-	public Image getImage(Object obj) {
-		return PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_OBJ_ELEMENT);
-	}
+
 
 	@Override
 	public ResultViewContent getService(Bundle bundle, ServiceRegistration<ResultViewContent> registration) {
