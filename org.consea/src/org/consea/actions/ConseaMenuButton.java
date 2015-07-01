@@ -51,7 +51,7 @@ public class ConseaMenuButton implements IWorkbenchWindowActionDelegate {
 		ISelection selection = page.getSelection();
 		if (selection instanceof TextSelection) {
 			final TextSelection textSel = (TextSelection) selection;
-			selectedText = textSel.getText();
+			selectedText = textSel.getText().isEmpty() ? "":textSel.getText();
 		}
 
 		InputVariableNameToSearchDialog inputVariableNameToSearchDialog = new InputVariableNameToSearchDialog(selectedText);

@@ -7,6 +7,8 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.ResourceUtil;
 
+
+
 public class Kappamarker {
 
 	public void newMarker() {

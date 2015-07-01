@@ -93,7 +93,7 @@ public class ResultView extends ViewPart {
 		viewer.setLabelProvider(contentProvider);
 		viewer.setSorter(new NameSorter());
 		viewer.setInput(getViewSite());
-
+		
 		// Create the help context id for the viewer's control
 		PlatformUI.getWorkbench().getHelpSystem().setHelp(viewer.getControl(), "pluginView.viewer");
 		makeActions();
@@ -126,6 +126,21 @@ public class ResultView extends ViewPart {
 		column.setWidth(bound);
 		column.setResizable(true);
 		column.setMoveable(true);
+		viewerColumn.setLabelProvider(new ColumnLabelProvider(){
+			
+			@Override
+			public String getToolTipText(Object element){
+				if( ! (element instanceof ConseaSearchResonse) ){
+					return "No Instance";
+				}
+				
+				ConseaSearchResonse searchResponse = (ConseaSearchResonse)element;
+				return searchResponse.getDescript().isEmpty() ? "No Description available" : searchResponse.getDescript();
+			}
+			
+		});
+		
+		
 		return viewerColumn;
 	}
 
