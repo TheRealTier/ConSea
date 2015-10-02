@@ -29,6 +29,7 @@ public class SapServerConnection {
 
 	private static final String SAMPLE_FLIGHT_RESOURCE_URI = "/consea/restconstants/constants";
 	private DialogWindow dialogWindow;
+	private IRestResource restResource;
 
 	public SapServerConnection(DialogWindow dialogWindow) {
 		this.dialogWindow = dialogWindow;
@@ -54,6 +55,9 @@ public class SapServerConnection {
 		}
 
 		JSONArray jsonArray = (JSONArray) obj;
+		if(jsonArray!= null && jsonArray.isEmpty() == true) {
+			return null;
+		}
 		System.out.println(jsonArray.get(0));
 
 		for (Iterator<JSONObject> iterator = jsonArray.iterator(); iterator.hasNext();) {
@@ -72,28 +76,15 @@ public class SapServerConnection {
 			results.add(conseaSearchResponse); 
 		}
 
-		System.out.println("--------03------");
 		return results;
 	}
 	
 	public InputStream sendSearchToServer(final String conseaSearch) {
-
-		IRestResourceFactory restResourceFactory = AdtRestResourceFactory.createRestResourceFactory();
-		IProject[] abapProjects = AdtProjectServiceFactory.createProjectService().getAvailableAbapProjects();
-
-		IAbapProject abapProject = (IAbapProject) abapProjects[0].getAdapter(IAbapProject.class);
-
-		AdtLogonServiceUIFactory.createLogonServiceUI().ensureLoggedOn(
-				abapProject.getDestinationData(),
-				PlatformUI.getWorkbench().getProgressService());
-
-		String destination = abapProject.getDestinationId();
-		URI flightUri = URI.create(SAMPLE_FLIGHT_RESOURCE_URI);
-		IRestResource flightResource = restResourceFactory.createResourceWithStatelessSession(flightUri, destination);
-
+		if(this.restResource == null) {
+			restResource = createConnectionToABAPServer();
+		}
 		try {
-			System.out.println("--------01------");
-			IResponse response = flightResource.get(null, IResponse.class,
+			IResponse response = restResource.get(null, IResponse.class,
 					new IQueryParameter() {
 
 						@Override
@@ -105,13 +96,8 @@ public class SapServerConnection {
 						public String getValue() {
 							return conseaSearch;
 						}
-
 					});
-
-			System.out.println("--------02------");
-
 			return response.getBody().getContent();
-
 		} catch (ResourceNotFoundException e) {
 			dialogWindow.displayError("No flight data found" + e.getExceptionLongtext());
 		} catch (RuntimeException e) {
@@ -125,5 +111,21 @@ public class SapServerConnection {
 
 		// TODO Exception handling
 		return null;
+	}
+
+	private IRestResource createConnectionToABAPServer() {
+		IRestResourceFactory restResourceFactory = AdtRestResourceFactory.createRestResourceFactory();
+		IProject[] abapProjects = AdtProjectServiceFactory.createProjectService().getAvailableAbapProjects();
+
+		IAbapProject abapProject = (IAbapProject) abapProjects[0].getAdapter(IAbapProject.class);
+
+		AdtLogonServiceUIFactory.createLogonServiceUI().ensureLoggedOn(
+			abapProject.getDestinationData(),
+			PlatformUI.getWorkbench().getProgressService());
+
+		String destination = abapProject.getDestinationId();
+		URI uri = URI.create(SAMPLE_FLIGHT_RESOURCE_URI);
+		IRestResource restResource = restResourceFactory.createResourceWithStatelessSession(uri, destination);
+		return restResource;
 	}
 }

@@ -15,6 +15,7 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
+import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.FrameworkUtil;
@@ -24,23 +25,33 @@ import org.osgi.framework.ServiceReference;
 public class ConseaMenuButton implements IWorkbenchWindowActionDelegate {
 
 	DialogWindow dialogWindow;
+	private SapServerConnection sapServerConnection;
 
 	public ConseaMenuButton() {
 		this.dialogWindow = new DialogWindow();
+		sapServerConnection = new SapServerConnection(dialogWindow);
 	}
 
 	public void run(IAction action) {
 
-		Kappamarker coolmarker = new Kappamarker();
-		coolmarker.newMarker();
+		//Kappamarker coolmarker = new Kappamarker();
+		//coolmarker.newMarker();
 		
 		String valueToSearchFor = getUserInputValueToSearchFor();
 		if (valueToSearchFor != null) {
-			SapServerConnection sapServerConnection = new SapServerConnection(dialogWindow);
 			ArrayList<ConseaSearchResonse> conseaEntries = sapServerConnection.conseaSearch(valueToSearchFor);
+			displayConseaView();
 			sendActionToView(conseaEntries);
 		}
 		
+	}
+
+	private void displayConseaView() {
+		try {
+			PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().showView("org.consea.ResultView");
+		} catch (PartInitException e) {
+			e.printStackTrace();
+		}
 	}
 
 	private String getUserInputValueToSearchFor() {
@@ -69,6 +80,11 @@ public class ConseaMenuButton implements IWorkbenchWindowActionDelegate {
 		BundleContext ctx = FrameworkUtil.getBundle(Activator.class).getBundleContext();
 		ServiceReference<ResultViewContent> sr = ctx.getServiceReference(ResultViewContent.class);
 		ResultViewContent content = ctx.getService(sr);		
+		
+		content.clear();
+		if(conseaEntries == null) {
+			return;
+		}
 		
 		for(ConseaSearchResonse entry : conseaEntries) {
 			content.addEntry(entry);

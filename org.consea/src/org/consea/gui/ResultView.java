@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import org.consea.Activator;
 import org.consea.backend.ConseaSearchResonse;
+import org.consea.backend.DoubleClickInView;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
@@ -85,6 +86,7 @@ public class ResultView extends ViewPart {
 		contentProvider = ctx.getService(sr);
 		
 		viewer = new TableViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL | SWT.FULL_SELECTION | SWT.BORDER);
+		contentProvider.setComposite(parent);
 		contentProvider.setParent(viewer);
 		createColumns();
 		
@@ -203,13 +205,8 @@ public class ResultView extends ViewPart {
 		action2.setToolTipText("Action 2 tooltip");
 		action2.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
 				getImageDescriptor(ISharedImages.IMG_OBJS_INFO_TSK));
-		doubleClickAction = new Action() {
-			public void run() {
-				ISelection selection = viewer.getSelection();
-				Object obj = ((IStructuredSelection)selection).getFirstElement();
-				showMessage("Double-click detected on "+obj.toString());
-			}
-		};
+		
+		doubleClickAction = new DoubleClickInView(viewer);
 	}
 
 	private void hookDoubleClickAction() {
@@ -219,6 +216,7 @@ public class ResultView extends ViewPart {
 			}
 		});
 	}
+	
 	private void showMessage(String message) {
 		MessageDialog.openInformation(
 			viewer.getControl().getShell(),

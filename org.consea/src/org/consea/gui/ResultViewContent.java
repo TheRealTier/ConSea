@@ -9,6 +9,9 @@ import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.ServiceFactory;
 import org.osgi.framework.ServiceRegistration;
@@ -23,6 +26,7 @@ public class ResultViewContent extends LabelProvider implements
 	
 	private ArrayList<ConseaSearchResonse> results = new ArrayList<>();
 	private TableViewer parent;
+	private Composite composite;
 	private static ResultViewContent instance = new ResultViewContent();
 	
 	public ResultViewContent() {
@@ -31,12 +35,14 @@ public class ResultViewContent extends LabelProvider implements
 	
 	public void addEntry(ConseaSearchResonse entry) {
 		this.results.add(entry);
-		this.parent.refresh();
+		if(this.parent != null) {
+			this.parent.refresh();
+		}
 	}
 	
 	public void setEntries(ArrayList<ConseaSearchResonse> entries) {
 		this.results = entries;
-		if(this.parent != null) {
+		if(this.parent != null && this.results != null) {
 			this.parent.refresh();
 		}
 	}
@@ -102,5 +108,17 @@ public class ResultViewContent extends LabelProvider implements
 
 	public void setParent(TableViewer viewer) {
 		this.parent = viewer;
+	}
+
+	public void clear() {
+		this.results = new ArrayList<ConseaSearchResonse>();
+		
+		if(this.parent != null) {
+			this.parent.refresh(true, true);
+		}
+	}
+
+	public void setComposite(Composite composite) {
+		this.composite = composite;
 	}
 }
