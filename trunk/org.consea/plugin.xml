@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<!-- This extensions will display the button in the menu -->
+ 	<extension point="org.eclipse.ui.actionSets">
+    	<actionSet id="org.consea.actionSet" label="Sample Action Set" visible="true">
+      <menu id="sampleMenu" label="Sample &amp;Menu">
+        <separator name="sampleGroup"/>
+      </menu>
+      <action class="org.consea.actions.ConseaMenuButton" 
+      				icon="icons/sample.gif"
+      				id="org.consea.actions.SampleAction"
+      				label="&amp;Sample Action"
+      				menubarPath="sampleMenu/sampleGroup"
+      				toolbarPath="sampleGroup" 
+      				tooltip="Hello, Eclipse world"/>
+    </actionSet>
+	</extension>
+
+	<!-- These are the extension for the consea view, where the results are displayed. -->
+	<extension point="org.eclipse.ui.views">
+      <category name="Consea" id="org.consea.ResultView"></category>
+      <view name="Consea View"
+            icon="icons/sample.gif"
+            class="org.consea.gui.ResultView"
+            id="org.consea.ResultView" />
+	</extension>
+	<extension point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view ratio="0.5"
+               relative="org.eclipse.ui.views.ProblemView"
+               relationship="right"
+               id="org.consea.ResultView" />
+      </perspectiveExtension>
+	</extension>
+	<extension point="org.eclipse.help.contexts">
+      <contexts file="contexts.xml" />
+	</extension>
+   
+	<!-- The following extensions are for the source code marker at the left side of the line number ruler 
+		 in the source code editor. -->
+	<extension id="kappamarker" point="org.eclipse.core.resources.markers">
+	   <super type="org.eclipse.core.resources.problemmarker"/>
+		  <attribute name="kappaAttribute"/>
+		  <persistent value="false"/>
+	</extension>
+   	<extension point="org.eclipse.ui.ide.markerResolution">
+	   <markerResolutionGenerator
+	       class="org.consea.marker.KappamarkerResolution"
+	       markerType="org.consea.kappamarker">
+	   </markerResolutionGenerator>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.annotationTypes">
+		<type super="org.eclipse.ui.workbench.texteditor.warning"
+	 	markerType="org.consea.kappamarker"
+	 	name="org.consea.kappamarker"/>
+	</extension>
+	<extension point="org.eclipse.ui.editors.markerAnnotationSpecification">
+		<specification annotationType="org.consea.kappamarker"
+	 		icon="icons/kappa.gif" />
+	</extension>
+
+
+</plugin>
