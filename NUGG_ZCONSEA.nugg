@@ -1,0 +1,2445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nugget name="ZCONSEA">
+ <CLAS CLSNAME="ZCONSEA_CONTROLLER_DYNPRO" VERSION="1" LANGU="D" DESCRIPT="ConSea: DynPro Controller Class" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" WITH_UNIT_TESTS="X" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <localTestClasses>*&quot;* use this source file for your ABAP unit test classes</localTestClasses>
+  <attribute CLSNAME="ZCONSEA_CONTROLLER_DYNPRO" CMPNAME="C_ALV_CONTAINER_NAME" VERSION="1" LANGU="D" DESCRIPT="Name of ALV container" EXPOSURE="0" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTVALUE="&apos;CONTAINER_RESULT&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_CONTROLLER_DYNPRO" CMPNAME="C_UC_BACK" VERSION="1" LANGU="D" DESCRIPT="User Command to go back" EXPOSURE="2" STATE="1" EDITORDER="4 " ATTDECLTYP="2" ATTVALUE="&apos;BACK&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SYUCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_CONTROLLER_DYNPRO" CMPNAME="C_UC_CANCEL" VERSION="1" LANGU="D" DESCRIPT="User Command to cancel" EXPOSURE="2" STATE="1" EDITORDER="5 " ATTDECLTYP="2" ATTVALUE="&apos;CANC&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SYUCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_CONTROLLER_DYNPRO" CMPNAME="C_UC_EXIT" VERSION="1" LANGU="D" DESCRIPT="User Command to exit the applikation" EXPOSURE="2" STATE="1" EDITORDER="6 " ATTDECLTYP="2" ATTVALUE="&apos;EXIT&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SYUCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_CONTROLLER_DYNPRO" CMPNAME="C_UC_REFRESH_DATA" VERSION="1" LANGU="D" DESCRIPT="User Command Refresh Data from DB" EXPOSURE="2" STATE="1" EDITORDER="2 " ATTDECLTYP="2" ATTVALUE="&apos;DBREFR&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SYUCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_CONTROLLER_DYNPRO" CMPNAME="C_UC_SEARCH" VERSION="1" LANGU="D" DESCRIPT="User Command Search OO constant" EXPOSURE="2" STATE="1" EDITORDER="3 " ATTDECLTYP="2" ATTVALUE="&apos;SEARCH&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SYUCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_CONTROLLER_DYNPRO" CMPNAME="GR_ALV" VERSION="1" LANGU="D" DESCRIPT="ALV table" EXPOSURE="0" STATE="1" EDITORDER="2 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="CL_SALV_TABLE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_CONTROLLER_DYNPRO" CMPNAME="GR_CONTAINER" VERSION="1" LANGU="D" DESCRIPT="Container for ALV table" EXPOSURE="0" STATE="1" EDITORDER="3 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="CL_GUI_CUSTOM_CONTAINER" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_CONTROLLER_DYNPRO" CMPNAME="GR_SEARCHER" VERSION="1" LANGU="D" EXPOSURE="0" STATE="1" EDITORDER="4 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="ZCONSEA_SEARCHER_INTF" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_CONTROLLER_DYNPRO" CMPNAME="GT_SEARCH_RESULT" VERSION="1" LANGU="D" DESCRIPT="Table with constant data" EXPOSURE="0" STATE="1" EDITORDER="5 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="ZCONSEA_TABLE_CONSTANT_DATA" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_CONTROLLER_DYNPRO" CMPNAME="GV_COUNT_LOADED_CONSTANTS" VERSION="1" LANGU="D" DESCRIPT="Count of currently loaded constants" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="0" ATTRDONLY="X" ATTVALUE="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="I" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <method CLSNAME="ZCONSEA_CONTROLLER_DYNPRO" CMPNAME="BUILD_SRC_LINE" VERSION="1" LANGU="E" DESCRIPT="Creates a source code line for pasting into editor" EXPOSURE="0" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCONSEA_CONTROLLER_DYNPRO" CMPNAME="BUILD_SRC_LINE" SCONAME="IS_CONST_DATA" VERSION="1" LANGU="E" DESCRIPT="Fields for constant data" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ZCONSEA_CONSTANT_DATA"/>
+   <parameter CLSNAME="ZCONSEA_CONTROLLER_DYNPRO" CMPNAME="BUILD_SRC_LINE" SCONAME="RV_SOURCE_LINE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="STRING"/>
+   <source>METHOD build_src_line.
+
+    CONCATENATE is_const_data-clsname &apos;=&gt;&apos; is_const_data-cmpname
+      INTO rv_source_line.
+
+    IF is_const_data-descript IS NOT INITIAL.
+
+      CONCATENATE rv_source_line &apos;&quot;&apos;
+        INTO rv_source_line SEPARATED BY space.
+
+      CONCATENATE rv_source_line is_const_data-descript
+        INTO rv_source_line.
+
+    ENDIF.
+
+
+  ENDMETHOD.</source>
+  </method>
+  <method CLSNAME="ZCONSEA_CONTROLLER_DYNPRO" CMPNAME="CONSTRUCTOR" VERSION="1" LANGU="E" DESCRIPT="CONSTRUCTOR" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="2" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD constructor.
+
+    me-&gt;gr_searcher = zconsea_searcher_factory=&gt;get_searcher_implementation( ).
+
+    me-&gt;gv_count_loaded_constants = me-&gt;gr_searcher-&gt;get_number_of_constants( ).
+
+  ENDMETHOD.</source>
+  </method>
+  <method CLSNAME="ZCONSEA_CONTROLLER_DYNPRO" CMPNAME="COPY_SOURCE_TO_CLIPBOARD" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="5 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCONSEA_CONTROLLER_DYNPRO" CMPNAME="COPY_SOURCE_TO_CLIPBOARD" SCONAME="IT_SOURCE_CODE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ZCONSEA_TABLE_STRING"/>
+   <source>METHOD copy_source_to_clipboard.
+
+    DATA: lt_src TYPE TABLE OF saeuri,
+          lv_rc  TYPE i.
+
+    APPEND LINES OF it_source_code TO lt_src.
+
+    CALL METHOD cl_gui_frontend_services=&gt;clipboard_export
+      IMPORTING
+        data                 = lt_src
+      CHANGING
+        rc                   = lv_rc
+      EXCEPTIONS
+        cntl_error           = 1
+        error_no_gui         = 2
+        not_supported_by_gui = 3
+        no_authority         = 4
+        OTHERS               = 5.
+
+    IF sy-subrc &lt;&gt; 0 OR lv_rc &lt;&gt; 0.
+
+      MESSAGE e000(zconsea).
+
+    ELSE.
+
+      MESSAGE s001(zconsea).
+
+    ENDIF.
+
+  ENDMETHOD.</source>
+  </method>
+  <method CLSNAME="ZCONSEA_CONTROLLER_DYNPRO" CMPNAME="EXIT" VERSION="1" LANGU="E" DESCRIPT="Clean up before exit" EXPOSURE="2" STATE="1" EDITORDER="4 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD exit.
+
+    CLEAR me-&gt;gr_searcher.
+    CLEAR me-&gt;gt_search_result.
+    CLEAR me-&gt;gr_alv.
+
+    me-&gt;gr_container-&gt;free(
+      EXCEPTIONS
+        cntl_error        = 1
+        cntl_system_error = 2
+        OTHERS            = 3
+    ).
+    IF sy-subrc &lt;&gt; 0.
+
+      MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+                 WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+
+    ENDIF.
+
+    CLEAR me-&gt;gr_container.
+
+  ENDMETHOD.                    &quot;EXIT</source>
+  </method>
+  <method CLSNAME="ZCONSEA_CONTROLLER_DYNPRO" CMPNAME="INITIALIZE_ALV_TABLE" VERSION="1" LANGU="E" DESCRIPT="Setup the ALV table" EXPOSURE="0" STATE="1" EDITORDER="4 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD initialize_alv_table.
+
+    DATA: lr_functions_list   TYPE REF TO cl_salv_functions_list,
+          lr_display_settings TYPE REF TO cl_salv_display_settings,
+          lr_layout           TYPE REF TO cl_salv_layout,
+          ls_key              TYPE salv_s_layout_key,
+          lr_columns          TYPE REF TO cl_salv_columns_table,
+          lr_column           TYPE REF TO cl_salv_column_table,
+          l_text              TYPE string,
+          l_icon              TYPE string,
+          lr_events           TYPE REF TO cl_salv_events_table,
+          lr_selections       TYPE REF TO cl_salv_selections.
+
+
+    TRY.
+
+        cl_salv_table=&gt;factory(
+          EXPORTING
+            r_container    = me-&gt;gr_container     &quot; Abstract Container for GUI Controls
+            container_name = c_alv_container_name &quot; Name of ALV container
+          IMPORTING
+            r_salv_table = me-&gt;gr_alv
+          CHANGING
+            t_table      = me-&gt;gt_search_result ).
+
+        lr_columns ?= me-&gt;gr_alv-&gt;get_columns( ).
+
+        lr_columns-&gt;set_optimize( abap_true ).
+
+        lr_display_settings = me-&gt;gr_alv-&gt;get_display_settings( ).
+
+        lr_display_settings-&gt;set_list_header( &apos;Search results&apos;(001) ).
+
+*... §7 set layout
+        lr_layout = me-&gt;gr_alv-&gt;get_layout( ).
+
+*... §7.1 set the Layout Key
+        ls_key-report = sy-repid.
+        lr_layout-&gt;set_key( ls_key ).
+
+        lr_layout-&gt;set_initial_layout( &apos;/DEFAULT&apos; ).
+
+*... §7.2 set Layout save restriction
+        lr_layout-&gt;set_save_restriction( ).
+
+        lr_events = me-&gt;gr_alv-&gt;get_event( ).
+
+        SET HANDLER me-&gt;on_alv_double_click FOR lr_events.
+
+        lr_selections = gr_alv-&gt;get_selections( ).
+
+*... §7.1 set selection mode
+        lr_selections-&gt;set_selection_mode( if_salv_c_selection_mode=&gt;multiple ).
+
+*... §8 display the table
+        me-&gt;gr_alv-&gt;display( ).
+
+      CATCH cx_root.
+
+        CLEAR me-&gt;gr_alv.
+
+    ENDTRY.
+
+  ENDMETHOD.</source>
+  </method>
+  <method CLSNAME="ZCONSEA_CONTROLLER_DYNPRO" CMPNAME="INITIALIZE_CONTAINER" VERSION="1" LANGU="E" DESCRIPT="Setup the custom container" EXPOSURE="0" STATE="1" EDITORDER="3 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD initialize_container.
+
+    CREATE OBJECT me-&gt;gr_container
+      EXPORTING
+        container_name              = &apos;CONTAINER_RESULT&apos;
+*       style                       = style
+*       lifetime                    = lifetime_default
+*       repid                       = repid
+*       dynnr                       = dynnr
+*       no_autodef_progid_dynnr     = no_autodef_progid_dynnr
+      EXCEPTIONS
+        cntl_error                  = 1
+        cntl_system_error           = 2
+        create_error                = 3
+        lifetime_error              = 4
+        lifetime_dynpro_dynpro_link = 5
+        OTHERS                      = 6.
+    IF sy-subrc &lt;&gt; 0.
+      MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+                 WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+    ENDIF.
+
+  ENDMETHOD.</source>
+  </method>
+  <method CLSNAME="ZCONSEA_CONTROLLER_DYNPRO" CMPNAME="ON_ALV_DOUBLE_CLICK" VERSION="1" LANGU="E" DESCRIPT="Handle double click in ALV table" EXPOSURE="0" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_SALV_EVENTS_TABLE" REFCMPNAME="DOUBLE_CLICK" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCONSEA_CONTROLLER_DYNPRO" CMPNAME="ON_ALV_DOUBLE_CLICK" SCONAME="ROW" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>METHOD on_alv_double_click.
+
+    DATA: lv_rc   TYPE i,
+          lt_src  TYPE zconsea_table_string,
+          lv_line TYPE string.
+
+    FIELD-SYMBOLS:
+      &lt;ls_result&gt; LIKE LINE OF me-&gt;gt_search_result.
+
+    READ TABLE me-&gt;gt_search_result ASSIGNING &lt;ls_result&gt;
+      INDEX row.
+
+    IF sy-subrc = 0.
+
+      lv_line = me-&gt;build_src_line( is_const_data = &lt;ls_result&gt; ).
+
+      APPEND lv_line TO lt_src.
+
+    ENDIF.
+
+    me-&gt;copy_source_to_clipboard( lt_src ).
+
+  ENDMETHOD.</source>
+  </method>
+  <method CLSNAME="ZCONSEA_CONTROLLER_DYNPRO" CMPNAME="PAI" VERSION="1" LANGU="E" DESCRIPT="Process user input" EXPOSURE="2" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCONSEA_CONTROLLER_DYNPRO" CMPNAME="PAI" SCONAME="IV_COMMAND" VERSION="1" LANGU="E" DESCRIPT="OK-Code" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SYUCOMM"/>
+   <parameter CLSNAME="ZCONSEA_CONTROLLER_DYNPRO" CMPNAME="PAI" SCONAME="IS_UI_100_FIELDS" VERSION="1" LANGU="E" DESCRIPT="Fields for Screen 100" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ZCONSEA_UI_100_FIELDS"/>
+   <source>METHOD pai.
+
+    CASE iv_command.
+
+      WHEN c_uc_refresh_data. &quot; User Command Refresh Data from DB .
+
+        me-&gt;gr_searcher-&gt;rebuild_data( ).
+
+        me-&gt;gv_count_loaded_constants = me-&gt;gr_searcher-&gt;get_number_of_constants( ).
+
+      WHEN c_uc_search.
+
+        me-&gt;gr_searcher-&gt;search_for_matches(
+          EXPORTING
+            iv_pattern = is_ui_100_fields-search_pattern
+          IMPORTING
+            et_matches = me-&gt;gt_search_result    &quot; Table with constant data
+        ).
+
+        me-&gt;gr_alv-&gt;refresh(
+*          EXPORTING
+*            s_stable     = s_stable    &quot; ALV Control: Refresh Stability
+*            refresh_mode = IF_SALV_C_REFRESH=&gt;SOFT    &quot; ALV: Data Element for Constants
+        ).
+
+      WHEN OTHERS.
+
+    ENDCASE.
+
+  ENDMETHOD.                    &quot;PAI</source>
+  </method>
+  <method CLSNAME="ZCONSEA_CONTROLLER_DYNPRO" CMPNAME="PBO" VERSION="1" LANGU="E" DESCRIPT="Build up the screen" EXPOSURE="2" STATE="1" EDITORDER="3 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD pbo.
+
+    IF me-&gt;gr_container IS NOT BOUND.
+
+      me-&gt;initialize_container( ).
+
+    ENDIF.
+
+    IF me-&gt;gr_alv IS NOT BOUND.
+
+      me-&gt;initialize_alv_table( ).
+
+    ENDIF.
+
+  ENDMETHOD.                    &quot;PBO</source>
+  </method>
+ </CLAS>
+ <CLAS CLSNAME="ZCONSEA_SEARCHER" VERSION="1" LANGU="D" DESCRIPT="Main logic to search OO constants" CATEGORY="00" EXPOSURE="0" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <friends CLSNAME="ZCONSEA_SEARCHER" REFCLSNAME="ZCONSEA_SEARCHER_FACTORY" FRIENDTYPE="0" VERSION="1" STATE="1"/>
+  <implementing CLSNAME="ZCONSEA_SEARCHER" REFCLSNAME="ZCONSEA_SEARCHER_INTF" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="1 "/>
+  <implementing CLSNAME="ZCONSEA_SEARCHER" REFCLSNAME="IF_AMC_MESSAGE_RECEIVER_PCP" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="3 "/>
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <attribute CLSNAME="ZCONSEA_SEARCHER" CMPNAME="GR_AMC_CONSUMER" VERSION="1" LANGU="E" DESCRIPT="ABAP Messaging Channel (AMC) interface for message consumer" EXPOSURE="0" STATE="1" EDITORDER="3 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="IF_AMC_MESSAGE_CONSUMER" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_SEARCHER" CMPNAME="GT_CONSTANT_DATA" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="1 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="ZCONSEA_TABLE_CONSTANT_DATA" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_SEARCHER" CMPNAME="GT_SEARCH_DATA" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="2 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="4" SRCROW1="12 " SRCCOLUMN1="6 " SRCROW2="12 " SRCCOLUMN2="41 " TYPESRC_LENG="38 " TYPESRC="gt_search_data  TYPE TABLE OF string
+"/>
+  <interfaceMethod CLSNAME="ZCONSEA_SEARCHER" CPDNAME="ZCONSEA_SEARCHER_INTF~GET_NUMBER_OF_CONSTANTS">
+   <source>METHOD zconsea_searcher_intf~get_number_of_constants.
+
+    rv_count_constants = lines( me-&gt;gt_constant_data ).
+
+  ENDMETHOD.</source>
+  </interfaceMethod>
+  <interfaceMethod CLSNAME="ZCONSEA_SEARCHER" CPDNAME="ZCONSEA_SEARCHER_INTF~REBUILD_DATA">
+   <source>METHOD zconsea_searcher_intf~rebuild_data.
+
+    DATA:
+          lt_clsif_range TYPE zconsea_rangetable_clsif_name.
+
+    me-&gt;build_class_range(
+      IMPORTING
+        et_clsif_range = lt_clsif_range ).
+
+    me-&gt;select_constants_from_db(
+      EXPORTING
+        it_range_clsif_names = lt_clsif_range
+      IMPORTING
+        et_constant_data = me-&gt;gt_constant_data ).
+
+    me-&gt;build_search_table(
+      EXPORTING
+        it_constant_data = me-&gt;gt_constant_data
+      IMPORTING
+        et_search_table  = gt_search_data ).
+
+  ENDMETHOD.</source>
+  </interfaceMethod>
+  <interfaceMethod CLSNAME="ZCONSEA_SEARCHER" CPDNAME="ZCONSEA_SEARCHER_INTF~SEARCH_FOR_MATCHES">
+   <source>METHOD zconsea_searcher_intf~search_for_matches.
+
+    DATA:
+          lt_results TYPE match_result_tab.
+
+    FIELD-SYMBOLS:
+      &lt;ls_result&gt;     LIKE LINE OF lt_results,
+      &lt;ls_const_line&gt; LIKE LINE OF me-&gt;gt_constant_data.
+
+*    WAIT FOR MESSAGING CHANNELS UNTIL 1 = 0 UP TO 10 SECONDS.
+
+    CLEAR et_matches.
+
+    CHECK iv_pattern IS NOT INITIAL.
+
+    FIND ALL OCCURRENCES OF REGEX iv_pattern
+      IN TABLE me-&gt;gt_search_data
+      IN CHARACTER MODE
+      IGNORING CASE
+      RESULTS lt_results.
+
+* Ignore multiple hits in one line.
+    SORT lt_results BY line.
+    DELETE ADJACENT DUPLICATES FROM lt_results COMPARING line.
+
+    LOOP AT lt_results ASSIGNING &lt;ls_result&gt;.
+
+      READ TABLE me-&gt;gt_constant_data INDEX &lt;ls_result&gt;-line ASSIGNING &lt;ls_const_line&gt;.
+
+      IF sy-subrc = 0.
+
+        INSERT &lt;ls_const_line&gt; INTO TABLE et_matches.
+
+      ENDIF.
+
+    ENDLOOP.
+
+  ENDMETHOD.</source>
+  </interfaceMethod>
+  <interfaceMethod CLSNAME="ZCONSEA_SEARCHER" CPDNAME="IF_AMC_MESSAGE_RECEIVER_PCP~RECEIVE">
+   <source>METHOD if_amc_message_receiver_pcp~receive.
+
+    DATA:
+      lt_range_classnames TYPE zconsea_rangetable_clsif_name,
+      ls_range_classname  LIKE LINE OF lt_range_classnames,
+      lv_name             TYPE seoclsname,
+      lv_type             TYPE string.
+
+    TRY.
+
+        lv_name = i_message-&gt;get_field( i_name = zconsea_constants=&gt;c_amc_field_name ).
+        lv_type = i_message-&gt;get_field( i_name = zconsea_constants=&gt;c_amc_field_type ).
+
+        ls_range_classname-sign = &apos;I&apos;.
+        ls_range_classname-option = &apos;EQ&apos;.
+        ls_range_classname-low = lv_name.
+        APPEND ls_range_classname TO lt_range_classnames.
+
+        select_constants_from_db(
+          EXPORTING
+            it_range_clsif_names = lt_range_classnames
+          IMPORTING
+            et_constant_data     = DATA(lt_results) ).
+
+        IF lt_results IS NOT INITIAL.
+
+          DELETE me-&gt;gt_constant_data USING KEY comp_name WHERE clsname = lv_name.
+
+          INSERT LINES OF lt_results INTO TABLE me-&gt;gt_constant_data.
+
+          build_search_table(
+            EXPORTING
+              it_constant_data = me-&gt;gt_constant_data
+            IMPORTING
+              et_search_table  = me-&gt;gt_search_data
+          ).
+
+        ENDIF.
+
+      CATCH cx_ac_message_type_pcp_error INTO DATA(lx_pcp_error).
+
+*        Strange things are happening here..
+
+    ENDTRY.
+
+  ENDMETHOD.</source>
+  </interfaceMethod>
+  <method CLSNAME="ZCONSEA_SEARCHER" CMPNAME="BUILD_CLASS_RANGE" VERSION="1" LANGU="E" DESCRIPT="Build the name range to limit the selection from the DB" EXPOSURE="0" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCONSEA_SEARCHER" CMPNAME="BUILD_CLASS_RANGE" SCONAME="ET_CLSIF_RANGE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="ZCONSEA_RANGETABLE_CLSIF_NAME"/>
+   <source>METHOD build_class_range.
+
+* At this very moment in time we don&apos;t restrict the namespace we are searching in...
+    CLEAR et_clsif_range.
+
+  ENDMETHOD.                    &quot;build_class_range</source>
+  </method>
+  <method CLSNAME="ZCONSEA_SEARCHER" CMPNAME="BUILD_SEARCH_TABLE" VERSION="1" LANGU="E" DESCRIPT="Build the string table for searching" EXPOSURE="0" STATE="1" EDITORDER="3 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCONSEA_SEARCHER" CMPNAME="BUILD_SEARCH_TABLE" SCONAME="IT_CONSTANT_DATA" VERSION="1" LANGU="E" DESCRIPT="Table with constant data" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ZCONSEA_TABLE_CONSTANT_DATA"/>
+   <parameter CLSNAME="ZCONSEA_SEARCHER" CMPNAME="BUILD_SEARCH_TABLE" SCONAME="ET_SEARCH_TABLE" VERSION="1" LANGU="E" DESCRIPT="Table of Strings (another one...)" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="ZCONSEA_TABLE_STRING"/>
+   <source>METHOD build_search_table.
+
+    DATA:
+          lv_string TYPE string.
+
+    FIELD-SYMBOLS:
+                   &lt;ls_const_line&gt; LIKE LINE OF it_constant_data.
+
+    CLEAR me-&gt;gt_search_data.
+
+    LOOP AT it_constant_data ASSIGNING &lt;ls_const_line&gt;.
+
+      CONCATENATE &lt;ls_const_line&gt;-clsname
+           &lt;ls_const_line&gt;-cmpname
+           &lt;ls_const_line&gt;-descript
+           &lt;ls_const_line&gt;-author
+           &lt;ls_const_line&gt;-attvalue
+           &lt;ls_const_line&gt;-type
+      INTO lv_string
+      SEPARATED BY space.
+
+      APPEND lv_string TO me-&gt;gt_search_data.
+
+    ENDLOOP.
+
+  ENDMETHOD.                    &quot;build_search_table</source>
+  </method>
+  <method CLSNAME="ZCONSEA_SEARCHER" CMPNAME="CONSTRUCTOR" VERSION="1" LANGU="E" DESCRIPT="CONSTRUCTOR" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="2" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD constructor.
+
+    me-&gt;rebuild_data( ).
+
+    TRY .
+
+        gr_amc_consumer = cl_amc_channel_manager=&gt;create_message_consumer(
+                            i_application_id = zconsea_constants=&gt;c_amc_application &quot;Anwendungs-ID des ABAP Messaging Channel
+                            i_channel_id     = zconsea_constants=&gt;c_amc_activation_channel &quot;Identifikator des ABAP Messaging Channel
+                      ).
+
+        gr_amc_consumer-&gt;start_message_delivery( i_receiver = me ).
+
+      CATCH cx_amc_error.
+
+    ENDTRY.
+
+  ENDMETHOD.</source>
+  </method>
+  <method CLSNAME="ZCONSEA_SEARCHER" CMPNAME="SELECT_CONSTANTS_FROM_DB" VERSION="1" LANGU="E" DESCRIPT="Select data of OO constants from DB" EXPOSURE="0" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCONSEA_SEARCHER" CMPNAME="SELECT_CONSTANTS_FROM_DB" SCONAME="IT_RANGE_CLSIF_NAMES" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ZCONSEA_RANGETABLE_CLSIF_NAME"/>
+   <parameter CLSNAME="ZCONSEA_SEARCHER" CMPNAME="SELECT_CONSTANTS_FROM_DB" SCONAME="ET_CONSTANT_DATA" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="ZCONSEA_TABLE_CONSTANT_DATA"/>
+   <source>METHOD select_constants_from_db.
+
+    CLEAR et_constant_data.
+
+    SELECT clsname
+           cmpname
+           descript
+           author
+           createdon
+           changedby
+           changedon
+           attvalue
+           type
+      FROM zconsea_oo_const
+      INTO TABLE et_constant_data
+      WHERE clsname IN it_range_clsif_names.
+
+    SORT et_constant_data BY clsname cmpname.
+
+  ENDMETHOD.                    &quot;select_constants_from_db</source>
+  </method>
+  <aliasMethod CLSNAME="ZCONSEA_SEARCHER" CMPNAME="GET_NUMBER_OF_CONSTANTS" VERSION="1" EXPOSURE="0" CMPTYPE="0" REFCLSNAME="ZCONSEA_SEARCHER_INTF" REFCMPNAME="GET_NUMBER_OF_CONSTANTS"/>
+  <aliasMethod CLSNAME="ZCONSEA_SEARCHER" CMPNAME="REBUILD_DATA" VERSION="1" EXPOSURE="0" CMPTYPE="0" REFCLSNAME="ZCONSEA_SEARCHER_INTF" REFCMPNAME="REBUILD_DATA"/>
+  <aliasMethod CLSNAME="ZCONSEA_SEARCHER" CMPNAME="SEARCH_FOR_MATCHES" VERSION="1" EXPOSURE="0" CMPTYPE="0" REFCLSNAME="ZCONSEA_SEARCHER_INTF" REFCMPNAME="SEARCH_FOR_MATCHES"/>
+ </CLAS>
+ <CLAS CLSNAME="ZCONSEA_SEARCHER_FACTORY" VERSION="1" LANGU="D" DESCRIPT="ConSea: Factory for Searcher Implementation" CATEGORY="00" EXPOSURE="0" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <method CLSNAME="ZCONSEA_SEARCHER_FACTORY" CMPNAME="GET_SEARCHER_IMPLEMENTATION" VERSION="1" LANGU="D" DESCRIPT="Returns a searcher implementation instance" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCONSEA_SEARCHER_FACTORY" CMPNAME="GET_SEARCHER_IMPLEMENTATION" SCONAME="RR_SEARCHER" VERSION="1" LANGU="D" DESCRIPT="ConSea: Generic Searcher Interface" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="ZCONSEA_SEARCHER_INTF"/>
+   <source>METHOD get_searcher_implementation.
+
+    CREATE OBJECT rr_searcher TYPE zconsea_searcher_so.
+
+  ENDMETHOD.</source>
+  </method>
+ </CLAS>
+ <DEVC DEVCLASS="ZCONSEA" CTEXT="CONstant SEArcher: google your OO-Constants" LANGUAGE="D" MASTERLANG="D" KORRFLAG="X" PDEVCLASS="ZREK" DLVUNIT="HOME" NAMESPACE="/0CUST/" CREATED_BY="MATHEILE" CREATED_ON="20150123" CHANGED_BY="MATHEILE" CHANGED_ON="20150123" PROJECT_GUID="00000000000000000000000000000000"/>
+ <DOMA DOMNAME="ZCONSEA_BOOLEAN" DATATYPE="CHAR" LENG="000001" OUTPUTLEN="000001" DECIMALS="000000" VALEXI="X" MASKLEN="0000" AUTHCLASS="00" OUTPUTSTYLE="00">
+  <dd07v DOMNAME="ZCONSEA_BOOLEAN" VALPOS="0001"/>
+  <dd07v DOMNAME="ZCONSEA_BOOLEAN" VALPOS="0002" DOMVALUE_L="X"/>
+ </DOMA>
+ <DTEL ROLLNAME="ZCONSEA_IGNORE_CASE" DOMNAME="ZCONSEA_BOOLEAN" ROUTPUTLEN="000000" HEADLEN="11" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" AUTHCLASS="00" DTELMASTER="E" DATATYPE="CHAR" LENG="000001" DECIMALS="000000" OUTPUTLEN="000001" VALEXI="X" REFKIND="D">
+  <tpara/>
+ </DTEL>
+ <DTEL ROLLNAME="ZCONSEA_SEARCH_PATTERN" ROUTPUTLEN="000000" HEADLEN="14" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" AUTHCLASS="00" DTELMASTER="E" DATATYPE="SSTR" LENG="000255" DECIMALS="000000" OUTPUTLEN="000000">
+  <tpara/>
+ </DTEL>
+ <INTF CLSNAME="ZIWCI_MYCOMPONENT" VERSION="1" LANGU="E" DESCRIPT="WebDynpro Interface COMPONENTCONTROLLER" CATEGORY="80" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X">
+  <method CLSNAME="ZIWCI_MYCOMPONENT" CMPNAME="WD_GET_API" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZIWCI_MYCOMPONENT" CMPNAME="WD_GET_API" SCONAME="RESULT" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="IF_WD_CONTROLLER"/>
+  </method>
+ </INTF>
+ <INTF CLSNAME="ZCONSEA_CONSTANTS" VERSION="1" LANGU="D" DESCRIPT="Konstanten für ConSea" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X">
+  <attribute CLSNAME="ZCONSEA_CONSTANTS" CMPNAME="C_ADT_BASE_URI" VERSION="1" LANGU="D" DESCRIPT="ADT Base UIR" EXPOSURE="2" STATE="1" EDITORDER="7 " ATTDECLTYP="2" ATTVALUE="&apos;/zconsea&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_CONSTANTS" CMPNAME="C_ADT_DISCOVERY_URI" VERSION="1" LANGU="D" DESCRIPT="ADT Discovery ULR" EXPOSURE="2" STATE="1" EDITORDER="8 " ATTDECLTYP="2" ATTVALUE="&apos;/zconsea/discovery&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_CONSTANTS" CMPNAME="C_AMC_ACTIVATION_CHANNEL" VERSION="1" LANGU="D" DESCRIPT="Identifikator des ABAP Messaging Channel" EXPOSURE="2" STATE="1" EDITORDER="2 " ATTDECLTYP="2" ATTVALUE="&apos;/activation&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="AMC_CHANNEL_ID" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_CONSTANTS" CMPNAME="C_AMC_APPLICATION" VERSION="1" LANGU="D" DESCRIPT="Anwendungs-ID des ABAP Messaging Channel" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTVALUE="&apos;ZCONSEA_CLIF_ACTIVATION&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="AMC_APPLICATION_ID" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_CONSTANTS" CMPNAME="C_AMC_FIELD_NAME" VERSION="1" LANGU="D" DESCRIPT="Name des Namensfeldes" EXPOSURE="2" STATE="1" EDITORDER="3 " ATTDECLTYP="2" ATTVALUE="&apos;Name&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_CONSTANTS" CMPNAME="C_AMC_FIELD_TYPE" VERSION="1" LANGU="D" DESCRIPT="Name des Typfeldes" EXPOSURE="2" STATE="1" EDITORDER="4 " ATTDECLTYP="2" ATTVALUE="&apos;Type&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_CONSTANTS" CMPNAME="C_AMC_TYPE_CLASS" VERSION="1" LANGU="D" DESCRIPT="AMC Type for Classes" EXPOSURE="2" STATE="1" EDITORDER="5 " ATTDECLTYP="2" ATTVALUE="&apos;CLAS&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_CONSTANTS" CMPNAME="C_AMC_TYPE_INTERFACE" VERSION="1" LANGU="D" DESCRIPT="AMC Type for Interfaces" EXPOSURE="2" STATE="1" EDITORDER="6 " ATTDECLTYP="2" ATTVALUE="&apos;INTF&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_CONSTANTS" CMPNAME="C_SAP_INSIDE_TRACK" VERSION="1" LANGU="D" DESCRIPT="See you in Oldenburg!" EXPOSURE="2" STATE="1" EDITORDER="9 " ATTDECLTYP="2" ATTVALUE="&apos;sitHH&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+ </INTF>
+ <INTF CLSNAME="ZCONSEA_SEARCHER_INTF" VERSION="1" LANGU="D" DESCRIPT="ConSea: Generic Searcher Interface" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X">
+  <method CLSNAME="ZCONSEA_SEARCHER_INTF" CMPNAME="GET_NUMBER_OF_CONSTANTS" VERSION="1" LANGU="D" EXPOSURE="2" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCONSEA_SEARCHER_INTF" CMPNAME="GET_NUMBER_OF_CONSTANTS" SCONAME="RV_COUNT_CONSTANTS" VERSION="1" LANGU="D" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="I"/>
+  </method>
+  <method CLSNAME="ZCONSEA_SEARCHER_INTF" CMPNAME="REBUILD_DATA" VERSION="1" LANGU="D" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0"/>
+  <method CLSNAME="ZCONSEA_SEARCHER_INTF" CMPNAME="SEARCH_FOR_MATCHES" VERSION="1" LANGU="D" EXPOSURE="2" STATE="1" EDITORDER="3 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCONSEA_SEARCHER_INTF" CMPNAME="SEARCH_FOR_MATCHES" SCONAME="IV_PATTERN" VERSION="1" LANGU="D" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ZCONSEA_SEARCH_PATTERN"/>
+   <parameter CLSNAME="ZCONSEA_SEARCHER_INTF" CMPNAME="SEARCH_FOR_MATCHES" SCONAME="ET_MATCHES" VERSION="1" LANGU="D" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="ZCONSEA_TABLE_CONSTANT_DATA"/>
+  </method>
+ </INTF>
+ <MSAG ARBGB="ZCONSEA" MASTERLANG="D" RESPUSER="MATHEILE" STEXT="Fehlermeldungen">
+  <t100 SPRSL="D" ARBGB="ZCONSEA" MSGNR="000" TEXT="Fehler beim Export ins Clipboard!"/>
+  <t100 SPRSL="E" ARBGB="ZCONSEA" MSGNR="000" TEXT="Could not create constants source code"/>
+  <t100 SPRSL="D" ARBGB="ZCONSEA" MSGNR="001" TEXT="Konstanten erfolgreich ins Clipboard exportiert"/>
+  <t100 SPRSL="E" ARBGB="ZCONSEA" MSGNR="001" TEXT="Source code successfully copied to clipboard"/>
+  <t100t SPRSL="D" ARBGB="ZCONSEA" STEXT="Fehlermeldungen"/>
+ </MSAG>
+ <PROG NAME="ZCONSEA" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
+  <textPool>
+   <language SPRAS="E">
+    <textElement ID="R" ENTRY="Search for public OO constants googlelish" LENGTH="41 "/>
+   </language>
+  </textPool>
+  <dynpros>
+   <dynpro PROG="ZCONSEA" DNUM="0100" FNUM="0100" BZMX="40 " BZBR="150 " MILI="192 " MICO="37 " MALI="0 " MACO="0 " NOLI="40 " NOCO="150 " VALP="0 " CUAN="G" SPRA="E" DTEXT="Main screen for searching and reslut display">
+    <dynprofield FNAM="ZCONSEA_UI_100_FIELDS-SEARCH_PATTERN" DIDX="0000" FLG1="30" FLG2="00" FLG3="00" FMB1="30" FMB2="00" LENG="0F" LINE="02" COLN="04" LANF="00" LBLK="00" LREP="00" TYPE="CHAR" ITYP="2" AGLT="00" ADEZ="00" STXT="Search Pattern" RES1="                                                                                                                                                                                                                                                        X"/>
+    <dynprofield FNAM="GS_UI_100_FIELDS-SEARCH_PATTERN" DIDX="0083" FLG1="81" FLG2="02" FLG3="80" FMB1="00" FMB2="00" LENG="FF" LINE="02" COLN="14" LANF="00" LBLK="00" LREP="00" TYPE="SSTR" ITYP="g" AGLT="FF" ADEZ="00" STXT="____________________________________________________________________________________________________________________________________"/>
+    <dynprofield FNAM="OPTIONS" DIDX="0003" FLG1="00" FLG2="00" FLG3="00" FILL="R" FMB1="30" FMB2="00" LENG="1D" LINE="04" COLN="04" LANF="00" LBLK="00" LREP="00" TYPE="CHAR" AUTH="101" AGLT="00" ADEZ="00" STXT="Options"/>
+    <dynprofield FNAM="GS_UI_100_FIELDS-IGNORE_CASE" DIDX="0000" FLG1="80" FLG2="00" FLG3="80" FILL="C" FMB1="00" FMB2="00" LENG="01" LINE="05" COLN="06" LANF="00" LBLK="00" LREP="00" TYPE="CHAR" AUTH="102" AGLT="00" ADEZ="00"/>
+    <dynprofield FNAM="GS_UI_100_FIELDS-IGNORE_CASE" DIDX="0000" FLG1="00" FLG2="00" FLG3="01" FILL="C" FMB1="30" FMB2="00" LENG="0F" LINE="05" COLN="08" LANF="00" LBLK="00" LREP="00" TYPE="CHAR" AUTH="102" ITYP="2" AGLT="00" ADEZ="00" STXT="Ignore Case"/>
+    <dynprofield FNAM="CONTAINER_RESULT" DIDX="0021" FLG1="00" FLG2="00" FLG3="00" FILL="U" FMB1="30" FMB2="00" LENG="96" LINE="08" COLN="02" LANF="00" LBLK="00" LREP="00" AUTH="103" AGLT="01" ADEZ="01"/>
+    <dynprofield FNAM="OK_CODE" DIDX="0000" FLG1="80" FLG2="10" FLG3="00" FMB1="00" FMB2="00" LENG="14" LINE="FF" COLN="01" LTYP="O" LANF="00" LBLK="00" LREP="00" TYPE="CHAR" AGLT="00" ADEZ="00" STXT="____________________"/>
+    <dynproflowsource>PROCESS BEFORE OUTPUT.
+
+  MODULE status_0100.
+  MODULE pbo_0100.
+
+PROCESS AFTER INPUT.
+  MODULE exit_0100.
+  MODULE user_command_0100.</dynproflowsource>
+   </dynpro>
+  </dynpros>
+  <pfstatus>
+   <pfstatus_sta CODE="MAIN" MODAL="D" ACTCODE="000001" PFKCODE="000001" BUTCODE="0001" INT_NOTE="Main Dynpro status"/>
+   <pfstatus_fun CODE="BACK" TEXTNO="001" TEXT_TYPE="S" FUN_TEXT="Back"/>
+   <pfstatus_fun CODE="CANC" TEXTNO="001" TEXT_TYPE="S" FUN_TEXT="Exit"/>
+   <pfstatus_fun CODE="DBREFR" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_REFRESH" ICON_ID="@42@" FUN_TEXT="Refresh Data from DB" ICON_TEXT="Refresh Data from DB" INFO_TEXT="Refresh Data from DB" PATH="R"/>
+   <pfstatus_fun CODE="EXIT" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_CANCEL" ICON_ID="@0W@" FUN_TEXT="Cancel"/>
+   <pfstatus_fun CODE="SEARCH" TEXTNO="001" TEXT_TYPE="S" TEXT_NAME="ICON_SEARCH" ICON_ID="@13@" FUN_TEXT="Search for matches" ICON_TEXT="Search for matching constants" INFO_TEXT="Search for matching constants" PATH="S"/>
+   <pfstatus_fun CODE="SEARCH" TEXTNO="002" TEXT_TYPE="S" TEXT_NAME="ICON_SEARCH" ICON_ID="@13@" FUN_TEXT="Find" ICON_TEXT="Search for matching constants" PATH="S"/>
+   <pfstatus_but PFK_CODE="000001" CODE="0001" NO="01" PFNO="08"/>
+   <pfstatus_but PFK_CODE="000001" CODE="0001" NO="02" PFNO="05"/>
+   <pfstatus_pfk CODE="000001" PFNO="00" FUNCODE="SEARCH" FUNNO="001"/>
+   <pfstatus_pfk CODE="000001" PFNO="03" FUNCODE="BACK" FUNNO="001"/>
+   <pfstatus_pfk CODE="000001" PFNO="05" FUNCODE="DBREFR" FUNNO="001"/>
+   <pfstatus_pfk CODE="000001" PFNO="08" FUNCODE="SEARCH" FUNNO="001"/>
+   <pfstatus_pfk CODE="000001" PFNO="12" FUNCODE="EXIT" FUNNO="001"/>
+   <pfstatus_pfk CODE="000001" PFNO="15" FUNCODE="CANC" FUNNO="001"/>
+   <pfstatus_set STATUS="MAIN" FUNCTION="BACK"/>
+   <pfstatus_set STATUS="MAIN" FUNCTION="CANC"/>
+   <pfstatus_set STATUS="MAIN" FUNCTION="DBREFR"/>
+   <pfstatus_set STATUS="MAIN" FUNCTION="EXIT"/>
+   <pfstatus_set STATUS="MAIN" FUNCTION="SEARCH"/>
+   <pfstatus_doc OBJ_TYPE="A" OBJ_CODE="000001" MODAL="D" INT_NOTE="Main Dynpro status"/>
+   <pfstatus_doc OBJ_TYPE="P" OBJ_CODE="000001" MODAL="D" INT_NOTE="Main Dynpro status"/>
+   <pfstatus_doc OBJ_TYPE="B" OBJ_CODE="000001" SUB_CODE="0001" MODAL="D" INT_NOTE="Main Dynpro status"/>
+   <pfstatus_tit CODE="100" TEXT="Search OO constants the google way (found &amp; constants)"/>
+  </pfstatus>
+  <source>REPORT  zconsea.
+
+DATA:
+  gs_ui_100_fields TYPE zconsea_ui_100_fields,
+  gr_controller    TYPE REF TO zconsea_controller_dynpro,
+  ok_code          TYPE syucomm.
+
+LOAD-OF-PROGRAM.
+
+  gs_ui_100_fields-ignore_case = abap_true.
+
+  CREATE OBJECT gr_controller.
+
+  CALL SCREEN 100.
+
+*----------------------------------------------------------------------*
+*  MODULE status_0100 OUTPUT
+*----------------------------------------------------------------------*
+*
+*----------------------------------------------------------------------*
+MODULE status_0100 OUTPUT.
+
+  DATA:
+      lv_count TYPE string.
+
+  SET PF-STATUS &apos;MAIN&apos;.
+
+  lv_count = gr_controller-&gt;gv_count_loaded_constants.
+
+  SET TITLEBAR &apos;100&apos; WITH lv_count.
+
+ENDMODULE.                    &quot;status_0100 OUTPUT
+
+*----------------------------------------------------------------------*
+*  MODULE user_command_0100 INPUT
+*----------------------------------------------------------------------*
+*
+*----------------------------------------------------------------------*
+MODULE user_command_0100 INPUT.
+
+  gr_controller-&gt;pai( iv_command = ok_code
+                      is_ui_100_fields = gs_ui_100_fields ).
+
+  CLEAR ok_code.
+
+ENDMODULE.                    &quot;user_command_0100 INPUT
+
+*----------------------------------------------------------------------*
+*  MODULE pbo_0100 OUTPUT
+*----------------------------------------------------------------------*
+*
+*----------------------------------------------------------------------*
+MODULE pbo_0100 OUTPUT.
+
+  gr_controller-&gt;pbo( ).
+
+ENDMODULE.                    &quot;pbo_0100 OUTPUT
+
+*----------------------------------------------------------------------*
+*  MODULE exit_0100 INPUT
+*----------------------------------------------------------------------*
+*
+*----------------------------------------------------------------------*
+MODULE exit_0100 INPUT.
+
+  CASE ok_code.
+
+    WHEN zconsea_controller_dynpro=&gt;c_uc_back OR
+         zconsea_controller_dynpro=&gt;c_uc_cancel OR
+         zconsea_controller_dynpro=&gt;c_uc_exit.
+      CLEAR ok_code.
+      gr_controller-&gt;exit( ).
+      LEAVE TO SCREEN 0.
+
+    WHEN OTHERS.
+      &quot;intentionally left blank.
+
+  ENDCASE.
+
+ENDMODULE.                    &quot;exit_0100 INPUT</source>
+ </PROG>
+ <PROG NAME="ZCONSEA_TEST_SO" VARCL="X" SUBC="1" RMAND="001" RLOAD="E" FIXPT="X" UCCHECK="X">
+  <textPool>
+   <language SPRAS="E">
+    <textElement ID="R" ENTRY="Program ZCONSEA_TEST_SO" LENGTH="23 "/>
+   </language>
+  </textPool>
+  <source>*&amp;---------------------------------------------------------------------*
+*&amp; Report  ZCONSEA_TEST_SO
+*&amp;
+*&amp;---------------------------------------------------------------------*
+*&amp;
+*&amp;
+*&amp;---------------------------------------------------------------------*
+
+REPORT  zconsea_test_so.
+
+DATA:
+  lr_aera_handle      TYPE REF TO zconsea_data_area,
+  lv_number_constants TYPE i.
+
+START-OF-SELECTION.
+
+  lr_aera_handle = zconsea_data_area=&gt;attach_for_read( ).
+
+  lv_number_constants = 1.
+
+  WRITE: / &apos;Found&apos;, lv_number_constants, &apos;constants.&apos;.</source>
+ </PROG>
+ <TABL TABNAME="ZCONSEA_BACKLOG" DDLANGUAGE="D" TABCLASS="TRANSP" DATMIN="0000000000" DATMAX="0000000000" DATAVG="0000000000" DDTEXT="ConSea: Backlog of changed classes" AUTHCLASS="00" MAINFLAG="X" CONTFLAG="L" PROZPUFF="000" EXCLASS="1">
+  <dd09l TABNAME="ZCONSEA_BACKLOG" AS4LOCAL="A" AS4VERS="0000" TABKAT="0" TABART="APPL0" SCHFELDANZ="000" BUFALLOW="N" ROWORCOLST="R"/>
+  <dd03p TABNAME="ZCONSEA_BACKLOG" FIELDNAME="CLASSNAME" DDLANGUAGE="D" POSITION="0001" KEYFLAG="X" ROLLNAME="SEOCLSNAME" ADMINFIELD="0" INTTYPE="C" INTLEN="000060" NOTNULL="X" DOMNAME="SEOCLSNAME" ROUTPUTLEN="000000" MEMORYID="CLASS" HEADLEN="30" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" DTELMASTER="D" DATATYPE="CHAR" LENG="000030" OUTPUTLEN="000030" DECIMALS="000000" MASK="  CHARE" MASKLEN="0000" DDTEXT="Objekttypname" REPTEXT="Objekttypname" SCRTEXT_S="Objekttyp" SCRTEXT_M="Objekttypname" SCRTEXT_L="Klasse/Interface" DOMNAME3L="SEOCLSNAME" DEPTH="00" COMPTYPE="E" EXCLASS="0" DBPOSITION="0000" OUTPUTSTYLE="00" STRORLOCPOS="00"/>
+ </TABL>
+ <TABL TABNAME="ZCONSEA_CONSTANT_DATA" DDLANGUAGE="D" TABCLASS="INTTAB" DATMIN="0000000000" DATMAX="0000000000" DATAVG="0000000000" DDTEXT="ConSea: Structure for constant data" AUTHCLASS="00" PROZPUFF="000" EXCLASS="1">
+  <dd09l AS4VERS="0000" SCHFELDANZ="000"/>
+  <dd03p TABNAME="ZCONSEA_CONSTANT_DATA" FIELDNAME="CLSNAME" DDLANGUAGE="D" POSITION="0001" ROLLNAME="SEOCLSNAME" ADMINFIELD="0" INTTYPE="C" INTLEN="000060" DOMNAME="SEOCLSNAME" ROUTPUTLEN="000000" MEMORYID="CLASS" HEADLEN="30" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" DTELMASTER="D" DATATYPE="CHAR" LENG="000030" OUTPUTLEN="000030" DECIMALS="000000" MASK="  CHARE" MASKLEN="0000" DDTEXT="Objekttypname" REPTEXT="Objekttypname" SCRTEXT_S="Objekttyp" SCRTEXT_M="Objekttypname" SCRTEXT_L="Klasse/Interface" DOMNAME3L="SEOCLSNAME" DEPTH="00" COMPTYPE="E" EXCLASS="0" DBPOSITION="0000" OUTPUTSTYLE="00" STRORLOCPOS="00"/>
+  <dd03p TABNAME="ZCONSEA_CONSTANT_DATA" FIELDNAME="CMPNAME" DDLANGUAGE="D" POSITION="0002" ROLLNAME="SEOCMPNAME" ADMINFIELD="0" INTTYPE="C" INTLEN="000060" DOMNAME="CHAR30" ROUTPUTLEN="000000" HEADLEN="30" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" DTELMASTER="D" DATATYPE="CHAR" LENG="000030" OUTPUTLEN="000030" DECIMALS="000000" MASK="  CHARE" MASKLEN="0000" DDTEXT="Komponentenname" REPTEXT="Komponente" SCRTEXT_S="Komponente" SCRTEXT_M="Komponente" SCRTEXT_L="Komponente" DOMNAME3L="CHAR30" DEPTH="00" COMPTYPE="E" EXCLASS="0" DBPOSITION="0000" OUTPUTSTYLE="00" STRORLOCPOS="00"/>
+  <dd03p TABNAME="ZCONSEA_CONSTANT_DATA" FIELDNAME="DESCRIPT" DDLANGUAGE="D" POSITION="0003" ROLLNAME="SEODESCR" ADMINFIELD="0" INTTYPE="C" INTLEN="000120" DOMNAME="AS4TEXT" ROUTPUTLEN="000000" HEADLEN="60" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" DTELMASTER="D" DATATYPE="CHAR" LENG="000060" OUTPUTLEN="000060" DECIMALS="000000" LOWERCASE="X" MASK="  CHARE" MASKLEN="0000" DDTEXT="Kurzbeschreibung" REPTEXT="Kurzbeschreibung" SCRTEXT_S="Beschr." SCRTEXT_M="Beschreibung" SCRTEXT_L="Kurzbeschreibung" DOMNAME3L="AS4TEXT" DEPTH="00" COMPTYPE="E" EXCLASS="0" DBPOSITION="0000" OUTPUTSTYLE="00" STRORLOCPOS="00"/>
+  <dd03p TABNAME="ZCONSEA_CONSTANT_DATA" FIELDNAME="AUTHOR" DDLANGUAGE="D" POSITION="0004" ROLLNAME="CNAM" ADMINFIELD="0" INTTYPE="C" INTLEN="000024" DOMNAME="SYCHAR12" ROUTPUTLEN="000000" HEADLEN="12" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" DTELMASTER="D" DATATYPE="CHAR" LENG="000012" OUTPUTLEN="000012" DECIMALS="000000" MASK="  CHARE" MASKLEN="0000" DDTEXT="Autor" REPTEXT="Anleger" SCRTEXT_S="Anleger" SCRTEXT_M="Anleger" SCRTEXT_L="Anleger" DOMNAME3L="SYCHAR12" DEPTH="00" COMPTYPE="E" EXCLASS="0" DBPOSITION="0000" OUTPUTSTYLE="00" STRORLOCPOS="00"/>
+  <dd03p TABNAME="ZCONSEA_CONSTANT_DATA" FIELDNAME="CREATEDON" DDLANGUAGE="D" POSITION="0005" ROLLNAME="RDIR_CDATE" ADMINFIELD="0" INTTYPE="D" INTLEN="000016" DOMNAME="SYDATS" ROUTPUTLEN="000000" HEADLEN="10" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" DTELMASTER="D" DATATYPE="DATS" LENG="000008" OUTPUTLEN="000010" DECIMALS="000000" MASK="  DATSE" MASKLEN="0000" DDTEXT="Erstellungsdatum" REPTEXT="Erst.datum" SCRTEXT_S="Erst.datum" SCRTEXT_M="Erstellung.dat." SCRTEXT_L="Erstellungsdatum" DOMNAME3L="SYDATS" SHLPORIGIN="T" DEPTH="00" COMPTYPE="E" EXCLASS="0" DBPOSITION="0000" OUTPUTSTYLE="00" STRORLOCPOS="00"/>
+  <dd03p TABNAME="ZCONSEA_CONSTANT_DATA" FIELDNAME="CHANGEDBY" DDLANGUAGE="D" POSITION="0006" ROLLNAME="UNAM" ADMINFIELD="0" INTTYPE="C" INTLEN="000024" DOMNAME="SYCHAR12" ROUTPUTLEN="000000" HEADLEN="00" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" DATATYPE="CHAR" LENG="000012" OUTPUTLEN="000012" DECIMALS="000000" MASK="  CHARE" MASKLEN="0000" DDTEXT="Name des letzten Änderers" SCRTEXT_S="Änderer" SCRTEXT_M="letzter Änderer" SCRTEXT_L="letzter Änderer" DOMNAME3L="SYCHAR12" DEPTH="00" COMPTYPE="E" EXCLASS="0" DBPOSITION="0000" OUTPUTSTYLE="00" STRORLOCPOS="00"/>
+  <dd03p TABNAME="ZCONSEA_CONSTANT_DATA" FIELDNAME="CHANGEDON" DDLANGUAGE="D" POSITION="0007" ROLLNAME="RDIR_UDATE" ADMINFIELD="0" INTTYPE="D" INTLEN="000016" DOMNAME="SYDATS" ROUTPUTLEN="000000" HEADLEN="10" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" DTELMASTER="D" DATATYPE="DATS" LENG="000008" OUTPUTLEN="000010" DECIMALS="000000" MASK="  DATSE" MASKLEN="0000" DDTEXT="Änderungsdatum" REPTEXT="Änd.datum" SCRTEXT_S="Ändr.datum" SCRTEXT_M="Änderun.datum" SCRTEXT_L="Änderungsdatum" DOMNAME3L="SYDATS" SHLPORIGIN="T" DEPTH="00" COMPTYPE="E" EXCLASS="0" DBPOSITION="0000" OUTPUTSTYLE="00" STRORLOCPOS="00"/>
+  <dd03p TABNAME="ZCONSEA_CONSTANT_DATA" FIELDNAME="ATTVALUE" DDLANGUAGE="D" POSITION="0008" ROLLNAME="SEOVALUE" ADMINFIELD="0" INTTYPE="C" INTLEN="000264" DOMNAME="TEXT132" ROUTPUTLEN="000000" HEADLEN="30" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" DTELMASTER="D" DATATYPE="CHAR" LENG="000132" OUTPUTLEN="000132" DECIMALS="000000" LOWERCASE="X" MASK="  CHARE" MASKLEN="0000" DDTEXT="Initialwert" REPTEXT="Initialwert" SCRTEXT_S="Initial" SCRTEXT_M="Initialwert" SCRTEXT_L="Initialwert" DOMNAME3L="TEXT132" DEPTH="00" COMPTYPE="E" EXCLASS="0" DBPOSITION="0000" OUTPUTSTYLE="00" STRORLOCPOS="00"/>
+  <dd03p TABNAME="ZCONSEA_CONSTANT_DATA" FIELDNAME="TYPE" DDLANGUAGE="D" POSITION="0009" ROLLNAME="RS38L_TYP" ADMINFIELD="0" INTTYPE="C" INTLEN="000264" DOMNAME="RS38L_TYP" ROUTPUTLEN="000000" HEADLEN="30" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" DTELMASTER="D" DATATYPE="CHAR" LENG="000132" OUTPUTLEN="000132" DECIMALS="000000" MASK="  CHARE" MASKLEN="0000" DDTEXT="Bezugstyp eines Schnittstellenparameters" REPTEXT="Bezugstyp" SCRTEXT_S="Bezugstyp" SCRTEXT_M="Bezugstyp" SCRTEXT_L="Bezugstyp" DOMNAME3L="RS38L_TYP" DEPTH="00" COMPTYPE="E" EXCLASS="0" DBPOSITION="0000" OUTPUTSTYLE="00" STRORLOCPOS="00"/>
+ </TABL>
+ <TABL TABNAME="ZCONSEA_RANGE_CLSIF_NAME" TABCLASS="INTTAB" DATMIN="0000000000" DATMAX="0000000000" DATAVG="0000000000" AUTHCLASS="00" PROZPUFF="000" EXCLASS="1">
+  <dd09l AS4VERS="0000" SCHFELDANZ="000"/>
+  <dd03p TABNAME="ZCONSEA_RANGE_CLSIF_NAME" FIELDNAME="SIGN" DDLANGUAGE="D" POSITION="0001" ROLLNAME="DDSIGN" ADMINFIELD="0" INTTYPE="C" INTLEN="000002" DOMNAME="DDSIGN" ROUTPUTLEN="000000" HEADLEN="04" SCRLEN1="00" SCRLEN2="00" SCRLEN3="00" DTELMASTER="D" DATATYPE="CHAR" LENG="000001" OUTPUTLEN="000001" DECIMALS="000000" VALEXI="X" MASK="  CHARE" MASKLEN="0000" DDTEXT="Typ der Komponente SIGN im Zeilentyp eines Ranges-Typ" REPTEXT="SIGN" DOMNAME3L="DDSIGN" SHLPORIGIN="F" DEPTH="00" COMPTYPE="E" EXCLASS="0" DBPOSITION="0000" OUTPUTSTYLE="00" STRORLOCPOS="00"/>
+  <dd03p TABNAME="ZCONSEA_RANGE_CLSIF_NAME" FIELDNAME="OPTION" DDLANGUAGE="D" POSITION="0002" ROLLNAME="DDOPTION" ADMINFIELD="0" INTTYPE="C" INTLEN="000004" DOMNAME="DDOPTION" ROUTPUTLEN="000000" HEADLEN="06" SCRLEN1="00" SCRLEN2="00" SCRLEN3="00" DTELMASTER="D" DATATYPE="CHAR" LENG="000002" OUTPUTLEN="000002" DECIMALS="000000" VALEXI="X" MASK="  CHARE" MASKLEN="0000" DDTEXT="Typ der Komponente OPTION im Zeilentyp eines Ranges-Typ" REPTEXT="OPTION" DOMNAME3L="DDOPTION" SHLPORIGIN="F" DEPTH="00" COMPTYPE="E" EXCLASS="0" DBPOSITION="0000" OUTPUTSTYLE="00" STRORLOCPOS="00"/>
+  <dd03p TABNAME="ZCONSEA_RANGE_CLSIF_NAME" FIELDNAME="LOW" DDLANGUAGE="D" POSITION="0003" ROLLNAME="SEOCLSNAME" ADMINFIELD="0" INTTYPE="C" INTLEN="000060" DOMNAME="SEOCLSNAME" ROUTPUTLEN="000000" MEMORYID="CLASS" HEADLEN="30" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" DTELMASTER="D" DATATYPE="CHAR" LENG="000030" OUTPUTLEN="000030" DECIMALS="000000" MASK="  CHARE" MASKLEN="0000" DDTEXT="Objekttypname" REPTEXT="Objekttypname" SCRTEXT_S="Objekttyp" SCRTEXT_M="Objekttypname" SCRTEXT_L="Klasse/Interface" DOMNAME3L="SEOCLSNAME" DEPTH="00" COMPTYPE="E" EXCLASS="0" DBPOSITION="0000" OUTPUTSTYLE="00" STRORLOCPOS="00"/>
+  <dd03p TABNAME="ZCONSEA_RANGE_CLSIF_NAME" FIELDNAME="HIGH" DDLANGUAGE="D" POSITION="0004" ROLLNAME="SEOCLSNAME" ADMINFIELD="0" INTTYPE="C" INTLEN="000060" DOMNAME="SEOCLSNAME" ROUTPUTLEN="000000" MEMORYID="CLASS" HEADLEN="30" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" DTELMASTER="D" DATATYPE="CHAR" LENG="000030" OUTPUTLEN="000030" DECIMALS="000000" MASK="  CHARE" MASKLEN="0000" DDTEXT="Objekttypname" REPTEXT="Objekttypname" SCRTEXT_S="Objekttyp" SCRTEXT_M="Objekttypname" SCRTEXT_L="Klasse/Interface" DOMNAME3L="SEOCLSNAME" DEPTH="00" COMPTYPE="E" EXCLASS="0" DBPOSITION="0000" OUTPUTSTYLE="00" STRORLOCPOS="00"/>
+ </TABL>
+ <TABL TABNAME="ZCONSEA_UI_100_FIELDS" TABCLASS="INTTAB" DATMIN="0000000000" DATMAX="0000000000" DATAVG="0000000000" AUTHCLASS="00" PROZPUFF="000" EXCLASS="0">
+  <dd09l AS4VERS="0000" SCHFELDANZ="000"/>
+  <dd03p TABNAME="ZCONSEA_UI_100_FIELDS" FIELDNAME="SEARCH_PATTERN" POSITION="0001" ROLLNAME="ZCONSEA_SEARCH_PATTERN" ADMINFIELD="0" INTTYPE="g" INTLEN="000008" ROUTPUTLEN="000000" HEADLEN="14" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" DTELMASTER="E" DATATYPE="SSTR" LENG="000255" OUTPUTLEN="000000" DECIMALS="000000" MASK="  SSTRE" MASKLEN="0000" DEPTH="00" COMPTYPE="E" EXCLASS="0" DBPOSITION="0000" OUTPUTSTYLE="00" STRORLOCPOS="00"/>
+  <dd03p TABNAME="ZCONSEA_UI_100_FIELDS" FIELDNAME="IGNORE_CASE" POSITION="0002" ROLLNAME="ZCONSEA_IGNORE_CASE" ADMINFIELD="0" INTTYPE="C" INTLEN="000002" DOMNAME="ZCONSEA_BOOLEAN" ROUTPUTLEN="000000" HEADLEN="11" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" DTELMASTER="E" DATATYPE="CHAR" LENG="000001" OUTPUTLEN="000001" DECIMALS="000000" VALEXI="X" MASK="  CHARE" MASKLEN="0000" DOMNAME3L="ZCONSEA_BOOLEAN" SHLPORIGIN="F" DEPTH="00" COMPTYPE="E" EXCLASS="0" DBPOSITION="0000" OUTPUTSTYLE="00" STRORLOCPOS="00"/>
+ </TABL>
+ <TRAN TCODE="ZCONSEA" PGMNA="ZCONSEA" DYPNO="0100" CINFO="00">
+  <tstct SPRSL="D" TCODE="ZCONSEA" TTEXT="CONSEA: Find your constants googlish"/>
+  <tstcc TCODE="ZCONSEA" S_WEBGUI="1" S_WIN32="X" S_PLATIN="X"/>
+  <tstcp/>
+  <rsstcd ST_PROG="X" DEVCLASS="$TMP"/>
+ </TRAN>
+ <TTYP TYPENAME="ZCONSEA_RANGETABLE_CLSIF_NAME" ROWTYPE="ZCONSEA_RANGE_CLSIF_NAME" ROWKIND="S" DATATYPE="STRU" LENG="000000" DECIMALS="000000" ACCESSMODE="T" KEYDEF="D" KEYKIND="N" KEYFDCOUNT="0000" TYPELEN="000126" TTYPKIND="R" RANGE_CTYP="SEOCLSNAME" CTDATATYPE="CHAR" CTLENG="000030" CTDECIMALS="000000" OCCURS="00000"/>
+ <TTYP TYPENAME="ZCONSEA_TABLE_CONSTANT_DATA" DDLANGUAGE="D" ROWTYPE="ZCONSEA_CONSTANT_DATA" ROWKIND="S" DATATYPE="STRU" LENG="000000" DECIMALS="000000" ACCESSMODE="T" KEYDEF="D" KEYKIND="N" KEYFDCOUNT="0002" GENERIC="X" DDTEXT="CONSEA: Table Type for constant data" TYPELEN="000848" CTLENG="000000" CTDECIMALS="000000" OCCURS="00000" FURTHERSECKEY="W">
+  <dd42v TYPENAME="ZCONSEA_TABLE_CONSTANT_DATA" SECKEYNAME="COMP_NAME" KEYFDPOS="0001" ROWTYPEPOS="0001" KEYFIELD="CLSNAME"/>
+  <dd42v TYPENAME="ZCONSEA_TABLE_CONSTANT_DATA" SECKEYNAME="COMP_NAME" KEYFDPOS="0002" ROWTYPEPOS="0002" KEYFIELD="CMPNAME"/>
+ </TTYP>
+ <TTYP TYPENAME="ZCONSEA_TABLE_STRING" DATATYPE="STRG" LENG="000000" DECIMALS="000000" ACCESSMODE="T" KEYDEF="D" KEYKIND="N" KEYFDCOUNT="0000" TYPELEN="000008" CTLENG="000000" CTDECIMALS="000000" OCCURS="00000"/>
+ <VIEW VIEWNAME="ZCONSEA_OO_CONST" AS4LOCAL="A" AS4VERS="0000" DDLANGUAGE="D" AGGTYPE="V" AUTHCLASS="00" ROOTTAB="SEOCOMPO" DDTEXT="ConSea: View for constant data" VIEWCLASS="D" VIEWGRANT="R">
+  <dd09l TABNAME="ZCONSEA_OO_CONST" AS4LOCAL="A" AS4VERS="0000" SCHFELDANZ="000" BUFALLOW="N" ROWORCOLST="C"/>
+  <dd26v VIEWNAME="ZCONSEA_OO_CONST" TABNAME="SEOCOMPO" TABPOS="0001" FORTABNAME="SEOCOMPO"/>
+  <dd26v VIEWNAME="ZCONSEA_OO_CONST" TABNAME="SEOCOMPODF" TABPOS="0002"/>
+  <dd26v VIEWNAME="ZCONSEA_OO_CONST" TABNAME="SEOCOMPOTX" TABPOS="0003" FORTABNAME="QCM1PEST01"/>
+  <dd27p VIEWNAME="ZCONSEA_OO_CONST" OBJPOS="0001" DDLANGUAGE="D" VIEWFIELD="CLSNAME" TABNAME="SEOCOMPO" FIELDNAME="CLSNAME" KEYFLAG="X" ROLLNAME="SEOCLSNAME" ROLLNAMEVI="SEOCLSNAME" MEMORYID="CLASS" DOMNAME="SEOCLSNAME" DATATYPE="CHAR" FLENGTH="000030" CHECKTABLE="SEOCLASS" SHLPORIGIN="P" INTTYPE="C" INTLEN="000060" HEADLEN="30" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" OUTPUTLEN="000030" DECIMALS="000000" DDTEXT="Objekttypname" REPTEXT="Objekttypname" SCRTEXT_S="Objekttyp" SCRTEXT_M="Objekttypname" SCRTEXT_L="Klasse/Interface" OUTPUTSTYLE="00" EXVFLENGTH="000000" EXVDECIMALS="000000"/>
+  <dd27p VIEWNAME="ZCONSEA_OO_CONST" OBJPOS="0002" DDLANGUAGE="D" VIEWFIELD="CMPNAME" TABNAME="SEOCOMPO" FIELDNAME="CMPNAME" KEYFLAG="X" ROLLNAME="SEOCMPNAME" ROLLNAMEVI="SEOCMPNAME" DOMNAME="CHAR30" DATATYPE="CHAR" FLENGTH="000030" INTTYPE="C" INTLEN="000060" HEADLEN="30" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" OUTPUTLEN="000030" DECIMALS="000000" DDTEXT="Komponentenname" REPTEXT="Komponente" SCRTEXT_S="Komponente" SCRTEXT_M="Komponente" SCRTEXT_L="Komponente" OUTPUTSTYLE="00" EXVFLENGTH="000000" EXVDECIMALS="000000"/>
+  <dd27p VIEWNAME="ZCONSEA_OO_CONST" OBJPOS="0003" DDLANGUAGE="D" VIEWFIELD="VERSION" TABNAME="SEOCOMPODF" FIELDNAME="VERSION" KEYFLAG="X" ROLLNAME="SEOVERSION" ROLLNAMEVI="SEOVERSION" DOMNAME="SEOVERSION" DATATYPE="NUMC" FLENGTH="000001" SHLPORIGIN="F" INTTYPE="N" INTLEN="000002" HEADLEN="07" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" OUTPUTLEN="000001" DECIMALS="000000" VALEXI="X" DDTEXT="Versionskennzeichen (aktiv/inaktiv)" REPTEXT="Version" SCRTEXT_S="V" SCRTEXT_M="Version" SCRTEXT_L="Version" OUTPUTSTYLE="00" EXVFLENGTH="000000" EXVDECIMALS="000000"/>
+  <dd27p VIEWNAME="ZCONSEA_OO_CONST" OBJPOS="0004" DDLANGUAGE="D" VIEWFIELD="LANGU" TABNAME="SEOCOMPOTX" FIELDNAME="LANGU" KEYFLAG="X" ROLLNAME="LANGU" ROLLNAMEVI="LANGU" DOMNAME="SPRAS" DATATYPE="LANG" FLENGTH="000001" CHECKTABLE="T002" SHLPORIGIN="P" ENTITYTAB="T002" INTTYPE="C" INTLEN="000002" HEADLEN="02" SCRLEN1="07" SCRLEN2="15" SCRLEN3="20" OUTPUTLEN="000002" DECIMALS="000000" LOWERCASE="X" CONVEXIT="ISOLA" DDTEXT="Sprachenschlüssel" REPTEXT="SP" SCRTEXT_S="Sprache" SCRTEXT_M="Sprache" SCRTEXT_L="Sprachenschlüssel" OUTPUTSTYLE="00" EXVFLENGTH="000000" EXVDECIMALS="000000"/>
+  <dd27p VIEWNAME="ZCONSEA_OO_CONST" OBJPOS="0005" DDLANGUAGE="D" VIEWFIELD="DESCRIPT" TABNAME="SEOCOMPOTX" FIELDNAME="DESCRIPT" ROLLNAME="SEODESCR" ROLLNAMEVI="SEODESCR" DOMNAME="AS4TEXT" DATATYPE="CHAR" FLENGTH="000060" INTTYPE="C" INTLEN="000120" HEADLEN="60" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" OUTPUTLEN="000060" DECIMALS="000000" LOWERCASE="X" DDTEXT="Kurzbeschreibung" REPTEXT="Kurzbeschreibung" SCRTEXT_S="Beschr." SCRTEXT_M="Beschreibung" SCRTEXT_L="Kurzbeschreibung" OUTPUTSTYLE="00" EXVFLENGTH="000000" EXVDECIMALS="000000"/>
+  <dd27p VIEWNAME="ZCONSEA_OO_CONST" OBJPOS="0006" DDLANGUAGE="D" VIEWFIELD="EXPOSURE" TABNAME="SEOCOMPODF" FIELDNAME="EXPOSURE" ROLLNAME="SEOEXPOSE" ROLLNAMEVI="SEOEXPOSE" DOMNAME="SEOEXPOSE" DATATYPE="NUMC" FLENGTH="000001" SHLPORIGIN="F" INTTYPE="N" INTLEN="000002" HEADLEN="01" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" OUTPUTLEN="000001" DECIMALS="000000" VALEXI="X" DDTEXT="Sichtbarkeit einer Klasse bzw. Komponente" REPTEXT="S" SCRTEXT_S="Sichtbar" SCRTEXT_M="Sichtbarkeit" SCRTEXT_L="Sichtbarkeit" OUTPUTSTYLE="00" EXVFLENGTH="000000" EXVDECIMALS="000000"/>
+  <dd27p VIEWNAME="ZCONSEA_OO_CONST" OBJPOS="0007" DDLANGUAGE="D" VIEWFIELD="STATE" TABNAME="SEOCOMPODF" FIELDNAME="STATE" ROLLNAME="SEOSTATE" ROLLNAMEVI="SEOSTATE" DOMNAME="SEOSTATE" DATATYPE="NUMC" FLENGTH="000001" SHLPORIGIN="F" INTTYPE="N" INTLEN="000002" HEADLEN="00" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" OUTPUTLEN="000001" DECIMALS="000000" VALEXI="X" DDTEXT="Status einer Klasse bzw. Komponente" SCRTEXT_S="Status" SCRTEXT_M="Status" SCRTEXT_L="Status" OUTPUTSTYLE="00" EXVFLENGTH="000000" EXVDECIMALS="000000"/>
+  <dd27p VIEWNAME="ZCONSEA_OO_CONST" OBJPOS="0008" DDLANGUAGE="D" VIEWFIELD="AUTHOR" TABNAME="SEOCOMPODF" FIELDNAME="AUTHOR" ROLLNAME="CNAM" ROLLNAMEVI="CNAM" DOMNAME="SYCHAR12" DATATYPE="CHAR" FLENGTH="000012" INTTYPE="C" INTLEN="000024" HEADLEN="12" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" OUTPUTLEN="000012" DECIMALS="000000" DDTEXT="Autor" REPTEXT="Anleger" SCRTEXT_S="Anleger" SCRTEXT_M="Anleger" SCRTEXT_L="Anleger" OUTPUTSTYLE="00" EXVFLENGTH="000000" EXVDECIMALS="000000"/>
+  <dd27p VIEWNAME="ZCONSEA_OO_CONST" OBJPOS="0009" DDLANGUAGE="D" VIEWFIELD="CREATEDON" TABNAME="SEOCOMPODF" FIELDNAME="CREATEDON" ROLLNAME="RDIR_CDATE" ROLLNAMEVI="RDIR_CDATE" DOMNAME="SYDATS" DATATYPE="DATS" FLENGTH="000008" SHLPORIGIN="T" INTTYPE="D" INTLEN="000016" HEADLEN="10" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" OUTPUTLEN="000010" DECIMALS="000000" DDTEXT="Erstellungsdatum" REPTEXT="Erst.datum" SCRTEXT_S="Erst.datum" SCRTEXT_M="Erstellung.dat." SCRTEXT_L="Erstellungsdatum" OUTPUTSTYLE="00" EXVFLENGTH="000000" EXVDECIMALS="000000"/>
+  <dd27p VIEWNAME="ZCONSEA_OO_CONST" OBJPOS="0010" DDLANGUAGE="D" VIEWFIELD="CHANGEDBY" TABNAME="SEOCOMPODF" FIELDNAME="CHANGEDBY" ROLLNAME="UNAM" ROLLNAMEVI="UNAM" DOMNAME="SYCHAR12" DATATYPE="CHAR" FLENGTH="000012" INTTYPE="C" INTLEN="000024" HEADLEN="00" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" OUTPUTLEN="000012" DECIMALS="000000" DDTEXT="Name des letzten Änderers" SCRTEXT_S="Änderer" SCRTEXT_M="letzter Änderer" SCRTEXT_L="letzter Änderer" OUTPUTSTYLE="00" EXVFLENGTH="000000" EXVDECIMALS="000000"/>
+  <dd27p VIEWNAME="ZCONSEA_OO_CONST" OBJPOS="0011" DDLANGUAGE="D" VIEWFIELD="CHANGEDON" TABNAME="SEOCOMPODF" FIELDNAME="CHANGEDON" ROLLNAME="RDIR_UDATE" ROLLNAMEVI="RDIR_UDATE" DOMNAME="SYDATS" DATATYPE="DATS" FLENGTH="000008" SHLPORIGIN="T" INTTYPE="D" INTLEN="000016" HEADLEN="10" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" OUTPUTLEN="000010" DECIMALS="000000" DDTEXT="Änderungsdatum" REPTEXT="Änd.datum" SCRTEXT_S="Ändr.datum" SCRTEXT_M="Änderun.datum" SCRTEXT_L="Änderungsdatum" OUTPUTSTYLE="00" EXVFLENGTH="000000" EXVDECIMALS="000000"/>
+  <dd27p VIEWNAME="ZCONSEA_OO_CONST" OBJPOS="0012" DDLANGUAGE="D" VIEWFIELD="ATTVALUE" TABNAME="SEOCOMPODF" FIELDNAME="ATTVALUE" ROLLNAME="SEOVALUE" ROLLNAMEVI="SEOVALUE" DOMNAME="TEXT132" DATATYPE="CHAR" FLENGTH="000132" INTTYPE="C" INTLEN="000264" HEADLEN="30" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" OUTPUTLEN="000132" DECIMALS="000000" LOWERCASE="X" DDTEXT="Initialwert" REPTEXT="Initialwert" SCRTEXT_S="Initial" SCRTEXT_M="Initialwert" SCRTEXT_L="Initialwert" OUTPUTSTYLE="00" EXVFLENGTH="000000" EXVDECIMALS="000000"/>
+  <dd27p VIEWNAME="ZCONSEA_OO_CONST" OBJPOS="0013" DDLANGUAGE="D" VIEWFIELD="TYPE" TABNAME="SEOCOMPODF" FIELDNAME="TYPE" ROLLNAME="RS38L_TYP" ROLLNAMEVI="RS38L_TYP" DOMNAME="RS38L_TYP" DATATYPE="CHAR" FLENGTH="000132" INTTYPE="C" INTLEN="000264" HEADLEN="30" SCRLEN1="10" SCRLEN2="15" SCRLEN3="20" OUTPUTLEN="000132" DECIMALS="000000" DDTEXT="Bezugstyp eines Schnittstellenparameters" REPTEXT="Bezugstyp" SCRTEXT_S="Bezugstyp" SCRTEXT_M="Bezugstyp" SCRTEXT_L="Bezugstyp" OUTPUTSTYLE="00" EXVFLENGTH="000000" EXVDECIMALS="000000"/>
+  <dd28j VIEWNAME="ZCONSEA_OO_CONST" LTAB="SEOCOMPO" LFIELD="CLSNAME" OPERATOR="EQ" RTAB="SEOCOMPODF" RFIELD="CLSNAME" SOURCE="S"/>
+  <dd28j VIEWNAME="ZCONSEA_OO_CONST" LTAB="SEOCOMPO" LFIELD="CMPNAME" OPERATOR="EQ" RTAB="SEOCOMPODF" RFIELD="CMPNAME" SOURCE="S"/>
+  <dd28j VIEWNAME="ZCONSEA_OO_CONST" LTAB="SEOCOMPO" LFIELD="CLSNAME" OPERATOR="EQ" RTAB="SEOCOMPOTX" RFIELD="CLSNAME" SOURCE="S"/>
+  <dd28j VIEWNAME="ZCONSEA_OO_CONST" LTAB="SEOCOMPO" LFIELD="CMPNAME" OPERATOR="EQ" RTAB="SEOCOMPOTX" RFIELD="CMPNAME" SOURCE="S"/>
+  <dd28v CONDNAME="ZCONSEA_OO_CONST" POSITION="0009" TABNAME="SEOCOMPO" FIELDNAME="CMPTYPE" OPERATOR="EQ" CONSTANTS="&apos;0&apos;" AND_OR="AND" OFFSET="0000" FLENGTH="0000"/>
+  <dd28v CONDNAME="ZCONSEA_OO_CONST" POSITION="0010" TABNAME="SEOCOMPODF" FIELDNAME="EXPOSURE" OPERATOR="EQ" CONSTANTS="&apos;2&apos;" AND_OR="AND" OFFSET="0000" FLENGTH="0000"/>
+  <dd28v CONDNAME="ZCONSEA_OO_CONST" POSITION="0011" TABNAME="SEOCOMPODF" FIELDNAME="VERSION" OPERATOR="EQ" CONSTANTS="&apos;1&apos;" AND_OR="AND" OFFSET="0000" FLENGTH="0000"/>
+  <dd28v CONDNAME="ZCONSEA_OO_CONST" POSITION="0012" TABNAME="SEOCOMPODF" FIELDNAME="STATE" OPERATOR="EQ" CONSTANTS="&apos;1&apos;" AND_OR="AND" OFFSET="0000" FLENGTH="0000"/>
+  <dd28v CONDNAME="ZCONSEA_OO_CONST" POSITION="0013" TABNAME="SEOCOMPODF" FIELDNAME="ATTDECLTYP" OPERATOR="EQ" CONSTANTS="&apos;2&apos;" OFFSET="0000" FLENGTH="0000"/>
+ </VIEW>
+ <XSLT XSLTDESC="ZCONSEA_ADT_ST_CONSTANTS" DEVCLASS="$TMP" LANGU="D" DESCRIPT="ConSea: Transformation for Constant Data">
+  <source>&lt;?sap.transform simple?&gt;
+&lt;tt:transform xmlns:tt=&quot;http://www.sap.com/transformation-templates&quot; xmlns:ddic=&quot;http://www.sap.com/abapxml/types/dictionary&quot; xmlns:consea=&quot;http://org.consea/constants&quot; xmlns:def=&quot;http://www.sap.com/abapxml/types/defined&quot;&gt;
+  &lt;tt:root name=&quot;CONSTANT_DATA&quot; type=&quot;ddic:ZCONSEA_CONSTANT_DATA&quot;/&gt;
+  &lt;tt:template&gt;
+    &lt;consea:constant tt:extensible=&quot;deep&quot; tt:ref=&quot;constant_data&quot;&gt;
+      &lt;tt:attribute name=&quot;class&quot; value-ref=&quot;$REF.CLSNAME&quot;/&gt;
+      &lt;tt:attribute name=&quot;constant&quot; value-ref=&quot;$REF.CMPNAME&quot;/&gt;
+      &lt;tt:attribute name=&quot;description&quot; value-ref=&quot;$REF.DESCRIPT&quot;/&gt;
+      &lt;tt:attribute name=&quot;author&quot; value-ref=&quot;$REF.AUTHOR&quot;/&gt;
+      &lt;tt:attribute name=&quot;createdon&quot; value-ref=&quot;$REF.CREATEDON&quot;/&gt;
+      &lt;tt:attribute name=&quot;changedby&quot; value-ref=&quot;$REF.CHANGEDBY&quot;/&gt;
+      &lt;tt:attribute name=&quot;changedon&quot; value-ref=&quot;$REF.CHANGEDON&quot;/&gt;
+      &lt;tt:attribute name=&quot;value&quot; value-ref=&quot;$REF.ATTVALUE&quot;/&gt;
+      &lt;tt:attribute name=&quot;type&quot; value-ref=&quot;$REF.TYPE&quot;/&gt;
+    &lt;/consea:constant&gt;
+  &lt;/tt:template&gt;
+&lt;/tt:transform&gt;</source>
+ </XSLT>
+ <CLAS CLSNAME="ZCONSEA_CONTROLLER_ADT_PLUGIN" VERSION="1" LANGU="D" DESCRIPT="ConSea: Resource Controller Class" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="CL_ADT_REST_RESOURCE">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <attribute CLSNAME="ZCONSEA_CONTROLLER_ADT_PLUGIN" CMPNAME="CO_CLASS_NAME" VERSION="1" LANGU="D" DESCRIPT="Objekttypname" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTVALUE="&apos;ZCONSEA_CONTROLLER_ADT_PLUGIN&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SEOCLSNAME" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_CONTROLLER_ADT_PLUGIN" CMPNAME="CO_RESOURCE_TYPE" VERSION="1" LANGU="D" EXPOSURE="2" STATE="1" EDITORDER="2 " ATTDECLTYP="2" ATTVALUE="&apos;ZCONSEA_CONSTANT_DATA&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_CONTROLLER_ADT_PLUGIN" CMPNAME="CO_ROOT_NAME" VERSION="1" LANGU="D" EXPOSURE="2" STATE="1" EDITORDER="4 " ATTDECLTYP="2" ATTVALUE="&apos;CONSTANT_DATA&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_CONTROLLER_ADT_PLUGIN" CMPNAME="CO_ST_NAME" VERSION="1" LANGU="D" EXPOSURE="2" STATE="1" EDITORDER="3 " ATTDECLTYP="2" ATTVALUE="&apos;ZCONSEA_ADT_ST_CONSTANTS&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_CONTROLLER_ADT_PLUGIN" CMPNAME="SR_SEARCHER" VERSION="1" LANGU="D" DESCRIPT="ConSea: Generic Searcher Interface" EXPOSURE="0" STATE="1" EDITORDER="1 " ATTDECLTYP="1" ATTEXPVIRT="0" TYPTYPE="3" TYPE="ZCONSEA_SEARCHER_INTF" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <inheritance CLSNAME="ZCONSEA_CONTROLLER_ADT_PLUGIN" REFCLSNAME="CL_ADT_REST_RESOURCE" VERSION="1" STATE="1">
+   <redefinition CLSNAME="ZCONSEA_CONTROLLER_ADT_PLUGIN" REFCLSNAME="CL_ADT_REST_RESOURCE" VERSION="1" MTDNAME="GET" EXPOSURE="2"/>
+  </inheritance>
+  <method CLSNAME="ZCONSEA_CONTROLLER_ADT_PLUGIN" CMPNAME="BUILD_JSON_RESPONSE" VERSION="1" LANGU="D" EXPOSURE="0" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCONSEA_CONTROLLER_ADT_PLUGIN" CMPNAME="BUILD_JSON_RESPONSE" SCONAME="IT_FOUND_CONSTANTS" VERSION="1" LANGU="D" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ZCONSEA_TABLE_CONSTANT_DATA"/>
+   <parameter CLSNAME="ZCONSEA_CONTROLLER_ADT_PLUGIN" CMPNAME="BUILD_JSON_RESPONSE" SCONAME="RV_JSON_RESPONSE" VERSION="1" LANGU="D" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="STRING"/>
+   <source>METHOD build_json_response.
+
+   DATA(writer) = cl_sxml_string_writer=&gt;create( type = if_sxml=&gt;co_xt_json ).
+   CALL TRANSFORMATION id SOURCE data = it_found_constants RESULT XML writer.
+   rv_json_response = writer-&gt;get_output( ).
+
+  ENDMETHOD.</source>
+  </method>
+  <method CLSNAME="ZCONSEA_CONTROLLER_ADT_PLUGIN" CMPNAME="CLASS_CONSTRUCTOR" VERSION="1" LANGU="D" DESCRIPT="CLASS_CONSTRUCTOR" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="2" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD class_constructor.
+
+    sr_searcher = zconsea_searcher_factory=&gt;get_searcher_implementation( ).
+
+  ENDMETHOD.</source>
+  </method>
+  <method CLSNAME="ZCONSEA_CONTROLLER_ADT_PLUGIN" CMPNAME="CONSTRUCTOR" VERSION="1" LANGU="D" DESCRIPT="CONSTRUCTOR" EXPOSURE="2" STATE="1" EDITORDER="3 " DISPID="0 " MTDTYPE="2" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD constructor.
+
+    super-&gt;constructor( ).
+
+  ENDMETHOD.</source>
+  </method>
+  <method CLSNAME="CL_ADT_REST_RESOURCE" CMPNAME="GET" VERSION="0" EXPOSURE="0" STATE="0" EDITORDER="0 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD get.
+
+    DATA:
+      lt_found_constants TYPE zconsea_table_constant_data,
+      lv_search_pattern  TYPE string.
+
+    TRY.
+
+        request-&gt;get_uri_query_parameter( EXPORTING name = &apos;search_pattern&apos; mandatory = abap_true IMPORTING value = lv_search_pattern ).
+
+        sr_searcher-&gt;search_for_matches(
+          EXPORTING
+            iv_pattern = lv_search_pattern
+          IMPORTING
+            et_matches = lt_found_constants ).
+
+        response-&gt;set_body_data(
+          EXPORTING
+            content_handler = cl_adt_rest_cnt_hdl_factory=&gt;get_instance( )-&gt;get_handler_for_plain_text( )
+            data            = /ui2/cl_json=&gt;serialize( data = lt_found_constants compress = abap_false pretty_name = /ui2/cl_json=&gt;pretty_mode-camel_case ) ).
+
+        response-&gt;set_status( status = cl_rest_status_code=&gt;gc_success_ok ).
+
+      CATCH cx_adt_rest INTO DATA(lr_cx_adt_rest).
+        response-&gt;set_body_data( EXPORTING
+            content_handler = cl_adt_rest_cnt_hdl_factory=&gt;get_instance( )-&gt;get_handler_for_plain_text( )
+            data            = lr_cx_adt_rest-&gt;get_text( ) ).
+
+        response-&gt;set_status( status = cl_rest_status_code=&gt;gc_success_ok ).
+
+    ENDTRY.
+
+  ENDMETHOD.</source>
+  </method>
+  <method CLSNAME="ZCONSEA_CONTROLLER_ADT_PLUGIN" CMPNAME="GET_CONTENT_HANDLER" VERSION="1" LANGU="D" DESCRIPT="Get the content handler" EXPOSURE="2" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCONSEA_CONTROLLER_ADT_PLUGIN" CMPNAME="GET_CONTENT_HANDLER" SCONAME="RESULT" VERSION="1" LANGU="D" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="IF_ADT_REST_CONTENT_HANDLER"/>
+   <source>METHOD get_content_handler.
+
+    result = cl_adt_rest_cnt_hdl_factory=&gt;get_instance( )-&gt;get_handler_for_asxml(
+*                                                        strict_conversion = strict_conversion
+                                                    ).
+
+    &quot;result = cl_adt_rest_cnt_hdl_factory=&gt;get_instance( )-&gt;get_handler_for_plain_text( ).
+
+  ENDMETHOD.</source>
+  </method>
+ </CLAS>
+ <CLAS CLSNAME="ZCONSEA_ADT_DISCOVERY_CNTRLLR" VERSION="1" LANGU="D" DESCRIPT="Klasse zur BAdI-Impl.: ZCONSEA_ADT_DISCOVERY_CNTRLLR" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="CL_ADT_RES_APP_BASE">
+  <implementing CLSNAME="ZCONSEA_ADT_DISCOVERY_CNTRLLR" REFCLSNAME="IF_ADT_DISCOVERY_PROVIDER" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="0 "/>
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <inheritance CLSNAME="ZCONSEA_ADT_DISCOVERY_CNTRLLR" REFCLSNAME="CL_ADT_RES_APP_BASE" VERSION="1" STATE="1">
+   <redefinition CLSNAME="ZCONSEA_ADT_DISCOVERY_CNTRLLR" REFCLSNAME="CL_ADT_RES_APP_BASE" VERSION="1" MTDNAME="FILL_ROUTER" EXPOSURE="1"/>
+   <redefinition CLSNAME="ZCONSEA_ADT_DISCOVERY_CNTRLLR" REFCLSNAME="CL_ADT_RES_APP_BASE" VERSION="1" MTDNAME="IF_ADT_REST_RFC_APPLICATION~GET_STATIC_URI_PATH" EXPOSURE="2"/>
+  </inheritance>
+  <interfaceMethod CLSNAME="ZCONSEA_ADT_DISCOVERY_CNTRLLR" CPDNAME="IF_ADT_REST_RFC_APPLICATION~GET_STATIC_URI_PATH">
+   <source>METHOD if_adt_rest_rfc_application~get_static_uri_path.
+
+    result = zconsea_constants=&gt;c_adt_base_uri. &quot;ADT Base UIR
+
+  ENDMETHOD.</source>
+  </interfaceMethod>
+  <interfaceMethod CLSNAME="ZCONSEA_ADT_DISCOVERY_CNTRLLR" CPDNAME="IF_ADT_DISCOVERY_PROVIDER~REGISTER_WORKSPACES">
+   <source>method IF_ADT_DISCOVERY_PROVIDER~REGISTER_WORKSPACES.
+  endmethod.</source>
+  </interfaceMethod>
+  <method CLSNAME="CL_ADT_RES_APP_BASE" CMPNAME="FILL_ROUTER" VERSION="0" EXPOSURE="0" STATE="0" EDITORDER="0 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>method FILL_ROUTER.
+
+    router-&gt;attach(
+      EXPORTING
+        iv_template      = &apos;/discovery&apos;
+        iv_handler_class = cl_adt_res_discovery=&gt;co_class_name ).
+
+  endmethod.</source>
+  </method>
+ </CLAS>
+ <CLAS CLSNAME="ZCONSEA_ADT_RESSOURCE_APP" VERSION="1" LANGU="D" DESCRIPT="Klasse zur BAdI-Impl.: ZCONSEA_ADT_RESSOURCE_APP" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <implementing CLSNAME="ZCONSEA_ADT_RESSOURCE_APP" REFCLSNAME="IF_ADT_REST_RFC_APPLICATION" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="0 "/>
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+ </CLAS>
+ <CLAS CLSNAME="ZCONSEA_ADT_RES_APP" VERSION="1" LANGU="D" DESCRIPT="Consea Res APP" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="CL_ADT_DISC_RES_APP_BASE">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <inheritance CLSNAME="ZCONSEA_ADT_RES_APP" REFCLSNAME="CL_ADT_DISC_RES_APP_BASE" VERSION="1" STATE="1">
+   <redefinition CLSNAME="ZCONSEA_ADT_RES_APP" REFCLSNAME="CL_ADT_DISC_RES_APP_BASE" VERSION="1" MTDNAME="GET_APPLICATION_TITLE" EXPOSURE="1"/>
+   <redefinition CLSNAME="ZCONSEA_ADT_RES_APP" REFCLSNAME="CL_ADT_DISC_RES_APP_BASE" VERSION="1" MTDNAME="IF_ADT_REST_RFC_APPLICATION~GET_STATIC_URI_PATH" EXPOSURE="0"/>
+   <redefinition CLSNAME="ZCONSEA_ADT_RES_APP" REFCLSNAME="CL_ADT_DISC_RES_APP_BASE" VERSION="1" MTDNAME="REGISTER_RESOURCES" EXPOSURE="1"/>
+  </inheritance>
+  <interfaceMethod CLSNAME="ZCONSEA_ADT_RES_APP" CPDNAME="IF_ADT_REST_RFC_APPLICATION~GET_STATIC_URI_PATH">
+   <source>METHOD if_adt_rest_rfc_application~get_static_uri_path.
+    result = &apos;/consea/&apos;.
+  ENDMETHOD.</source>
+  </interfaceMethod>
+  <method CLSNAME="CL_ADT_DISC_RES_APP_BASE" CMPNAME="GET_APPLICATION_TITLE" VERSION="0" EXPOSURE="0" STATE="0" EDITORDER="0 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD get_application_title.
+    result = &apos;Consea&apos;.
+  ENDMETHOD.</source>
+  </method>
+  <method CLSNAME="CL_ADT_DISC_RES_APP_BASE" CMPNAME="REGISTER_RESOURCES" VERSION="0" EXPOSURE="0" STATE="0" EDITORDER="0 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD register_resources.
+
+    &quot;DATA(params) = value abap_parmbind_tab( ( name = &apos;search_pattern&apos; kind = &apos;&apos; ) ).
+
+    registry-&gt;register_discoverable_resource( url = &apos;/restconstants/constants&apos;
+                                              handler_class = &apos;ZCONSEA_CONTROLLER_ADT_PLUGIN&apos;
+                                              description = &apos;Constants&apos;
+                                              &quot;parameter = params
+                                              category_scheme = &apos;http://www.mycompany.com/adt/categories/examples/flights&apos;
+                                              category_term = &apos;constants&apos; ).
+
+
+
+  ENDMETHOD.</source>
+  </method>
+ </CLAS>
+ <DEVC DEVCLASS="ZCONSEA_ADT_PLUGIN" CTEXT="ConSea: ADT Plugin Development Objects" LANGUAGE="D" MASTERLANG="D" KORRFLAG="X" PDEVCLASS="ZREK" DLVUNIT="HOME" NAMESPACE="/0CUST/" PARENTCL="ZCONSEA" CREATED_BY="MATHEILE" CREATED_ON="20150620" CHANGED_BY="MATHEILE" CHANGED_ON="20150620" PROJECT_GUID="00000000000000000000000000000000"/>
+ <ENHO enhancement_id="ZCONSEA_ADT_SPOT_IMPLMNT" shorttext="ConSea: ADT REST RFC implementation" tooltype_id="BADI_IMPL" spot_name="SADT_REST_RFC_APPLICATION">
+  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+   <asx:values>
+    <IMPLS>
+     <ENH_BADI_IMPL_DATA>
+      <SPOT_NAME>SADT_REST_RFC_APPLICATION</SPOT_NAME>
+      <BADI_NAME>BADI_ADT_DISCOVERY_PROVIDER</BADI_NAME>
+      <IMPL_NAME>ZCONSEA_ADT_DISCOVERY_CNTRLLR</IMPL_NAME>
+      <IMPL_CLASS>ZCONSEA_ADT_DISCOVERY_CNTRLLR</IMPL_CLASS>
+      <ACTIVE>X</ACTIVE>
+      <IS_DEFAULT/>
+      <FILTER_ROOT>
+       <ENH_BADIIMPL_FILTER_ROOT>
+        <ROOT>1</ROOT>
+        <FILTERS>
+         <ENH_BADIIMPL_FILTER_ID>
+          <FILTER_NAME>URI</FILTER_NAME>
+          <ID>1</ID>
+         </ENH_BADIIMPL_FILTER_ID>
+        </FILTERS>
+       </ENH_BADIIMPL_FILTER_ROOT>
+      </FILTER_ROOT>
+      <FILTER_TREE/>
+      <FILTER_VALUES>
+       <ENH_BADIIMPL_FILTER_VALUE>
+        <ID>1</ID>
+        <FILTER_NAME>URI</FILTER_NAME>
+        <FILTER_TYPE>S</FILTER_TYPE>
+        <COMPARE>=</COMPARE>
+        <FILTER_GENERAL_VALUE1/>
+        <FILTER_GENERAL_VALUE2/>
+        <FILTER_CHAR_VALUE1/>
+        <FILTER_CHAR_VALUE2/>
+        <FILTER_INT_VALUE1>0</FILTER_INT_VALUE1>
+        <FILTER_INT_VALUE2>0</FILTER_INT_VALUE2>
+        <FILTER_NUMERIC_VALUE1>000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</FILTER_NUMERIC_VALUE1>
+        <FILTER_NUMERIC_VALUE2>000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</FILTER_NUMERIC_VALUE2>
+        <FILTER_PACKED_VALUE1>0.0</FILTER_PACKED_VALUE1>
+        <FILTER_PACKED_VALUE2>0.0</FILTER_PACKED_VALUE2>
+        <FILTER_STRING_VALUE1>/zconsea/discovery</FILTER_STRING_VALUE1>
+        <FILTER_STRING_VALUE2/>
+        <CHECK_TYPE/>
+        <CHECK_TYPE_IS_DOM/>
+        <CHECK_CLASS/>
+        <CHECK_LENGTH>0</CHECK_LENGTH>
+        <CHECK_DECS>0</CHECK_DECS>
+       </ENH_BADIIMPL_FILTER_VALUE>
+      </FILTER_VALUES>
+      <FILTERS>
+       <ENH_BADI_FILTER_IMPL>
+        <DISJ_IDX>1</DISJ_IDX>
+        <CONJ_IDX>1</CONJ_IDX>
+        <FILTER_NAME>URI</FILTER_NAME>
+        <FILTER_TYPE>S</FILTER_TYPE>
+        <COMPARE>=</COMPARE>
+        <FILTER_CHAR_VALUE1/>
+        <FILTER_CHAR_VALUE2/>
+        <FILTER_INT_VALUE1>0</FILTER_INT_VALUE1>
+        <FILTER_INT_VALUE2>0</FILTER_INT_VALUE2>
+        <FILTER_NUMERIC_VALUE1>000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</FILTER_NUMERIC_VALUE1>
+        <FILTER_NUMERIC_VALUE2>000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</FILTER_NUMERIC_VALUE2>
+        <FILTER_PACKED_VALUE1>0.0</FILTER_PACKED_VALUE1>
+        <FILTER_PACKED_VALUE2>0.0</FILTER_PACKED_VALUE2>
+        <FILTER_STRING_VALUE1>/zconsea/discovery</FILTER_STRING_VALUE1>
+        <FILTER_STRING_VALUE2/>
+        <CHECK_TYPE/>
+        <CHECK_TYPE_IS_DOM/>
+        <CHECK_CLASS/>
+        <CHECK_LENGTH>0</CHECK_LENGTH>
+        <CHECK_DECS>0</CHECK_DECS>
+       </ENH_BADI_FILTER_IMPL>
+      </FILTERS>
+      <FCODE_EXTENSIONS/>
+      <SCREEN_EXTENSIONS/>
+      <IMPL_SHORTTEXT>ConSea: ADT Discovery Controller</IMPL_SHORTTEXT>
+      <IMPL_SHORTTEXT_ID>5254ED3D79171ED585EC4B055C25DDA1</IMPL_SHORTTEXT_ID>
+      <IMPL_LONGTEXT_ID/>
+      <MIG_BADI_IMPL/>
+      <SORTER_DATA/>
+      <IS_EXAMPLE_IMPLEMENTATION/>
+      <LOCKED_IN_CUSTOMIZING/>
+     </ENH_BADI_IMPL_DATA>
+     <ENH_BADI_IMPL_DATA>
+      <SPOT_NAME>SADT_REST_RFC_APPLICATION</SPOT_NAME>
+      <BADI_NAME>BADI_ADT_REST_RFC_APPLICATION</BADI_NAME>
+      <IMPL_NAME>ZCONSEA_ADT_RESCOURCE</IMPL_NAME>
+      <IMPL_CLASS>ZCONSEA_ADT_RES_APP</IMPL_CLASS>
+      <ACTIVE>X</ACTIVE>
+      <IS_DEFAULT/>
+      <FILTER_ROOT>
+       <ENH_BADIIMPL_FILTER_ROOT>
+        <ROOT>1</ROOT>
+        <FILTERS>
+         <ENH_BADIIMPL_FILTER_ID>
+          <FILTER_NAME>STATIC_URI_PATH</FILTER_NAME>
+          <ID>1</ID>
+         </ENH_BADIIMPL_FILTER_ID>
+        </FILTERS>
+       </ENH_BADIIMPL_FILTER_ROOT>
+      </FILTER_ROOT>
+      <FILTER_TREE/>
+      <FILTER_VALUES>
+       <ENH_BADIIMPL_FILTER_VALUE>
+        <ID>1</ID>
+        <FILTER_NAME>STATIC_URI_PATH</FILTER_NAME>
+        <FILTER_TYPE>S</FILTER_TYPE>
+        <COMPARE>CP</COMPARE>
+        <FILTER_GENERAL_VALUE1/>
+        <FILTER_GENERAL_VALUE2/>
+        <FILTER_CHAR_VALUE1/>
+        <FILTER_CHAR_VALUE2/>
+        <FILTER_INT_VALUE1>0</FILTER_INT_VALUE1>
+        <FILTER_INT_VALUE2>0</FILTER_INT_VALUE2>
+        <FILTER_NUMERIC_VALUE1>000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</FILTER_NUMERIC_VALUE1>
+        <FILTER_NUMERIC_VALUE2>000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</FILTER_NUMERIC_VALUE2>
+        <FILTER_PACKED_VALUE1>0.0</FILTER_PACKED_VALUE1>
+        <FILTER_PACKED_VALUE2>0.0</FILTER_PACKED_VALUE2>
+        <FILTER_STRING_VALUE1>/consea/*</FILTER_STRING_VALUE1>
+        <FILTER_STRING_VALUE2/>
+        <CHECK_TYPE/>
+        <CHECK_TYPE_IS_DOM/>
+        <CHECK_CLASS>CL_ADT_REST_URI_FILTER_CHECK</CHECK_CLASS>
+        <CHECK_LENGTH>0</CHECK_LENGTH>
+        <CHECK_DECS>0</CHECK_DECS>
+       </ENH_BADIIMPL_FILTER_VALUE>
+      </FILTER_VALUES>
+      <FILTERS>
+       <ENH_BADI_FILTER_IMPL>
+        <DISJ_IDX>1</DISJ_IDX>
+        <CONJ_IDX>1</CONJ_IDX>
+        <FILTER_NAME>STATIC_URI_PATH</FILTER_NAME>
+        <FILTER_TYPE>S</FILTER_TYPE>
+        <COMPARE>CP</COMPARE>
+        <FILTER_CHAR_VALUE1/>
+        <FILTER_CHAR_VALUE2/>
+        <FILTER_INT_VALUE1>0</FILTER_INT_VALUE1>
+        <FILTER_INT_VALUE2>0</FILTER_INT_VALUE2>
+        <FILTER_NUMERIC_VALUE1>000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</FILTER_NUMERIC_VALUE1>
+        <FILTER_NUMERIC_VALUE2>000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</FILTER_NUMERIC_VALUE2>
+        <FILTER_PACKED_VALUE1>0.0</FILTER_PACKED_VALUE1>
+        <FILTER_PACKED_VALUE2>0.0</FILTER_PACKED_VALUE2>
+        <FILTER_STRING_VALUE1>/consea/*</FILTER_STRING_VALUE1>
+        <FILTER_STRING_VALUE2/>
+        <CHECK_TYPE/>
+        <CHECK_TYPE_IS_DOM/>
+        <CHECK_CLASS>CL_ADT_REST_URI_FILTER_CHECK</CHECK_CLASS>
+        <CHECK_LENGTH>0</CHECK_LENGTH>
+        <CHECK_DECS>0</CHECK_DECS>
+       </ENH_BADI_FILTER_IMPL>
+      </FILTERS>
+      <FCODE_EXTENSIONS/>
+      <SCREEN_EXTENSIONS/>
+      <IMPL_SHORTTEXT>Implementierung der Res APP</IMPL_SHORTTEXT>
+      <IMPL_SHORTTEXT_ID>5254ED3D79171EE58781F604455685C9</IMPL_SHORTTEXT_ID>
+      <IMPL_LONGTEXT_ID/>
+      <MIG_BADI_IMPL/>
+      <SORTER_DATA/>
+      <IS_EXAMPLE_IMPLEMENTATION/>
+      <LOCKED_IN_CUSTOMIZING/>
+     </ENH_BADI_IMPL_DATA>
+    </IMPLS>
+   </asx:values>
+  </asx:abap>
+ </ENHO>
+ <CLAS CLSNAME="ZCONSEA_DATA_AREA" VERSION="1" LANGU="D" DESCRIPT="Data area for ConSea" CATEGORY="45" EXPOSURE="0" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" RSTAT="S" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="CL_SHM_AREA">
+  <friends CLSNAME="ZCONSEA_DATA_AREA" REFCLSNAME="CL_SHM_AREA" FRIENDTYPE="0" VERSION="1" STATE="1"/>
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros></localMacros>
+  <attribute CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="AREA_NAME" VERSION="1" LANGU="E" DESCRIPT="Name of an Area Class" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTVALUE="&apos;ZCONSEA_DATA_AREA&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SHM_AREA_NAME" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ROOT" VERSION="1" LANGU="E" DESCRIPT="SHM: Model of a Data Class" EXPOSURE="2" STATE="1" EDITORDER="2 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="3" TYPE="ZCONSEA_SO_DATA" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="_CLIENT_DEPENDENT" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="5 " ATTDECLTYP="2" ATTVALUE="ABAP_FALSE" ATTEXPVIRT="0" TYPTYPE="1" TYPE="ABAP_BOOL" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="_LIFE_CONTEXT" VERSION="1" LANGU="E" DESCRIPT="Lifetime of an Area (Constants in CL_SHM_AREA)" EXPOSURE="0" STATE="1" EDITORDER="6 " ATTDECLTYP="2" ATTVALUE="CL_SHM_AREA=&gt;LIFE_CONTEXT_APPSERVER" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SHM_LIFE_CONTEXT" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="_TRACE_ACTIVE" VERSION="1" LANGU="E" DESCRIPT="(Internal) Flag: Trace Active?" EXPOSURE="0" STATE="1" EDITORDER="3 " ATTDECLTYP="1" ATTVALUE="ABAP_FALSE" ATTEXPVIRT="0" TYPTYPE="1" TYPE="ABAP_BOOL" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="_TRACE_SERVICE" VERSION="1" LANGU="E" DESCRIPT="(Internal) Reference to Trace Class" EXPOSURE="0" STATE="1" EDITORDER="2 " ATTDECLTYP="1" ATTEXPVIRT="0" TYPTYPE="3" TYPE="IF_SHM_TRACE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="_TRANSACTIONAL" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="4 " ATTDECLTYP="2" ATTVALUE="ABAP_FALSE" ATTEXPVIRT="0" TYPTYPE="1" TYPE="ABAP_BOOL" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="_VERSION_" VERSION="1" LANGU="E" DESCRIPT="(internal)" EXPOSURE="0" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTVALUE="21" ATTEXPVIRT="0" TYPTYPE="1" TYPE="I" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <inheritance CLSNAME="ZCONSEA_DATA_AREA" REFCLSNAME="CL_SHM_AREA" VERSION="1" STATE="1">
+   <redefinition CLSNAME="ZCONSEA_DATA_AREA" REFCLSNAME="CL_SHM_AREA" VERSION="1" MTDNAME="GET_ROOT" EXPOSURE="0"/>
+  </inheritance>
+  <method CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_READ" VERSION="1" LANGU="E" DESCRIPT="Request a Read Lock" EXPOSURE="2" STATE="1" EDITORDER="3 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" MTDNEWEXC="X" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_READ" SCONAME="INST_NAME" VERSION="1" LANGU="E" DESCRIPT="Name of a Shared Object Instance of an Area" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SHM_INST_NAME" PARVALUE="CL_SHM_AREA=&gt;DEFAULT_INSTANCE" PAROPTIONL="X" PARPREFERD="X"/>
+   <parameter CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_READ" SCONAME="HANDLE" VERSION="1" LANGU="E" DESCRIPT="SHM: Model of an Area Class" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="ZCONSEA_DATA_AREA"/>
+   <exception CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_READ" SCONAME="CX_SHM_INCONSISTENT" VERSION="1" LANGU="E" DESCRIPT="Different Definitions Between Program and Area" MTDTYPE="0" EDITORDER="1 "/>
+   <exception CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_READ" SCONAME="CX_SHM_NO_ACTIVE_VERSION" VERSION="1" LANGU="E" DESCRIPT="No active version exists for an attach" MTDTYPE="0" EDITORDER="2 "/>
+   <exception CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_READ" SCONAME="CX_SHM_READ_LOCK_ACTIVE" VERSION="1" LANGU="E" DESCRIPT="Request for a Second Read Lock" MTDTYPE="0" EDITORDER="3 "/>
+   <exception CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_READ" SCONAME="CX_SHM_EXCLUSIVE_LOCK_ACTIVE" VERSION="1" LANGU="E" DESCRIPT="Instance Already Locked" MTDTYPE="0" EDITORDER="4 "/>
+   <exception CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_READ" SCONAME="CX_SHM_PARAMETER_ERROR" VERSION="1" LANGU="E" DESCRIPT="Incorrect parameter transferred" MTDTYPE="0" EDITORDER="5 "/>
+   <exception CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_READ" SCONAME="CX_SHM_CHANGE_LOCK_ACTIVE" VERSION="1" LANGU="E" DESCRIPT="A Change Lock Is Already Active" MTDTYPE="0" EDITORDER="6 "/>
+   <source>method ATTACH_FOR_READ.
+
+  DATA:
+    l_attributes       TYPE shma_attributes,
+    l_root             TYPE REF TO object,
+    l_cx               TYPE REF TO cx_root,
+    l_client           TYPE shm_client,
+    l_client_supplied  TYPE abap_bool. &quot;#EC NEEDED
+
+* check if tracing should be activated/de-activated
+  IF  ( NOT _trace_service IS INITIAL ).
+    TRY.
+        _trace_active =
+          cl_shm_service=&gt;trace_is_variant_active(
+            _trace_service-&gt;variant-def_name
+          ).
+      CATCH cx_root. &quot;#EC NO_HANDLER
+                     &quot;#EC CATCH_ALL
+    ENDTRY.
+  ENDIF.
+
+
+  IF _trace_active = abap_false OR
+  _trace_service-&gt;variant-attach_for_read = abap_false.
+
+*   &gt;
+
+    CREATE OBJECT handle.
+
+    handle-&gt;client    = l_client.
+    handle-&gt;inst_name = inst_name.
+
+*   try sneak mode first
+    handle-&gt;_attach_read71( EXPORTING area_name    = area_name
+                                      sneak_mode   = abap_true
+                                      life_context = _life_context
+                            IMPORTING root         = l_root ).
+
+    IF l_root IS INITIAL.
+*     no root object returned, sneak mode was not successful.
+*     -&gt; read area properties from database and try again.
+      cl_shm_service=&gt;initialize(
+        EXPORTING area_name       = handle-&gt;area_name
+                  client          = l_client
+        IMPORTING attributes      = l_attributes
+      ).
+
+      handle-&gt;properties = l_attributes-properties.
+      handle-&gt;_attach_read71( EXPORTING area_name    = area_name
+                                        sneak_mode   = abap_false
+                                        life_context = _life_context
+                              IMPORTING root         = l_root ).
+
+    ENDIF.
+
+    handle-&gt;root ?= l_root.
+*   &lt;
+
+  ELSE.
+
+    TRY.
+
+*       &gt;
+
+        CREATE OBJECT handle.
+
+        handle-&gt;client    = l_client.
+        handle-&gt;inst_name = inst_name.
+
+        handle-&gt;_attach_read71( EXPORTING area_name    = area_name
+                                          sneak_mode   = abap_true
+                                          life_context = _life_context
+                                IMPORTING root         = l_root ).
+
+        IF l_root IS INITIAL.
+*         no root object returned, sneak mode was not successful.
+*         -&gt; read area properties from database and try again.
+          cl_shm_service=&gt;initialize(
+            EXPORTING area_name       = handle-&gt;area_name
+                      client          = l_client
+            IMPORTING attributes      = l_attributes
+          ).
+
+          handle-&gt;properties = l_attributes-properties.
+          handle-&gt;_attach_read71( EXPORTING area_name    = area_name
+                                            sneak_mode   = abap_false
+                                            life_context = _life_context
+                                  IMPORTING root         = l_root ).
+
+        ENDIF.
+        handle-&gt;root ?= l_root.
+
+*       &lt;
+        _trace_service-&gt;trin_attach_for_read(
+          area_name = area_name
+          inst_name = inst_name
+          client    = l_client ).
+
+      CLEANUP INTO l_cx.
+        _trace_service-&gt;trcx_attach_for_read(
+          area_name = area_name
+          inst_name = inst_name
+          client    = l_client
+          cx        = l_cx
+        ).
+    ENDTRY.
+
+  ENDIF.
+
+  handle-&gt;inst_trace_service = _trace_service.
+  handle-&gt;inst_trace_active  = _trace_active.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_UPDATE" VERSION="1" LANGU="E" DESCRIPT="Request a Change Lock" EXPOSURE="2" STATE="1" EDITORDER="5 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" MTDNEWEXC="X" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_UPDATE" SCONAME="INST_NAME" VERSION="1" LANGU="E" DESCRIPT="Name of a Shared Object Instance of an Area" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SHM_INST_NAME" PARVALUE="CL_SHM_AREA=&gt;DEFAULT_INSTANCE" PAROPTIONL="X" PARPREFERD="X"/>
+   <parameter CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_UPDATE" SCONAME="ATTACH_MODE" VERSION="1" LANGU="E" DESCRIPT="Mode of ATTACH (Constants in CL_SHM_AREA)" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SHM_ATTACH_MODE" PARVALUE="CL_SHM_AREA=&gt;ATTACH_MODE_DEFAULT"/>
+   <parameter CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_UPDATE" SCONAME="WAIT_TIME" VERSION="1" LANGU="E" DESCRIPT="Maximum Wait Time (in Milliseconds)" CMPTYPE="1" MTDTYPE="0" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="I" PARVALUE="0"/>
+   <parameter CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_UPDATE" SCONAME="HANDLE" VERSION="1" LANGU="E" DESCRIPT="SHM: Model of an Area Class" CMPTYPE="1" MTDTYPE="0" EDITORDER="5 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="ZCONSEA_DATA_AREA"/>
+   <exception CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_UPDATE" SCONAME="CX_SHM_INCONSISTENT" VERSION="1" LANGU="E" DESCRIPT="Different Definitions Between Program and Area" MTDTYPE="0" EDITORDER="1 "/>
+   <exception CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_UPDATE" SCONAME="CX_SHM_NO_ACTIVE_VERSION" VERSION="1" LANGU="E" DESCRIPT="No active version exists for an attach" MTDTYPE="0" EDITORDER="2 "/>
+   <exception CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_UPDATE" SCONAME="CX_SHM_EXCLUSIVE_LOCK_ACTIVE" VERSION="1" LANGU="E" DESCRIPT="Instance Already Locked" MTDTYPE="0" EDITORDER="3 "/>
+   <exception CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_UPDATE" SCONAME="CX_SHM_VERSION_LIMIT_EXCEEDED" VERSION="1" LANGU="E" DESCRIPT="No Additional Versions Available" MTDTYPE="0" EDITORDER="4 "/>
+   <exception CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_UPDATE" SCONAME="CX_SHM_CHANGE_LOCK_ACTIVE" VERSION="1" LANGU="E" DESCRIPT="A write lock is already active" MTDTYPE="0" EDITORDER="5 "/>
+   <exception CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_UPDATE" SCONAME="CX_SHM_PARAMETER_ERROR" VERSION="1" LANGU="E" DESCRIPT="Passed Parameter Has Incorrect Value" MTDTYPE="0" EDITORDER="6 "/>
+   <exception CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_UPDATE" SCONAME="CX_SHM_PENDING_LOCK_REMOVED" VERSION="1" LANGU="E" DESCRIPT="Shared Objects: Waiting Lock Was Deleted" MTDTYPE="0" EDITORDER="7 "/>
+   <source>method ATTACH_FOR_UPDATE.
+
+  DATA:
+    l_attributes             TYPE shma_attributes,
+    l_root                   TYPE REF TO object,
+    l_cx                     TYPE REF TO cx_root,
+    l_client                 TYPE shm_client,
+    l_client_supplied        TYPE abap_bool, &quot;#EC NEEDED
+    l_wait_time              TYPE i,
+    l_wait_time_per_loop     TYPE i,
+    l_wait_time_per_loop_sec TYPE f.
+
+  l_wait_time = wait_time.
+
+* check if tracing should be activated/de-activated
+  IF  ( NOT _trace_service IS INITIAL ).
+    TRY.
+        _trace_active =
+          cl_shm_service=&gt;trace_is_variant_active(
+            _trace_service-&gt;variant-def_name
+          ).
+      CATCH cx_root. &quot;#EC NO_HANDLER
+                     &quot;#EC CATCH_ALL
+    ENDTRY.
+  ENDIF.
+
+
+  IF _trace_active = abap_false OR
+  _trace_service-&gt;variant-attach_for_upd = abap_false.
+
+*   &gt;
+
+    CREATE OBJECT handle.
+
+    handle-&gt;client    = l_client.
+    handle-&gt;inst_name = inst_name.
+
+    cl_shm_service=&gt;initialize(
+      EXPORTING area_name    = handle-&gt;area_name
+                client       = l_client
+      IMPORTING attributes   = l_attributes
+    ).
+
+    handle-&gt;properties = l_attributes-properties.
+
+    handle-&gt;_attach_update70(
+      EXPORTING area_name = handle-&gt;area_name
+                mode      = attach_mode
+      IMPORTING root      = l_root
+      CHANGING  wait_time = l_wait_time ).
+
+    IF abap_true = l_attributes-properties-has_versions AND
+       handle-&gt;_lock IS NOT INITIAL.
+* we may need a second try in case of class constructors
+      handle-&gt;_attach_update70(
+        EXPORTING area_name = handle-&gt;area_name
+                  mode      = attach_mode
+        IMPORTING root      = l_root
+        CHANGING  wait_time = l_wait_time ).
+    ENDIF.
+
+    IF attach_mode = cl_shm_area=&gt;attach_mode_wait AND
+       handle-&gt;_lock IS INITIAL.
+
+      l_wait_time_per_loop = l_wait_time / 10.
+* wait_time_per_loop should be at least 2 * SHMATTACHWRITE_MAXACTIVEWAIT
+      IF l_wait_time_per_loop &lt; 2000.
+        l_wait_time_per_loop = 2000.
+      ELSEIF l_wait_time_per_loop &gt; 300000.
+        l_wait_time_per_loop = 300000.
+      ENDIF.
+
+      l_wait_time_per_loop_sec = l_wait_time_per_loop / 1000.
+
+      WHILE handle-&gt;_lock IS INITIAL.
+
+        IF l_wait_time_per_loop &gt; l_wait_time.
+          l_wait_time_per_loop = l_wait_time.
+          l_wait_time_per_loop_sec = l_wait_time_per_loop / 1000.
+        ENDIF.
+
+        WAIT UP TO l_wait_time_per_loop_sec SECONDS.
+        l_wait_time = l_wait_time - l_wait_time_per_loop.
+
+        handle-&gt;_attach_update70(
+          EXPORTING area_name = handle-&gt;area_name
+                    mode      = cl_shm_area=&gt;attach_mode_wait_2nd_try
+          IMPORTING root      = l_root
+          CHANGING  wait_time = l_wait_time ).
+
+        IF abap_true = l_attributes-properties-has_versions AND
+           handle-&gt;_lock IS NOT INITIAL.
+* we may need a second try in case of class constructors
+          handle-&gt;_attach_update70(
+            EXPORTING area_name = handle-&gt;area_name
+                      mode      = cl_shm_area=&gt;attach_mode_wait_2nd_try
+            IMPORTING root      = l_root
+            CHANGING  wait_time = l_wait_time ).
+        ENDIF.
+
+      ENDWHILE.
+
+    ENDIF.
+
+    handle-&gt;root ?= l_root.
+
+*   &lt;
+
+  ELSE.
+
+    TRY.
+
+*       &gt;
+
+        CREATE OBJECT handle.
+
+        handle-&gt;client    = l_client.
+        handle-&gt;inst_name = inst_name.
+
+        cl_shm_service=&gt;initialize(
+          EXPORTING area_name    = handle-&gt;area_name
+                    client       = l_client
+          IMPORTING attributes   = l_attributes
+        ).
+
+        handle-&gt;properties = l_attributes-properties.
+
+        handle-&gt;_attach_update70(
+          EXPORTING area_name = handle-&gt;area_name
+                    mode      = attach_mode
+          IMPORTING root      = l_root
+          CHANGING  wait_time = l_wait_time ).
+
+        IF abap_true = l_attributes-properties-has_versions AND
+           handle-&gt;_lock IS NOT INITIAL.
+* we may need a second try in case of class constructors
+          handle-&gt;_attach_update70(
+            EXPORTING area_name = handle-&gt;area_name
+                      mode      = attach_mode
+            IMPORTING root      = l_root
+            CHANGING  wait_time = l_wait_time ).
+        ENDIF.
+
+        IF attach_mode = cl_shm_area=&gt;attach_mode_wait AND
+           handle-&gt;_lock IS INITIAL.
+
+          l_wait_time_per_loop = l_wait_time / 10.
+* wait_time_per_loop should be at least 2 * SHMATTACHWRITE_MAXACTIVEWAIT
+          IF l_wait_time_per_loop &lt; 2000.
+            l_wait_time_per_loop = 2000.
+          ELSEIF l_wait_time_per_loop &gt; 300000.
+            l_wait_time_per_loop = 300000.
+          ENDIF.
+
+          l_wait_time_per_loop_sec = l_wait_time_per_loop / 1000.
+
+          WHILE handle-&gt;_lock IS INITIAL.
+
+            IF l_wait_time_per_loop &gt; l_wait_time.
+              l_wait_time_per_loop = l_wait_time.
+              l_wait_time_per_loop_sec = l_wait_time_per_loop / 1000.
+            ENDIF.
+
+            WAIT UP TO l_wait_time_per_loop_sec SECONDS.
+            l_wait_time = l_wait_time - l_wait_time_per_loop.
+
+            handle-&gt;_attach_update70(
+              EXPORTING
+                area_name = handle-&gt;area_name
+                mode      = cl_shm_area=&gt;attach_mode_wait_2nd_try
+              IMPORTING
+                root      = l_root
+              CHANGING
+                wait_time = l_wait_time ).
+
+            IF abap_true = l_attributes-properties-has_versions AND
+               handle-&gt;_lock IS NOT INITIAL.
+* we may need a second try in case of class constructors
+              handle-&gt;_attach_update70(
+                EXPORTING
+                  area_name = handle-&gt;area_name
+                  mode      = cl_shm_area=&gt;attach_mode_wait_2nd_try
+                IMPORTING
+                  root      = l_root
+                CHANGING
+                  wait_time = l_wait_time ).
+            ENDIF.
+
+          ENDWHILE.
+
+        ENDIF.
+
+        handle-&gt;root ?= l_root.
+
+*       &lt;
+        _trace_service-&gt;trin_attach_for_update(
+          area_name = area_name
+          inst_name = inst_name
+          client    = l_client
+          mode      = attach_mode
+          wait_time = wait_time
+        ).
+
+      CLEANUP INTO l_cx.
+        _trace_service-&gt;trcx_attach_for_update(
+          area_name = area_name
+          inst_name = inst_name
+          client    = l_client
+          mode      = attach_mode
+          wait_time = wait_time
+          cx        = l_cx
+        ).
+    ENDTRY.
+
+  ENDIF.
+
+  handle-&gt;inst_trace_service = _trace_service.
+  handle-&gt;inst_trace_active  = _trace_active.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_WRITE" VERSION="1" LANGU="E" DESCRIPT="Request a Write Lock" EXPOSURE="2" STATE="1" EDITORDER="4 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" MTDNEWEXC="X" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_WRITE" SCONAME="INST_NAME" VERSION="1" LANGU="E" DESCRIPT="Name of a Shared Object Instance of an Area" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SHM_INST_NAME" PARVALUE="CL_SHM_AREA=&gt;DEFAULT_INSTANCE" PAROPTIONL="X" PARPREFERD="X"/>
+   <parameter CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_WRITE" SCONAME="ATTACH_MODE" VERSION="1" LANGU="E" DESCRIPT="Mode of ATTACH (Constants in CL_SHM_AREA)" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SHM_ATTACH_MODE" PARVALUE="CL_SHM_AREA=&gt;ATTACH_MODE_DEFAULT"/>
+   <parameter CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_WRITE" SCONAME="WAIT_TIME" VERSION="1" LANGU="E" DESCRIPT="Maximum Wait Time (in Milliseconds)" CMPTYPE="1" MTDTYPE="0" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="I" PARVALUE="0"/>
+   <parameter CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_WRITE" SCONAME="HANDLE" VERSION="1" LANGU="E" DESCRIPT="SHM: Model of an Area Class" CMPTYPE="1" MTDTYPE="0" EDITORDER="5 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="ZCONSEA_DATA_AREA"/>
+   <exception CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_WRITE" SCONAME="CX_SHM_EXCLUSIVE_LOCK_ACTIVE" VERSION="1" LANGU="E" DESCRIPT="Instance Already Locked" MTDTYPE="0" EDITORDER="1 "/>
+   <exception CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_WRITE" SCONAME="CX_SHM_VERSION_LIMIT_EXCEEDED" VERSION="1" LANGU="E" DESCRIPT="No Additional Versions Available" MTDTYPE="0" EDITORDER="2 "/>
+   <exception CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_WRITE" SCONAME="CX_SHM_CHANGE_LOCK_ACTIVE" VERSION="1" LANGU="E" DESCRIPT="A write lock is already active" MTDTYPE="0" EDITORDER="3 "/>
+   <exception CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_WRITE" SCONAME="CX_SHM_PARAMETER_ERROR" VERSION="1" LANGU="E" DESCRIPT="Passed Parameter Has Incorrect Value" MTDTYPE="0" EDITORDER="4 "/>
+   <exception CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="ATTACH_FOR_WRITE" SCONAME="CX_SHM_PENDING_LOCK_REMOVED" VERSION="1" LANGU="E" DESCRIPT="Shared Objects: Waiting Lock Was Deleted" MTDTYPE="0" EDITORDER="5 "/>
+   <source>method ATTACH_FOR_WRITE.
+
+  DATA:
+    l_attributes             TYPE shma_attributes,
+    l_cx                     TYPE REF TO cx_root,
+    l_client                 TYPE shm_client,
+    l_client_supplied        TYPE abap_bool, &quot;#EC NEEDED
+    l_wait_time              TYPE i,
+    l_wait_time_per_loop     TYPE i,
+    l_wait_time_per_loop_sec TYPE f.
+
+  l_wait_time = wait_time.
+
+* check if tracing should be activated/de-activated
+  IF  ( NOT _trace_service IS INITIAL ).
+    TRY.
+        _trace_active =
+          cl_shm_service=&gt;trace_is_variant_active(
+            _trace_service-&gt;variant-def_name
+          ).
+      CATCH cx_root. &quot;#EC NO_HANDLER
+                     &quot;#EC CATCH_ALL
+    ENDTRY.
+  ENDIF.
+
+
+  IF _trace_active = abap_false OR
+  _trace_service-&gt;variant-attach_for_write = abap_false.
+
+*   &gt;
+
+    CREATE OBJECT handle.
+
+    handle-&gt;client    = l_client.
+    handle-&gt;inst_name = inst_name.
+
+    cl_shm_service=&gt;initialize(
+      EXPORTING area_name    = handle-&gt;area_name
+                client       = l_client
+      IMPORTING attributes   = l_attributes
+    ).
+
+    handle-&gt;properties = l_attributes-properties.
+
+    handle-&gt;_attach_write70(
+      EXPORTING
+        area_name = handle-&gt;area_name
+        mode      = attach_mode
+      CHANGING
+        wait_time = l_wait_time ).
+
+    IF attach_mode = cl_shm_area=&gt;attach_mode_wait AND
+       handle-&gt;_lock IS INITIAL.
+
+      l_wait_time_per_loop = l_wait_time / 10.
+* wait_time_per_loop should be at least 2 * SHMATTACHWRITE_MAXACTIVEWAIT
+      IF l_wait_time_per_loop &lt; 2000.
+        l_wait_time_per_loop = 2000.
+      ELSEIF l_wait_time_per_loop &gt; 300000.
+        l_wait_time_per_loop = 300000.
+      ENDIF.
+
+      l_wait_time_per_loop_sec = l_wait_time_per_loop / 1000.
+
+      WHILE handle-&gt;_lock IS INITIAL.
+
+        IF l_wait_time_per_loop &gt; l_wait_time.
+          l_wait_time_per_loop = l_wait_time.
+          l_wait_time_per_loop_sec = l_wait_time_per_loop / 1000.
+        ENDIF.
+
+        WAIT UP TO l_wait_time_per_loop_sec SECONDS.
+        l_wait_time = l_wait_time - l_wait_time_per_loop.
+
+        handle-&gt;_attach_write70(
+          EXPORTING
+            area_name = handle-&gt;area_name
+            mode      = cl_shm_area=&gt;attach_mode_wait_2nd_try
+          CHANGING
+            wait_time = l_wait_time ).
+
+      ENDWHILE.
+
+    ENDIF.
+
+*   &lt;
+
+  ELSE.
+
+    TRY.
+
+*     &gt;
+
+        CREATE OBJECT handle.
+
+        handle-&gt;client    = l_client.
+        handle-&gt;inst_name = inst_name.
+
+        cl_shm_service=&gt;initialize(
+          EXPORTING area_name    = handle-&gt;area_name
+                    client       = l_client
+          IMPORTING attributes   = l_attributes
+        ).
+
+        handle-&gt;properties = l_attributes-properties.
+
+        handle-&gt;_attach_write70(
+          EXPORTING
+            area_name = handle-&gt;area_name
+            mode      = attach_mode
+          CHANGING
+            wait_time = l_wait_time ).
+
+        IF attach_mode = cl_shm_area=&gt;attach_mode_wait AND
+           handle-&gt;_lock IS INITIAL.
+
+          l_wait_time_per_loop = l_wait_time / 10.
+* wait_time_per_loop should be at least 2 * SHMATTACHWRITE_MAXACTIVEWAIT
+          IF l_wait_time_per_loop &lt; 2000.
+            l_wait_time_per_loop = 2000.
+          ELSEIF l_wait_time_per_loop &gt; 300000.
+            l_wait_time_per_loop = 300000.
+          ENDIF.
+
+          l_wait_time_per_loop_sec = l_wait_time_per_loop / 1000.
+
+          WHILE handle-&gt;_lock IS INITIAL.
+
+            IF l_wait_time_per_loop &gt; l_wait_time.
+              l_wait_time_per_loop = l_wait_time.
+              l_wait_time_per_loop_sec = l_wait_time_per_loop / 1000.
+            ENDIF.
+
+            WAIT UP TO l_wait_time_per_loop_sec SECONDS.
+            l_wait_time = l_wait_time - l_wait_time_per_loop.
+
+            handle-&gt;_attach_write70(
+              EXPORTING
+                area_name = handle-&gt;area_name
+                mode      = cl_shm_area=&gt;attach_mode_wait_2nd_try
+              CHANGING
+                wait_time = l_wait_time ).
+
+          ENDWHILE.
+
+        ENDIF.
+
+*     &lt;
+
+        _trace_service-&gt;trin_attach_for_write(
+          area_name = area_name
+          inst_name = inst_name
+          client    = l_client
+          mode      = attach_mode
+          wait_time = wait_time
+        ).
+      CLEANUP INTO l_cx.
+        _trace_service-&gt;trcx_attach_for_write(
+          area_name = area_name
+          inst_name = inst_name
+          client    = l_client
+          mode      = attach_mode
+          wait_time = wait_time
+          cx        = l_cx
+        ).
+    ENDTRY.
+
+  ENDIF.
+
+  handle-&gt;inst_trace_service = _trace_service.
+  handle-&gt;inst_trace_active  = _trace_active.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="BUILD" VERSION="1" LANGU="E" DESCRIPT="Direct Call of Area Constructor" EXPOSURE="2" STATE="1" EDITORDER="14 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" MTDNEWEXC="X" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="BUILD" SCONAME="INST_NAME" VERSION="1" LANGU="E" DESCRIPT="Name of a Shared Object Instance of an Area" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SHM_INST_NAME" PARVALUE="CL_SHM_AREA=&gt;DEFAULT_INSTANCE"/>
+   <exception CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="BUILD" SCONAME="CX_SHMA_NOT_CONFIGURED" VERSION="1" LANGU="E" DESCRIPT="SHM Administration: Area Property Is Not Configured" MTDTYPE="0" EDITORDER="1 "/>
+   <exception CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="BUILD" SCONAME="CX_SHMA_INCONSISTENT" VERSION="1" LANGU="E" DESCRIPT="SHM Administration: Inconsistent Attribute Combination" MTDTYPE="0" EDITORDER="2 "/>
+   <exception CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="BUILD" SCONAME="CX_SHM_BUILD_FAILED" VERSION="1" LANGU="E" DESCRIPT="Constructor Run Failed" MTDTYPE="0" EDITORDER="3 "/>
+   <source>method BUILD.
+
+  DATA:
+    l_cls_name TYPE shm_auto_build_class_name,
+    l_cx TYPE REF TO cx_root.
+
+  IF _trace_active = abap_false OR
+  _trace_service-&gt;variant-build = abap_false.
+
+*   &gt;
+    l_cls_name =
+      cl_shm_service=&gt;get_auto_build_class_name( area_name ).
+
+    CALL METHOD (l_cls_name)=&gt;if_shm_build_instance~build
+      EXPORTING
+        inst_name = inst_name.
+*   &lt;
+
+  ELSE.
+
+    TRY.
+
+*       &gt;
+        l_cls_name =
+          cl_shm_service=&gt;get_auto_build_class_name( area_name ).
+
+        CALL METHOD (l_cls_name)=&gt;if_shm_build_instance~build
+          EXPORTING
+            inst_name = inst_name.
+*       &lt;
+        _trace_service-&gt;trin_build(
+          area_name         = area_name
+          inst_name         = inst_name
+        ).
+
+      CLEANUP INTO l_cx.
+        _trace_service-&gt;trcx_build(
+          area_name         = area_name
+          inst_name         = inst_name
+          cx                = l_cx
+        ).
+    ENDTRY.
+
+  ENDIF.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="CLASS_CONSTRUCTOR" VERSION="1" LANGU="E" DESCRIPT="CLASS_CONSTRUCTOR" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="2" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <source>method CLASS_CONSTRUCTOR.
+
+* TRACE { DO NOT REMOVE THIS LINE !
+  _trace_active = abap_false.
+  TRY.
+      _trace_service =
+        cl_shm_service=&gt;trace_get_service( area_name ).
+      IF NOT _trace_service IS INITIAL.
+        _trace_active =
+          cl_shm_service=&gt;trace_is_variant_active(
+            _trace_service-&gt;variant-def_name
+          ).
+      ENDIF.
+    CATCH cx_root. &quot;#EC NO_HANDLER
+                   &quot;#EC CATCH_ALL
+  ENDTRY.
+* TRACE } DO NOT REMOVE THIS LINE !
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="DETACH_AREA" VERSION="1" LANGU="E" DESCRIPT="Release all locks on all instances" EXPOSURE="2" STATE="1" EDITORDER="6 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="DETACH_AREA" SCONAME="RC" VERSION="1" LANGU="E" DESCRIPT="Detach Return Value (Constants in CL_SHM_AREA)" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="SHM_RC"/>
+   <source>method DETACH_AREA.
+
+  DATA:
+    l_client TYPE shm_client,
+    l_client_supplied TYPE abap_bool VALUE abap_false.
+
+
+* &gt;
+  rc = _detach_area71( area_name        = area_name
+                       client           = l_client
+                       client_supplied  = l_client_supplied
+                       client_dependent = _client_dependent
+                       life_context     = _life_context
+       ).
+* &lt;
+
+  IF _trace_active = abap_true.
+    IF _trace_service-&gt;variant-detach_area = abap_true.
+      _trace_service-&gt;trin_detach_area(
+        area_name = area_name
+        client    = l_client
+        rc        = rc
+      ).
+    ENDIF.
+  ENDIF.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="FREE_AREA" VERSION="1" LANGU="E" DESCRIPT="Delete all instances" EXPOSURE="2" STATE="1" EDITORDER="12 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" MTDNEWEXC="X" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="FREE_AREA" SCONAME="TERMINATE_CHANGER" VERSION="1" LANGU="E" DESCRIPT="Writing processes will be ended" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ABAP_BOOL" PARVALUE="ABAP_TRUE"/>
+   <parameter CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="FREE_AREA" SCONAME="RC" VERSION="1" LANGU="E" DESCRIPT="Return Value (Constants in CL_SHM_AREA)" CMPTYPE="1" MTDTYPE="0" EDITORDER="4 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="SHM_RC"/>
+   <exception CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="FREE_AREA" SCONAME="CX_SHM_PARAMETER_ERROR" VERSION="1" LANGU="E" DESCRIPT="Incorrect parameter transferred" MTDTYPE="0" EDITORDER="1 "/>
+   <source>method FREE_AREA.
+
+  DATA:
+    l_client TYPE shm_client,
+    l_client_supplied TYPE abap_bool VALUE abap_false.
+
+  CONSTANTS: affect_server TYPE shm_affect_server
+             VALUE cl_shm_area=&gt;affect_local_server.
+
+
+* &gt;
+  rc = _free_area71( area_name         = area_name
+                     client            = l_client
+                     client_supplied   = l_client_supplied
+                     client_dependent  = _client_dependent
+                     transactional     = _transactional
+                     terminate_changer = terminate_changer
+                     affect_server     = affect_server
+                     life_context      = _life_context ).
+* &lt;
+
+  IF _trace_active = abap_true.
+    IF _trace_service-&gt;variant-free_area = abap_true.
+      _trace_service-&gt;trin_free_area(
+      area_name         = area_name
+      client            = l_client
+      terminate_changer = terminate_changer
+      affect_server     = affect_server
+      rc                = rc
+    ).
+    ENDIF.
+  ENDIF.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="FREE_INSTANCE" VERSION="1" LANGU="E" DESCRIPT="Deletion of an Instance" EXPOSURE="2" STATE="1" EDITORDER="11 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" MTDNEWEXC="X" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="FREE_INSTANCE" SCONAME="INST_NAME" VERSION="1" LANGU="E" DESCRIPT="Name of a Shared Object Instance of an Area" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SHM_INST_NAME" PARVALUE="CL_SHM_AREA=&gt;DEFAULT_INSTANCE" PAROPTIONL="X" PARPREFERD="X"/>
+   <parameter CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="FREE_INSTANCE" SCONAME="TERMINATE_CHANGER" VERSION="1" LANGU="E" DESCRIPT="Writing processes will be ended" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ABAP_BOOL" PARVALUE="ABAP_TRUE"/>
+   <parameter CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="FREE_INSTANCE" SCONAME="RC" VERSION="1" LANGU="E" DESCRIPT="Return Value (Constants in CL_SHM_AREA)" CMPTYPE="1" MTDTYPE="0" EDITORDER="5 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="SHM_RC"/>
+   <exception CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="FREE_INSTANCE" SCONAME="CX_SHM_PARAMETER_ERROR" VERSION="1" LANGU="E" DESCRIPT="Incorrect parameter transferred" MTDTYPE="0" EDITORDER="1 "/>
+   <source>method FREE_INSTANCE.
+
+  DATA:
+    l_client TYPE shm_client,
+    l_client_supplied TYPE abap_bool VALUE abap_false.
+
+  CONSTANTS: affect_server TYPE shm_affect_server
+             VALUE cl_shm_area=&gt;affect_local_server.
+
+
+* &gt;
+  rc = _free_instance71( area_name         = area_name
+                         inst_name         = inst_name
+                         client            = l_client
+                         client_supplied   = l_client_supplied
+                         client_dependent  = _client_dependent
+                         transactional     = _transactional
+                         terminate_changer = terminate_changer
+                         affect_server     = affect_server
+                         life_context      = _life_context ).
+* &lt;
+
+  IF _trace_active = abap_true.
+    IF _trace_service-&gt;variant-free_instance = abap_true.
+      _trace_service-&gt;trin_free_instance(
+        area_name         = area_name
+        inst_name         = inst_name
+        client            = l_client
+        terminate_changer = terminate_changer
+        affect_server     = affect_server
+        rc                = rc
+      ).
+    ENDIF.
+  ENDIF.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="GET_GENERATOR_VERSION" VERSION="1" LANGU="E" DESCRIPT="Query Generator Version" EXPOSURE="2" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="GET_GENERATOR_VERSION" SCONAME="GENERATOR_VERSION" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="I"/>
+   <source>method GET_GENERATOR_VERSION.
+  generator_version = _version_.
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="GET_INSTANCE_INFOS" VERSION="1" LANGU="E" DESCRIPT="Returns the names of all instances" EXPOSURE="2" STATE="1" EDITORDER="13 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="GET_INSTANCE_INFOS" SCONAME="INST_NAME" VERSION="1" LANGU="E" DESCRIPT="Name of a Shared Object Instance in an Area" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SHM_INST_NAME" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="GET_INSTANCE_INFOS" SCONAME="INFOS" VERSION="1" LANGU="E" DESCRIPT="Overview of all Instances of an SHM Area" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="SHM_INST_INFOS"/>
+   <source>method GET_INSTANCE_INFOS.
+
+  DATA:
+    l_client             TYPE shm_client,
+    l_client_supplied    TYPE abap_bool VALUE abap_false,
+    l_inst_name_supplied TYPE abap_bool VALUE abap_false.
+
+
+  IF inst_name IS SUPPLIED.
+    l_inst_name_supplied = abap_true.
+  ENDIF.
+
+* &gt;
+  TRY.
+      CALL METHOD (&apos;_GET_INSTANCE_INFOS804&apos;)
+        EXPORTING
+          area_name          = area_name
+          client             = l_client
+          client_supplied    = l_client_supplied
+          client_dependent   = _client_dependent
+          life_context       = _life_context
+          inst_name          = inst_name
+          inst_name_supplied = l_inst_name_supplied
+        RECEIVING
+          infos              = infos.
+    CATCH cx_sy_dyn_call_illegal_method.
+*     New kernel and/or new basis SP missing -&gt; use slow fallback
+      infos = _get_instance_infos71(
+                area_name        = area_name
+                client           = l_client
+                client_supplied  = l_client_supplied
+                client_dependent = _client_dependent
+                life_context     = _life_context
+              ).
+      IF abap_true = l_inst_name_supplied.
+        DELETE infos WHERE name &lt;&gt; inst_name.
+      ENDIF.
+  ENDTRY.
+* &lt;
+
+  IF _trace_active = abap_true.
+    IF _trace_service-&gt;variant-get_instance_inf = abap_true.
+      _trace_service-&gt;trin_get_instance_infos(
+        area_name         = area_name
+        client            = l_client
+        infos             = infos
+      ).
+    ENDIF.
+  ENDIF.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="CL_SHM_AREA" CMPNAME="GET_ROOT" VERSION="0" EXPOSURE="0" STATE="0" EDITORDER="0 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>method GET_ROOT.
+
+  DATA:
+    l_cx        TYPE REF TO cx_root,
+    l_area_name TYPE string,
+    l_inst_name TYPE string,
+    l_client    TYPE string.
+
+  IF _trace_active = abap_false OR
+  _trace_service-&gt;variant-get_root = abap_false.
+
+*   &gt;
+    IF is_valid( ) = abap_false.
+      l_area_name = me-&gt;area_name.
+      l_inst_name = me-&gt;inst_name.
+      l_client    = me-&gt;client.
+      RAISE EXCEPTION TYPE cx_shm_already_detached
+        EXPORTING
+          area_name = l_area_name
+          inst_name = l_inst_name
+          client    = l_client.
+    ENDIF.
+    root = me-&gt;root.
+*   &lt;
+
+  ELSE.
+
+    TRY.
+
+*       &gt;
+        IF is_valid( ) = abap_false.
+          l_area_name = me-&gt;area_name.
+          l_inst_name = me-&gt;inst_name.
+          l_client    = me-&gt;client.
+          RAISE EXCEPTION TYPE cx_shm_already_detached
+            EXPORTING
+              area_name = l_area_name
+              inst_name = l_inst_name
+              client    = l_client.
+        ENDIF.
+        root = me-&gt;root.
+*       &lt;
+
+        _trace_service-&gt;trin_get_root(
+          area_name = area_name
+        ).
+
+      CLEANUP INTO l_cx.
+        _trace_service-&gt;trcx_get_root(
+          area_name = area_name
+          cx        = l_cx
+        ).
+    ENDTRY.
+
+  ENDIF.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="INVALIDATE_AREA" VERSION="1" LANGU="E" DESCRIPT="Active versions of all instances will be set to obsolete" EXPOSURE="2" STATE="1" EDITORDER="8 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" MTDNEWEXC="X" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="INVALIDATE_AREA" SCONAME="TERMINATE_CHANGER" VERSION="1" LANGU="E" DESCRIPT="Active writing processes will be ended" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ABAP_BOOL" PARVALUE="ABAP_TRUE"/>
+   <parameter CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="INVALIDATE_AREA" SCONAME="RC" VERSION="1" LANGU="E" DESCRIPT="Detach Return Value (Constants in CL_SHM_AREA)" CMPTYPE="1" MTDTYPE="0" EDITORDER="4 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="SHM_RC"/>
+   <exception CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="INVALIDATE_AREA" SCONAME="CX_SHM_PARAMETER_ERROR" VERSION="1" LANGU="E" DESCRIPT="Incorrect parameter transferred" MTDTYPE="0" EDITORDER="1 "/>
+   <source>method INVALIDATE_AREA.
+
+  DATA:
+    l_client TYPE shm_client,
+    l_client_supplied TYPE abap_bool VALUE abap_false.
+
+  CONSTANTS: affect_server TYPE shm_affect_server
+             VALUE cl_shm_area=&gt;affect_local_server.
+
+
+* &gt;
+  rc = _invalidate_area71( area_name         = area_name
+                           client            = l_client
+                           client_supplied   = l_client_supplied
+                           client_dependent  = _client_dependent
+                           transactional     = _transactional
+                           terminate_changer = terminate_changer
+                           affect_server     = affect_server
+                           life_context      = _life_context ).
+* &lt;
+
+  IF _trace_active = abap_true.
+    IF _trace_service-&gt;variant-invalidate_area = abap_true.
+      _trace_service-&gt;trin_invalidate_area(
+        area_name         = area_name
+        client            = l_client
+        terminate_changer = terminate_changer
+        affect_server     = affect_server
+        rc                = rc
+      ).
+    ENDIF.
+  ENDIF.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="INVALIDATE_INSTANCE" VERSION="1" LANGU="E" DESCRIPT="Active version of one instance will be set to obsolete" EXPOSURE="2" STATE="1" EDITORDER="7 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" MTDNEWEXC="X" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="INVALIDATE_INSTANCE" SCONAME="INST_NAME" VERSION="1" LANGU="E" DESCRIPT="Name of a Shared Object Instance of an Area" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SHM_INST_NAME" PARVALUE="CL_SHM_AREA=&gt;DEFAULT_INSTANCE" PAROPTIONL="X" PARPREFERD="X"/>
+   <parameter CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="INVALIDATE_INSTANCE" SCONAME="TERMINATE_CHANGER" VERSION="1" LANGU="E" DESCRIPT="Active writing processes will be ended" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ABAP_BOOL" PARVALUE="ABAP_TRUE"/>
+   <parameter CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="INVALIDATE_INSTANCE" SCONAME="RC" VERSION="1" LANGU="E" DESCRIPT="Detach Return Value (Constants in CL_SHM_AREA)" CMPTYPE="1" MTDTYPE="0" EDITORDER="5 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="SHM_RC"/>
+   <exception CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="INVALIDATE_INSTANCE" SCONAME="CX_SHM_PARAMETER_ERROR" VERSION="1" LANGU="E" DESCRIPT="Incorrect parameter transferred" MTDTYPE="0" EDITORDER="1 "/>
+   <source>method INVALIDATE_INSTANCE.
+
+  DATA:
+    l_client TYPE shm_client,
+    l_client_supplied TYPE abap_bool value abap_false.
+
+  CONSTANTS: affect_server TYPE shm_affect_server
+             VALUE cl_shm_area=&gt;affect_local_server.
+
+
+* &gt;
+  rc = _invalidate_instance71(
+    area_name         = area_name
+    inst_name         = inst_name
+    client            = l_client
+    client_supplied   = l_client_supplied
+    client_dependent  = _client_dependent
+    transactional     = _transactional
+    terminate_changer = terminate_changer
+    affect_server     = affect_server
+    life_context      = _life_context
+  ).
+* &lt;
+
+  IF _trace_active = abap_true.
+    IF _trace_service-&gt;variant-invalidate_inst = abap_true.
+      _trace_service-&gt;trin_invalidate_instance(
+        area_name         = area_name
+        inst_name         = inst_name
+        client            = l_client
+        terminate_changer = terminate_changer
+        affect_server     = affect_server
+        rc                = rc
+      ).
+    ENDIF.
+  ENDIF.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="SET_ROOT" VERSION="1" LANGU="E" DESCRIPT="Sets Root Objects" EXPOSURE="2" STATE="1" EDITORDER="15 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" MTDNEWEXC="X" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="SET_ROOT" SCONAME="ROOT" VERSION="1" LANGU="E" DESCRIPT="Root object" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="3" TYPE="ZCONSEA_SO_DATA"/>
+   <exception CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="SET_ROOT" SCONAME="CX_SHM_INITIAL_REFERENCE" VERSION="1" LANGU="E" DESCRIPT="Initial Reference Passed" MTDTYPE="0" EDITORDER="1 "/>
+   <exception CLSNAME="ZCONSEA_DATA_AREA" CMPNAME="SET_ROOT" SCONAME="CX_SHM_WRONG_HANDLE" VERSION="1" LANGU="E" DESCRIPT="Incorrect Handle" MTDTYPE="0" EDITORDER="2 "/>
+   <source>method SET_ROOT.
+
+  DATA:
+    l_cx TYPE REF TO cx_root.
+
+  IF _trace_active = abap_false OR
+  _trace_service-&gt;variant-set_root = abap_false.
+
+*   &gt;
+    _set_root( root ).
+    me-&gt;root = root.
+*   &lt;
+
+  ELSE.
+
+    TRY.
+
+*       &gt;
+        _set_root( root ).
+        me-&gt;root = root.
+*       &lt;
+        _trace_service-&gt;trin_set_root(
+          area_name         = area_name
+          inst_name         = inst_name
+          root              = root
+        ).
+
+      CLEANUP INTO l_cx.
+        _trace_service-&gt;trcx_set_root(
+          area_name         = area_name
+          inst_name         = inst_name
+          root              = root
+          cx                = l_cx
+        ).
+    ENDTRY.
+
+  ENDIF.
+
+  endmethod.</source>
+  </method>
+ </CLAS>
+ <CLAS CLSNAME="ZCONSEA_SEARCHER_SO" VERSION="1" LANGU="D" DESCRIPT="Main logic to search OO constants with Shared Objects" CATEGORY="00" EXPOSURE="0" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" RSTAT="K" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <friends CLSNAME="ZCONSEA_SEARCHER_SO" REFCLSNAME="ZCONSEA_SEARCHER_FACTORY" FRIENDTYPE="0" VERSION="1" STATE="1"/>
+  <implementing CLSNAME="ZCONSEA_SEARCHER_SO" REFCLSNAME="ZCONSEA_SEARCHER_INTF" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="2 "/>
+  <implementing CLSNAME="ZCONSEA_SEARCHER_SO" REFCLSNAME="IF_SHM_BUILD_INSTANCE" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="1 "/>
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <attribute CLSNAME="ZCONSEA_SEARCHER_SO" CMPNAME="GT_CONSTANT_DATA" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="2 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="ZCONSEA_TABLE_CONSTANT_DATA" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCONSEA_SEARCHER_SO" CMPNAME="GT_SEARCH_TABLE" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="1 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="ZCONSEA_TABLE_STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <interfaceMethod CLSNAME="ZCONSEA_SEARCHER_SO" CPDNAME="IF_SHM_BUILD_INSTANCE~BUILD">
+   <source>METHOD if_shm_build_instance~build.
+
+    DATA:
+      lr_area_handle   TYPE REF TO zconsea_data_area,
+      lr_root_instance TYPE REF TO zconsea_so_data.
+
+    TRY.
+
+        lr_area_handle = zconsea_data_area=&gt;attach_for_write( ).
+
+        CREATE OBJECT lr_root_instance AREA HANDLE lr_area_handle.
+
+        lr_area_handle-&gt;set_root( lr_root_instance ).
+
+        lr_root_instance-&gt;gv_constant_data_zipped = build_compressed_cons_data( ).
+
+        lr_area_handle-&gt;detach_commit( ).
+
+      CATCH cx_shm_exclusive_lock_active .
+      CATCH cx_shm_version_limit_exceeded .
+      CATCH cx_shm_change_lock_active .
+      CATCH cx_shm_parameter_error .
+      CATCH cx_shm_pending_lock_removed .
+      CATCH cx_shm_initial_reference .
+      CATCH cx_shm_wrong_handle .
+      CATCH cx_shm_already_detached.    &quot; Handle Already Released
+      CATCH cx_shm_secondary_commit.    &quot; Second Commit After Failed Commit
+      CATCH cx_shm_event_execution_failed.    &quot; Incorrect Method Registered Under SHM_COMMIT/ROLLBACK_EVENT
+      CATCH cx_shm_completion_error.    &quot; Exception with Commit Preparation
+
+    ENDTRY.
+
+    IF invocation_mode = cl_shm_area=&gt;invocation_mode_auto_build.
+
+      CALL FUNCTION &apos;DB_COMMIT&apos;.
+
+    ENDIF.
+
+  ENDMETHOD.</source>
+  </interfaceMethod>
+  <interfaceMethod CLSNAME="ZCONSEA_SEARCHER_SO" CPDNAME="ZCONSEA_SEARCHER_INTF~GET_NUMBER_OF_CONSTANTS">
+   <source>METHOD zconsea_searcher_intf~get_number_of_constants.
+
+    rv_count_constants = lines( me-&gt;gt_constant_data ).
+
+  ENDMETHOD.</source>
+  </interfaceMethod>
+  <interfaceMethod CLSNAME="ZCONSEA_SEARCHER_SO" CPDNAME="ZCONSEA_SEARCHER_INTF~REBUILD_DATA">
+   <source>METHOD zconsea_searcher_intf~rebuild_data.
+
+    DATA: lr_aera_handle        TYPE REF TO zconsea_data_area,
+          lv_data_string        TYPE string.
+
+    TRY.
+        lr_aera_handle = zconsea_data_area=&gt;attach_for_read( ).
+
+        cl_abap_gzip=&gt;decompress_text(
+          EXPORTING
+            gzip_in      = lr_aera_handle-&gt;root-&gt;gv_constant_data_zipped    &quot; Input of Zipped Data
+          IMPORTING
+            text_out     = lv_data_string ).   &quot; Decompessed Output
+
+        lr_aera_handle-&gt;detach( ).
+
+        CALL TRANSFORMATION id
+          SOURCE XML lv_data_string
+          RESULT constants = me-&gt;gt_constant_data.
+
+        me-&gt;build_search_table(
+          EXPORTING
+            it_constant_data = me-&gt;gt_constant_data
+          IMPORTING
+            et_search_table  = me-&gt;gt_search_table ).
+
+    ENDTRY.
+
+  ENDMETHOD.</source>
+  </interfaceMethod>
+  <interfaceMethod CLSNAME="ZCONSEA_SEARCHER_SO" CPDNAME="ZCONSEA_SEARCHER_INTF~SEARCH_FOR_MATCHES">
+   <source>METHOD zconsea_searcher_intf~search_for_matches.
+
+    DATA:
+      lv_ts_now  TYPE timestamp,
+      lt_results TYPE match_result_tab.
+
+    FIELD-SYMBOLS:
+      &lt;ls_result&gt;     LIKE LINE OF lt_results,
+      &lt;ls_const_line&gt; LIKE LINE OF et_matches.
+
+    CLEAR et_matches.
+
+    CHECK iv_pattern IS NOT INITIAL.
+
+    FIND ALL OCCURRENCES OF REGEX iv_pattern
+      IN TABLE me-&gt;gt_search_table
+      IN CHARACTER MODE
+      IGNORING CASE
+      RESULTS lt_results.
+
+* Ignore multiple hits in one line.
+    SORT lt_results BY line.
+    DELETE ADJACENT DUPLICATES FROM lt_results COMPARING line.
+
+    LOOP AT lt_results ASSIGNING &lt;ls_result&gt;.
+
+      READ TABLE me-&gt;gt_constant_data INDEX &lt;ls_result&gt;-line ASSIGNING &lt;ls_const_line&gt;.
+
+      IF sy-subrc = 0.
+
+        INSERT &lt;ls_const_line&gt; INTO TABLE et_matches.
+
+      ENDIF.
+
+    ENDLOOP.
+
+  ENDMETHOD.</source>
+  </interfaceMethod>
+  <method CLSNAME="ZCONSEA_SEARCHER_SO" CMPNAME="BUILD_CLASS_RANGE" VERSION="1" LANGU="E" DESCRIPT="Build the name range to limit the selection from the DB" EXPOSURE="0" STATE="1" EDITORDER="3 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCONSEA_SEARCHER_SO" CMPNAME="BUILD_CLASS_RANGE" SCONAME="ET_CLSIF_RANGE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="ZCONSEA_RANGETABLE_CLSIF_NAME"/>
+   <source>METHOD build_class_range.
+
+* At this very moment in time we don&apos;t restrict the namespace we are searching in...
+    CLEAR et_clsif_range.
+
+  ENDMETHOD.                    &quot;build_class_range</source>
+  </method>
+  <method CLSNAME="ZCONSEA_SEARCHER_SO" CMPNAME="BUILD_COMPRESSED_CONS_DATA" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCONSEA_SEARCHER_SO" CMPNAME="BUILD_COMPRESSED_CONS_DATA" SCONAME="EV_CONSTANT_DATA_ZIPPED" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="XSTRING"/>
+   <source>METHOD build_compressed_cons_data.
+
+    DATA:
+      lv_data_string TYPE string.
+
+    build_class_range(
+      IMPORTING
+        et_clsif_range = DATA(lt_clsif_range) ).
+
+    select_constants_from_db(
+      EXPORTING
+        it_range_clsif_names = lt_clsif_range
+      IMPORTING
+        et_constant_data = DATA(lt_data) ).
+
+    CALL TRANSFORMATION id
+      SOURCE constants = lt_data
+      RESULT XML lv_data_string.
+
+    cl_abap_gzip=&gt;compress_text(
+      EXPORTING
+        text_in        = lv_data_string
+      IMPORTING
+        gzip_out       = ev_constant_data_zipped  ).  &quot; Compressed output
+
+  ENDMETHOD.</source>
+  </method>
+  <method CLSNAME="ZCONSEA_SEARCHER_SO" CMPNAME="BUILD_SEARCH_TABLE" VERSION="1" LANGU="E" DESCRIPT="Build the string table for searching" EXPOSURE="0" STATE="1" EDITORDER="5 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCONSEA_SEARCHER_SO" CMPNAME="BUILD_SEARCH_TABLE" SCONAME="IT_CONSTANT_DATA" VERSION="1" LANGU="E" DESCRIPT="Table with constant data" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ZCONSEA_TABLE_CONSTANT_DATA"/>
+   <parameter CLSNAME="ZCONSEA_SEARCHER_SO" CMPNAME="BUILD_SEARCH_TABLE" SCONAME="ET_SEARCH_TABLE" VERSION="1" LANGU="E" DESCRIPT="Table of Strings (another one...)" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="ZCONSEA_TABLE_STRING"/>
+   <source>METHOD build_search_table.
+
+    DATA:
+          lv_string TYPE string.
+
+    FIELD-SYMBOLS:
+                   &lt;ls_const_line&gt; LIKE LINE OF it_constant_data.
+
+    CLEAR et_search_table.
+
+    LOOP AT it_constant_data ASSIGNING &lt;ls_const_line&gt;.
+
+      CONCATENATE &lt;ls_const_line&gt;-clsname
+           &lt;ls_const_line&gt;-cmpname
+           &lt;ls_const_line&gt;-descript
+           &lt;ls_const_line&gt;-author
+           &lt;ls_const_line&gt;-attvalue
+           &lt;ls_const_line&gt;-type
+      INTO lv_string
+      SEPARATED BY space.
+
+      APPEND lv_string TO et_search_table.
+
+    ENDLOOP.
+
+  ENDMETHOD.                    &quot;build_search_table</source>
+  </method>
+  <method CLSNAME="ZCONSEA_SEARCHER_SO" CMPNAME="CONSTRUCTOR" VERSION="1" LANGU="E" DESCRIPT="CONSTRUCTOR" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="2" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD constructor.
+
+    me-&gt;rebuild_data( ).
+
+  ENDMETHOD.</source>
+  </method>
+  <method CLSNAME="ZCONSEA_SEARCHER_SO" CMPNAME="SELECT_CONSTANTS_FROM_DB" VERSION="1" LANGU="E" DESCRIPT="Select data of OO constants from DB" EXPOSURE="0" STATE="1" EDITORDER="4 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCONSEA_SEARCHER_SO" CMPNAME="SELECT_CONSTANTS_FROM_DB" SCONAME="IT_RANGE_CLSIF_NAMES" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ZCONSEA_RANGETABLE_CLSIF_NAME"/>
+   <parameter CLSNAME="ZCONSEA_SEARCHER_SO" CMPNAME="SELECT_CONSTANTS_FROM_DB" SCONAME="ET_CONSTANT_DATA" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="ZCONSEA_TABLE_CONSTANT_DATA"/>
+   <source>METHOD select_constants_from_db.
+
+    CLEAR et_constant_data.
+
+    SELECT clsname
+           cmpname
+           descript
+           author
+           createdon
+           changedby
+           changedon
+           attvalue
+           type
+      FROM zconsea_oo_const
+      INTO TABLE et_constant_data
+      WHERE clsname IN it_range_clsif_names
+      ORDER BY clsname cmpname.
+
+  ENDMETHOD.                    &quot;select_constants_from_db</source>
+  </method>
+  <method CLSNAME="ZCONSEA_SEARCHER_SO" CMPNAME="UPDATE_SO_FOR_CHANGED_OBJ" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCONSEA_SEARCHER_SO" CMPNAME="UPDATE_SO_FOR_CHANGED_OBJ" SCONAME="IV_OBJ_NAME" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SEOCLSNAME"/>
+   <parameter CLSNAME="ZCONSEA_SEARCHER_SO" CMPNAME="UPDATE_SO_FOR_CHANGED_OBJ" SCONAME="IT_CONSTANT_DATA" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ZCONSEA_TABLE_CONSTANT_DATA"/>
+   <source>METHOD update_so_for_changed_obj.
+
+*    DATA:
+*      lr_area_handle          TYPE REF TO zconsea_data_area,
+*      lr_root_instance        TYPE REF TO zconsea_so_data,
+*      lt_range_obj_names      TYPE zconsea_rangetable_clsif_name,
+*      ls_range_obj_name       LIKE LINE OF lt_range_obj_names,
+*      lv_data_string          TYPE string,
+*      lt_constants_for_object TYPE zconsea_table_constant_data,
+*      lt_all_constant_data    TYPE zconsea_table_constant_data.
+*
+*    CHECK it_constant_data IS NOT INITIAL.
+*
+*    TRY.
+*
+*        lr_area_handle = zconsea_data_area=&gt;attach_for_update(
+*                     attach_mode                   = cl_shm_area=&gt;attach_mode_wait &quot;Sperre muss innerhalb einer Zeitspanne verfügbar sein
+*                     wait_time                     = 60 &quot;Sekunden, die auf die Zuteilung der Sperre gewartet werden kann
+*                 ).
+*
+*        CALL TRANSFORMATION id
+*          SOURCE constants = me-&gt;gt_constant_data
+*          RESULT XML lv_data_string.
+*
+*        cl_abap_gzip=&gt;compress_text(
+*          EXPORTING
+*            text_in        = lv_data_string
+*          IMPORTING
+*            gzip_out       = lr_area_handle-&gt;root-&gt;gv_constant_data_zipped ).  &quot; Compressed output
+*
+*        lr_area_handle-&gt;detach_commit( ).
+*
+*      CATCH cx_shm_inconsistent.  &quot;
+*      CATCH cx_shm_no_active_version.  &quot;
+*      CATCH cx_shm_exclusive_lock_active.  &quot;
+*      CATCH cx_shm_version_limit_exceeded.  &quot;
+*      CATCH cx_shm_change_lock_active.  &quot;
+*      CATCH cx_shm_parameter_error.  &quot;
+*      CATCH cx_shm_pending_lock_removed.  &quot;
+*      CATCH cx_shm_initial_reference .
+*      CATCH cx_shm_wrong_handle .
+*      CATCH cx_shm_already_detached.    &quot; Handle Already Released
+*      CATCH cx_shm_secondary_commit.    &quot; Second Commit After Failed Commit
+*      CATCH cx_shm_event_execution_failed.    &quot; Incorrect Method Registered Under SHM_COMMIT/ROLLBACK_EVENT
+*      CATCH cx_shm_completion_error.    &quot; Exception with Commit Preparation
+*
+*    ENDTRY.
+
+  ENDMETHOD.</source>
+  </method>
+  <aliasMethod CLSNAME="ZCONSEA_SEARCHER_SO" CMPNAME="GET_NUMBER_OF_CONSTANTS" VERSION="1" EXPOSURE="0" CMPTYPE="0" REFCLSNAME="ZCONSEA_SEARCHER_INTF" REFCMPNAME="GET_NUMBER_OF_CONSTANTS"/>
+  <aliasMethod CLSNAME="ZCONSEA_SEARCHER_SO" CMPNAME="REBUILD_DATA" VERSION="1" EXPOSURE="0" CMPTYPE="0" REFCLSNAME="ZCONSEA_SEARCHER_INTF" REFCMPNAME="REBUILD_DATA"/>
+  <aliasMethod CLSNAME="ZCONSEA_SEARCHER_SO" CMPNAME="SEARCH_FOR_MATCHES" VERSION="1" EXPOSURE="0" CMPTYPE="0" REFCLSNAME="ZCONSEA_SEARCHER_INTF" REFCMPNAME="SEARCH_FOR_MATCHES"/>
+ </CLAS>
+ <CLAS CLSNAME="ZCONSEA_SO_DATA" VERSION="1" LANGU="D" DESCRIPT="CONSEA: SharedObjects-Datenhaltung" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" CLSSHAREDMEMORY="X" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <attribute CLSNAME="ZCONSEA_SO_DATA" CMPNAME="GV_CONSTANT_DATA_ZIPPED" VERSION="1" LANGU="D" DESCRIPT="test" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="XSTRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+ </CLAS>
+ <DEVC DEVCLASS="ZCONSEA_SHARED_OBJECT_DATASTRE" CTEXT="ConSea: Data Storage in Shared Objects" LANGUAGE="D" MASTERLANG="D" KORRFLAG="X" PDEVCLASS="ZREK" DLVUNIT="HOME" NAMESPACE="/0CUST/" PARENTCL="ZCONSEA" CREATED_BY="MATHEILE" CREATED_ON="20150620" CHANGED_BY="MATHEILE" CHANGED_ON="20150620" PROJECT_GUID="00000000000000000000000000000000"/>
+</nugget>
