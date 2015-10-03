@@ -5,6 +5,8 @@ ConSea lets you search and find public constants that are defined in ABAP classe
 * use of shared objects to speed up the inital loading of constants
 * search view plug-in for Eclipse-based ABAP Development Tools
  
+Please visit the [wiki](https://github.com/TheRealTier/ConSea/wiki) for more information.
+
 ###Hints
 The ABAP part is distributed as a SAPLink nugget called "NUGG_ZCONSEA.nugg" which intstalls three packages and a bunch of development objects. If you want to go with the classical SAPGUI way, just install the objects from this nugget. To start ConSea, use Transaction ZCONSEA and have a try.
 
