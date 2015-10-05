@@ -8,7 +8,6 @@ import org.consea.backend.SapServerConnection;
 import org.consea.gui.DialogWindow;
 import org.consea.gui.InputVariableNameToSearchDialog;
 import org.consea.gui.ResultViewContent;
-import org.consea.marker.Kappamarker;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.text.TextSelection;
 import org.eclipse.jface.viewers.ISelection;

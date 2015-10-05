@@ -40,27 +40,35 @@ public class SapServerConnection {
 		return parseJson(response);
 	}
 
+	@SuppressWarnings("resource")
 	ArrayList<ConseaSearchResonse> parseJson(InputStream response) {
 		Object obj = null;
+		Scanner scanner = null;
 		ArrayList<ConseaSearchResonse> results = new ArrayList<>();
 
-		String inputStreamString = new Scanner(response, "UTF-8").useDelimiter("\\A").next();
 		try {
+			scanner = new Scanner(response, "UTF-8");
+			scanner = scanner.useDelimiter("\\A");
+			String inputStreamString = scanner.next();
+		
 			response.close();
 			JSONParser jsonParser = new JSONParser();
 			obj = jsonParser.parse(new StringReader(inputStreamString));
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
-		}
-
+		} finally {
+			if(scanner != null) {
+				scanner.close();
+			}
+		} 
+		
 		JSONArray jsonArray = (JSONArray) obj;
 		if(jsonArray!= null && jsonArray.isEmpty() == true) {
 			return null;
 		}
-		System.out.println(jsonArray.get(0));
 
-		for (Iterator<JSONObject> iterator = jsonArray.iterator(); iterator.hasNext();) {
+		for (@SuppressWarnings("unchecked")Iterator<JSONObject> iterator = jsonArray.iterator(); iterator.hasNext();) {
 			JSONObject jsonObject = iterator.next();
 			
 			ConseaSearchResonse conseaSearchResponse = new ConseaSearchResonse(jsonObject.get("attvalue").toString(), 

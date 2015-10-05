@@ -10,8 +10,6 @@ import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.PlatformUI;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.ServiceFactory;
 import org.osgi.framework.ServiceRegistration;
@@ -27,6 +25,7 @@ public class ResultViewContent extends LabelProvider implements
 	private ArrayList<ConseaSearchResonse> results = new ArrayList<>();
 	private TableViewer parent;
 	private Composite composite;
+
 	private static ResultViewContent instance = new ResultViewContent();
 	
 	public ResultViewContent() {
@@ -121,4 +120,9 @@ public class ResultViewContent extends LabelProvider implements
 	public void setComposite(Composite composite) {
 		this.composite = composite;
 	}
+	
+	public Composite getComposite() {
+		return composite;
+	}
+
 }
