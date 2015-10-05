@@ -10,7 +10,13 @@ Please visit the [wiki](https://github.com/TheRealTier/ConSea/wiki) for more inf
 ###Hints
 The ABAP part is distributed as a SAPLink nugget called "NUGG_ZCONSEA.nugg" which intstalls three packages and a bunch of development objects. If you want to go with the classical SAPGUI way, just install the objects from this nugget. To start ConSea, use Transaction ZCONSEA and have a try.
 
-The Eclipse plugin part is currently only available as source code in the folder "trunk" in this repository, so you will need to build it on your own. We are working on just deployable solution for the plugin.
+The Eclipse plugin part is available in the bin folder. Just copy it into the dropin folder of your eclipse installation.
+
+##Download
+We provide a tagged version of this repository from where you can download the first working version.
+
+- Zip:    https://github.com/TheRealTier/ConSea/archive/v0.1.zip
+- tar.zz: https://github.com/TheRealTier/ConSea/archive/v0.1.tar.gz
 
 ###Authors and Contributors
 ConSea is maintained by tijoer, Sebastian and therealtier.
