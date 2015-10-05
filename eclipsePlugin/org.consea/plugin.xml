@@ -13,7 +13,7 @@
       				label="&amp;Sample Action"
       				menubarPath="sampleMenu/sampleGroup"
       				toolbarPath="sampleGroup" 
-      				tooltip="Hello, Eclipse world"/>
+      				tooltip="Search a constant with consea"/>
     </actionSet>
 	</extension>
 
