@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.consea_0.2.0.jar" id="org.consea" version="0.2"/>
+</site>
